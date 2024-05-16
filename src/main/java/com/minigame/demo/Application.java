@@ -7,6 +7,10 @@ import com.minigame.demo.controller.StoppingNumberController;
 import com.minigame.demo.view.input.InputManager;
 import com.minigame.demo.view.output.OutputManager;
 
+import java.io.BufferedWriter;
+import java.io.OutputStreamWriter;
+
+
 public class Application {
     public static void main(String[] args) {
         MainController mainController = new MainController(
@@ -14,7 +18,7 @@ public class Application {
                 new StoppingNumberController(),
                 new SpeedCodingController(),
                 new InputManager(),
-                new OutputManager()
+                new OutputManager(new BufferedWriter(new OutputStreamWriter(System.out)))
         );
 
         mainController.start();
