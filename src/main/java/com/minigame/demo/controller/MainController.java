@@ -3,6 +3,9 @@ package com.minigame.demo.controller;
 import com.minigame.demo.view.input.InputManager;
 import com.minigame.demo.view.output.OutputManager;
 
+import java.io.IOException;
+import java.io.InterruptedIOException;
+
 public class MainController {
     private final GuessingNumberController guessingNumberController;
     private final StoppingNumberController stoppingNumberController;
@@ -24,6 +27,16 @@ public class MainController {
     }
 
     public void start() {
-        // 입력에 따라서 다른 컨트롤러로 이동
+        try {
+            outputManager.printWelcomeView();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(0);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            System.exit(0);
+        }
+
+
     }
 }
