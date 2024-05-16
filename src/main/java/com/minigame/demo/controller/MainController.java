@@ -29,6 +29,7 @@ public class MainController {
     public void start() {
         try {
             outputManager.printWelcomeView();
+            outputManager.printGameList();
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(0);
@@ -36,6 +37,7 @@ public class MainController {
             e.printStackTrace();
             System.exit(0);
         }
+
 
 
     }

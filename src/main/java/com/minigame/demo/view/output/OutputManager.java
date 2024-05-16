@@ -24,7 +24,26 @@ public class OutputManager {
         }
 
         printHorizontalLine();
+        bufferedWriter.write(BREAK_LINE);
+        bufferedWriter.write(BREAK_LINE);
+        bufferedWriter.write(BREAK_LINE);
         bufferedWriter.flush();
+    }
+
+    public void printGameList() throws IOException {
+        bufferedWriter.write("───────────────────");
+        bufferedWriter.write(BREAK_LINE);
+        bufferedWriter.write("1️⃣ 미니 로또");
+        bufferedWriter.write(BREAK_LINE);
+        bufferedWriter.write("2️⃣ 타이머");
+        bufferedWriter.write(BREAK_LINE);
+        bufferedWriter.write("3️⃣ 스피드 코딩");
+        bufferedWriter.write(BREAK_LINE);
+        bufferedWriter.write("───────────────────");
+        bufferedWriter.write(BREAK_LINE);
+        bufferedWriter.flush();
+
+
     }
 
 
