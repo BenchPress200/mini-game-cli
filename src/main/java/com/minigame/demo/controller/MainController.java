@@ -49,7 +49,6 @@ public class MainController {
                     break;
 
                 case MINI_LOTTO:
-                    System.out.println("미니로또 시작");
                     clearScreen();
                     guessingNumberController.start();
                     break;
@@ -79,7 +78,8 @@ public class MainController {
     }
 
     public static void clearScreen() {
-        for (int i = 0; i < 80; i++)
-            System.out.println("");
+        for (int i = 0; i < 80; i++) {
+                System.out.println("");
+        }
     }
 }

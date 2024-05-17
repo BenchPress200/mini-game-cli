@@ -2,6 +2,8 @@ package com.minigame.demo.controller;
 
 import com.minigame.demo.view.output.GuessingNumberOutputManager;
 
+import java.io.IOException;
+
 public class GuessingNumberController {
     private static final String BREAK_LINE = "\n";
 
@@ -11,8 +13,8 @@ public class GuessingNumberController {
         this.guessingNumberOutputManager = guessingNumberOutputManager;
     }
 
-    public void start() {
+    public void start() throws IOException {
         guessingNumberOutputManager.printWelcomeView();
-//        
+
     }
 }
