@@ -62,7 +62,7 @@ public class MainController {
                     break;
 
                 case SPEED_CODING:
-                    System.out.println("스피드 코딩 시작");
+                    speedCodingController.start();
                     inputManager.clearScreen();
                 }
             }

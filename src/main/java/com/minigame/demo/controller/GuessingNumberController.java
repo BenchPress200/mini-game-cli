@@ -23,8 +23,8 @@ public class GuessingNumberController {
 
     private static final String BREAK_LINE = "\n";
 
-    private final GuessingNumberOutputManager guessingNumberOutputManager;
     private final GuessingNumberInputManager guessingNumberInputManager;
+    private final GuessingNumberOutputManager guessingNumberOutputManager;
 
     public GuessingNumberController(GuessingNumberInputManager guessingNumberInputManager, GuessingNumberOutputManager guessingNumberOutputManager) {
         this.guessingNumberInputManager = guessingNumberInputManager;

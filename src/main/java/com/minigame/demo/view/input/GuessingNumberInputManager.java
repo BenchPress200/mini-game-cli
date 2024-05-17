@@ -51,7 +51,7 @@ public class GuessingNumberInputManager {
     }
 
     public GuessNumbers readGuessNumber() throws IOException, IllegalArgumentException {
-        bufferedWriter.write(ANSI_GREEN+ "0 ~ 9 사이의 정수 세 개를 띄워쓰기로 구분해서 입력해주세요: " + ANSI_RESET);
+        bufferedWriter.write(ANSI_GREEN + "0 ~ 9 사이의 정수 세 개를 띄워쓰기로 구분해서 입력해주세요: " + ANSI_RESET);
         bufferedWriter.flush();
         GuessNumbers answer = createGuessNumbers(bufferedReader.readLine());// 여기서 리스트로 만드는거 ㄱㄱ 일급컬렉션 ㄱㄱ
 
