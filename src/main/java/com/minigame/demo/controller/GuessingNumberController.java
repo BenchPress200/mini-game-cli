@@ -2,6 +2,7 @@ package com.minigame.demo.controller;
 
 import com.minigame.demo.model.GuessNumberGame;
 import com.minigame.demo.model.GuessNumbers;
+import com.minigame.demo.model.ResultNumbers;
 import com.minigame.demo.view.input.GuessingNumberInputManager;
 import com.minigame.demo.view.output.GuessingNumberOutputManager;
 
@@ -40,12 +41,13 @@ public class GuessingNumberController {
             return;
         }
 
-
         GuessNumbers guessNumbers = readGuessNumber();
 
         GuessNumberGame guessNumberGame = new GuessNumberGame();
-        GuessNumbers resultNumbers = guessNumberGame.createRandomNumbers();
+        guessNumberGame.createRandomNumbers();
+        System.out.println(guessNumberGame.getResult(guessNumbers));
 
+        System.exit(0);
 
 
     }
