@@ -32,4 +32,8 @@ public class GuessNumberGame {
 
         return true;
     }
+
+    public ResultNumbers getResultNumbers() {
+        return resultNumbers;
+    }
 }

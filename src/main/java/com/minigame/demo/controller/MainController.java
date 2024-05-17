@@ -42,6 +42,7 @@ public class MainController {
 
         while(true) {
             outputManager.printGameList();
+
             GameType gameType = readUserChoice();
 
             switch(gameType) {
@@ -51,7 +52,6 @@ public class MainController {
                     break;
 
                 case MINI_LOTTO:
-                    inputManager.clearScreen();
                     guessingNumberController.start();
                     inputManager.clearScreen();
                     break;
@@ -74,7 +74,6 @@ public class MainController {
             System.out.println("다시 입력해주세요." + ANSI_RESET + "\n");
             Thread.sleep(2000);
             inputManager.clearScreen();
-
             outputManager.printGameList();
 
             return readUserChoice();

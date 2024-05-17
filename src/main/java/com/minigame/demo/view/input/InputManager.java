@@ -27,7 +27,7 @@ public class InputManager {
     }
 
     public GameType readUserChoice() throws IOException {
-        bufferedWriter.write(ANSI_GREEN+ USER_CHOICE_MESSAGE + ANSI_RESET);
+        bufferedWriter.write(ANSI_GREEN + USER_CHOICE_MESSAGE + ANSI_RESET);
         bufferedWriter.flush();
 
 
@@ -40,7 +40,7 @@ public class InputManager {
         return GameType.findByValue(input);
     }
 
-    public void clearScreen() {
+    public static void clearScreen() {
         for (int i = 0; i < 80; i++) {
             System.out.println();
         }

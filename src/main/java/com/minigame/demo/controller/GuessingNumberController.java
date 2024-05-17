@@ -4,6 +4,7 @@ import com.minigame.demo.model.GuessNumberGame;
 import com.minigame.demo.model.GuessNumbers;
 import com.minigame.demo.model.ResultNumbers;
 import com.minigame.demo.view.input.GuessingNumberInputManager;
+import com.minigame.demo.view.input.InputManager;
 import com.minigame.demo.view.output.GuessingNumberOutputManager;
 
 import java.io.IOException;
@@ -33,6 +34,7 @@ public class GuessingNumberController {
     }
 
     public void start() throws IOException, InterruptedException {
+        InputManager.clearScreen();
         guessingNumberOutputManager.printWelcomeView();
 
         boolean answer = readYesOrNo();
@@ -45,11 +47,27 @@ public class GuessingNumberController {
 
         GuessNumberGame guessNumberGame = new GuessNumberGame();
         guessNumberGame.createRandomNumbers();
-        System.out.println(guessNumberGame.getResult(guessNumbers));
 
-        System.exit(0);
+        guessingNumberOutputManager.printResult(
+                guessNumberGame.getResultNumbers(),
+                guessNumberGame.getResult(guessNumbers)
+        );
 
+        if (readReStart()) {
+            start();
+        }
+    }
 
+    private boolean readReStart() throws IOException, InterruptedException {
+        try {
+            return guessingNumberInputManager.readReStart();
+        } catch (IllegalArgumentException e) {
+            System.out.println("\n" + ANSI_RED + "y 또는 n 으로 대답해주세요!");
+            System.out.println("다시 입력해주세요." + ANSI_RESET + "\n");
+            Thread.sleep(2000);
+
+            return readReStart();
+        }
     }
 
 

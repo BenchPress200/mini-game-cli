@@ -58,6 +58,24 @@ public class GuessingNumberInputManager {
         return answer;
     }
 
+    public boolean readReStart() throws IOException {
+        bufferedWriter.write(ANSI_GREEN + "재도전하시겠습니까? [y/n]: " + ANSI_RESET);
+        bufferedWriter.flush();
+
+        String answer = bufferedReader.readLine();
+
+        if (answer.equals("y") || answer.equals("Y")) {
+            return true;
+        }
+
+        if (answer.equals("n") || answer.equals("N")) {
+            return false;
+        }
+
+        throw new IllegalArgumentException();
+    }
+
+
     private GuessNumbers createGuessNumbers(String input) {
         String regex = "^[0-9] [0-9] [0-9]$";
 
@@ -74,8 +92,4 @@ public class GuessingNumberInputManager {
 
         throw new IllegalArgumentException();
     }
-
-
-
-
 }
