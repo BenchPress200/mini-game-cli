@@ -46,22 +46,39 @@ public class SpeedCodingController {
         SpeedCode speedCode = speedCodingGame.getSpeedCode();
         speedCodingOutputManager.printCode(speedCode);
 
-        // 입력매니저와 함께 몇 초 후 시작합니다 문구 출력
-        // 시간 카운팅
-        // start!! 메시지와 함까 입력 버퍼 오픈
-//        speedCodingInputManager.readUserCode();
+        speedCodingGame.startTimer();
+        String userCode = speedCodingInputManager.readUserCode();
+        speedCodingGame.endTimer();
+
+        double duration = speedCodingGame.getDuration();
+        boolean isCorrectCode = speedCodingGame.getResult(userCode);
+        boolean passedWithinTimeLimit = speedCodingGame.passedWithinTimeLimit();
+
+        speedCodingOutputManager.printResult(duration, isCorrectCode, passedWithinTimeLimit, String.valueOf(speedCode.getReward()));
+
+        if (readReStart()) {
+            start();
+        }
 
 
-        // 사용자 입력받으면 입력 시간출력과 함께 오타여부 출력
-        // 제한시간통과했으면 파랑, 아니면 빨강
-        // 함께 보상안네 혹은 메시지
-        //재시작 여부확인
-        // 모두 구현한 후 보상 변수 와 최종 보상 출력 물만들고
         // 열거클래스, 상수파일 제작
-        // 전첵적인 파일구조 리팩토링
+        // 전체적으로 리팩토링
         // 상속구조 파악(2차상속까지)
+        // 클래스 다이어그램 작성
         // 노션작성, 리드미 작성
         // 시간 남으면 테스트 코드 ㄱㄱ
+    }
+
+    private boolean readReStart() throws IOException, InterruptedException {
+        try {
+            return speedCodingInputManager.readReStart();
+        } catch (IllegalArgumentException e) {
+            System.out.println("\n" + ANSI_RED + "y 또는 n 으로 대답해주세요!");
+            System.out.println("다시 입력해주세요." + ANSI_RESET + "\n");
+            Thread.sleep(2000);
+
+            return readReStart();
+        }
     }
 
     private boolean readYesOrNo() throws IOException, InterruptedException {
