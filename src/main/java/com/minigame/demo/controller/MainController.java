@@ -57,11 +57,13 @@ public class MainController {
                     break;
 
                 case TIMER:
-                    System.out.println("타이머 시작");
+                    stoppingNumberController.start();
+                    inputManager.clearScreen();
                     break;
 
                 case SPEED_CODING:
                     System.out.println("스피드 코딩 시작");
+                    inputManager.clearScreen();
                 }
             }
     }

@@ -4,7 +4,6 @@ import com.minigame.demo.model.ResultNumbers;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.Random;
 
 public class GuessingNumberOutputManager {
@@ -33,7 +32,7 @@ public class GuessingNumberOutputManager {
         bufferedWriter.write(BREAK_LINE);
         bufferedWriter.write("▓ 프로그램이 랜덤으로 숫자 3개를 생성합니다");
         bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write("▓ 해당 숫자와 모두 일치할 경우 보상을 지급합니다!");
+        bufferedWriter.write("▓ 해당 숫자와 모두 일치할 경우 보상을 지급합니다 !");
         bufferedWriter.write(BREAK_LINE);
         bufferedWriter.write(BREAK_LINE);
         bufferedWriter.flush();
