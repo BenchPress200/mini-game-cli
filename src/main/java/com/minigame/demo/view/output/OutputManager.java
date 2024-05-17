@@ -33,13 +33,13 @@ public class OutputManager {
     public void printGameList() throws IOException {
         bufferedWriter.write("───────────────────");
         bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write(" 1⃣  미니 로또");
+        bufferedWriter.write(" 1⃣  🎱 미니 로또 ");
         bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write(" 2⃣  타이머");
+        bufferedWriter.write(" 2⃣  ⏰ 타이머 ");
         bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write(" 3⃣  스피드 코딩");
+        bufferedWriter.write(" 3⃣  🏎 스피드 코딩️");
         bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write(" 0⃣  게임 종료");
+        bufferedWriter.write(" 0⃣  🚪 게임 종료 ");
         bufferedWriter.write(BREAK_LINE);
         bufferedWriter.write("───────────────────");
         bufferedWriter.write(BREAK_LINE);

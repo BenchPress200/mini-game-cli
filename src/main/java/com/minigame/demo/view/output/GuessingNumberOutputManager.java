@@ -75,7 +75,7 @@ public class GuessingNumberOutputManager {
 
         bufferedWriter.write(ANSI_BLUE + "아무말도 못하는 컴퓨터를 상대로 승리했습니다 !");
         bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write("보상으로 현재 코인의 개수가 세배가 되었습니다 !" + ANSI_RESET);
+        bufferedWriter.write("보상으로" + ANSI_CYAN + " [현재 코인 X 3]" + ANSI_BLUE + "(이)가 되었습니다 !" + ANSI_RESET);
         bufferedWriter.write(BREAK_LINE);
         bufferedWriter.flush();
     }

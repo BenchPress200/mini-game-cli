@@ -1,12 +1,13 @@
 package com.minigame.demo.controller;
 
-import com.minigame.demo.view.input.GuessingNumberInputManager;
+import com.minigame.demo.model.StoppingNumberGame;
 import com.minigame.demo.view.input.InputManager;
 import com.minigame.demo.view.input.StoppingNumberInputManager;
-import com.minigame.demo.view.output.GuessingNumberOutputManager;
 import com.minigame.demo.view.output.StoppingNumberOutputManager;
 
 import java.io.IOException;
+import java.time.Duration;
+import java.time.Instant;
 
 public class StoppingNumberController {
     public static final String ANSI_RESET = "\u001B[0m";
@@ -31,17 +32,79 @@ public class StoppingNumberController {
         this.stoppingNumberOutputManager = stoppingNumberOutputManager;
     }
 
-    public void start() throws IOException {
+    public void start() throws IOException, InterruptedException {
         InputManager.clearScreen();
         stoppingNumberOutputManager.printWelcomeView();
 
-        // 시작여부 예스이후 시간이 흐르고
-        // 정확히 소수점둘째자리까지해서 10초에 stop을 입력시 성공
-        // 소수점 안맞춰도 정답 인정
-        // 게임시작 여부묻는 메시지
-        // 시작하면 시간이 녹아내리는 중...
-        // 유저가 stop입력하면 그 때 멈춤
-        // 입력하면 결과 확인하고 정답인지 아닌지 확인하고 메시지 출력하고
-        // 재시작 여부 ㄱㄱ
+        boolean answer = readYesOrNo();
+
+        if (!answer) {
+            return;
+        }
+
+        StoppingNumberGame stoppingNumberGame = new StoppingNumberGame();
+
+        readStartSign();
+        stoppingNumberGame.startTimer();
+        readEndSign();
+        stoppingNumberGame.endTimer();
+
+        stoppingNumberOutputManager.printResult(stoppingNumberGame.getResult());
+
+
+
+
+
+        if (readReStart()) {
+            start();
+        }
+
+    }
+
+    private boolean readReStart() throws IOException, InterruptedException {
+        try {
+            return stoppingNumberInputManager.readReStart();
+        } catch (IllegalArgumentException e) {
+            System.out.println("\n" + ANSI_RED + "y 또는 n 으로 대답해주세요!");
+            System.out.println("다시 입력해주세요." + ANSI_RESET + "\n");
+            Thread.sleep(2000);
+
+            return readReStart();
+        }
+    }
+
+    private void readEndSign() throws IOException, InterruptedException {
+        try {
+            stoppingNumberInputManager.readEndSign();
+        } catch (IllegalArgumentException e) {
+            System.out.println("\n" + ANSI_RED + "[stop] 입력 시 타이머가 종료됩니다 !");
+            System.out.println("다시 입력해주세요." + ANSI_RESET + "\n");
+            Thread.sleep(2000);
+            readEndSign();
+        }
+    }
+
+    private void readStartSign() throws IOException, InterruptedException {
+        try {
+            stoppingNumberInputManager.readStartSign();
+        } catch (IllegalArgumentException e) {
+            System.out.println("\n" + ANSI_RED + "[start] 입력 시 타이머가 시작됩니다 !");
+            System.out.println("다시 입력해주세요." + ANSI_RESET + "\n");
+            Thread.sleep(2000);
+
+            readStartSign();
+        }
+    }
+
+    private boolean readYesOrNo() throws IOException, InterruptedException {
+        try {
+            return stoppingNumberInputManager.readYesOrNo();
+        } catch (IllegalArgumentException e) {
+            System.out.println("\n" + ANSI_RED + "y 또는 n 으로 대답해주세요!");
+            System.out.println("다시 입력해주세요." + ANSI_RESET + "\n");
+            Thread.sleep(2000);
+
+            return readYesOrNo();
+        }
     }
 }

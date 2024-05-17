@@ -2,13 +2,11 @@ package com.minigame.demo.controller;
 
 import com.minigame.demo.model.GuessNumberGame;
 import com.minigame.demo.model.GuessNumbers;
-import com.minigame.demo.model.ResultNumbers;
 import com.minigame.demo.view.input.GuessingNumberInputManager;
 import com.minigame.demo.view.input.InputManager;
 import com.minigame.demo.view.output.GuessingNumberOutputManager;
 
 import java.io.IOException;
-import java.util.List;
 
 public class GuessingNumberController {
     public static final String ANSI_RESET = "\u001B[0m";
