@@ -39,4 +39,10 @@ public class InputManager {
 
         return GameType.findByValue(input);
     }
+
+    public void clearScreen() {
+        for (int i = 0; i < 80; i++) {
+            System.out.println();
+        }
+    }
 }

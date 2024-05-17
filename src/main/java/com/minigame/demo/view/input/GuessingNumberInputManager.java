@@ -1,8 +1,14 @@
 package com.minigame.demo.view.input;
 
+import com.minigame.demo.model.GuessNumbers;
+import com.minigame.demo.view.output.GuessingNumberOutputManager;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 public class GuessingNumberInputManager {
     public static final String ANSI_RESET = "\u001B[0m";
@@ -27,18 +33,50 @@ public class GuessingNumberInputManager {
         this.bufferedWriter = bufferedWriter;
     }
 
-    public String readYesOrNo() throws IOException, IllegalArgumentException {
+    public boolean readYesOrNo() throws IOException {
         bufferedWriter.write(ANSI_GREEN+ "그럼 준비되셨나요? [y/n]: " + ANSI_RESET);
         bufferedWriter.flush();
         String answer = bufferedReader.readLine();
 
-        if (answer.equals("y") || answer.equals("Y") || answer.equals("n") || answer.equals("N")) {
-            return answer;
+        if (answer.equals("y") || answer.equals("Y")) {
+            return true;
+        }
+
+        if (answer.equals("n") || answer.equals("N")) {
+            return false;
         }
 
         throw new IllegalArgumentException();
-        // 0 ~ 9 사이의 정수 세 개를 띄워쓰기로 구분해서 입력해주세요:
+
     }
+
+    public GuessNumbers readGuessNumber() throws IOException, IllegalArgumentException {
+        bufferedWriter.write(ANSI_GREEN+ "0 ~ 9 사이의 정수 세 개를 띄워쓰기로 구분해서 입력해주세요:" + ANSI_RESET);
+        bufferedWriter.flush();
+        GuessNumbers answer = createGuessNumbers(bufferedReader.readLine());// 여기서 리스트로 만드는거 ㄱㄱ 일급컬렉션 ㄱㄱ
+
+        return answer;
+    }
+
+    private GuessNumbers createGuessNumbers(String input) {
+        // 띄어쓰기 기준으로 숫자입력왰는지 확인
+        String regex = "^[0-9] [0-9] [0-9]$";
+
+        if(input.matches(regex)) {
+            StringTokenizer st = new StringTokenizer(input);
+            List<Integer> numbers = new ArrayList<>();
+
+            while(st.hasMoreTokens()) {
+                numbers.add(Integer.parseInt(st.nextToken()));
+            }
+
+            return new GuessNumbers(numbers);
+        }
+
+        throw new IllegalArgumentException();
+    }
+
+
 
 
 }

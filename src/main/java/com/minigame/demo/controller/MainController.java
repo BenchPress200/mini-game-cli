@@ -38,19 +38,22 @@ public class MainController {
 
     public void start() throws IOException, InterruptedException {
         outputManager.printWelcomeView();
-        outputManager.printGameList();
 
-        GameType gameType = readUserChoice();
 
         while(true) {
+            outputManager.printGameList();
+            GameType gameType = readUserChoice();
+
             switch(gameType) {
                 case GAME_EXIT:
                     System.out.println(ANSI_GREEN + "게임이 종료됩니다..." + ANSI_RESET);
+                    System.exit(0);
                     break;
 
                 case MINI_LOTTO:
-                    clearScreen();
+                    inputManager.clearScreen();
                     guessingNumberController.start();
+                    inputManager.clearScreen();
                     break;
 
                 case TIMER:
@@ -70,17 +73,11 @@ public class MainController {
             System.out.println("\n" + ANSI_RED + "공백없이 오직 1, 2, 3 또는 0만 입력가능합니다 !");
             System.out.println("다시 입력해주세요." + ANSI_RESET + "\n");
             Thread.sleep(2000);
-            clearScreen();
+            inputManager.clearScreen();
 
             outputManager.printGameList();
 
             return readUserChoice();
-        }
-    }
-
-    public static void clearScreen() {
-        for (int i = 0; i < 80; i++) {
-                System.out.println("");
         }
     }
 }
