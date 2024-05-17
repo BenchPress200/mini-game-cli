@@ -5,19 +5,19 @@ import com.minigame.demo.controller.MainController;
 import com.minigame.demo.controller.SpeedCodingController;
 import com.minigame.demo.controller.StoppingNumberController;
 import com.minigame.demo.view.input.InputManager;
+import com.minigame.demo.view.output.GuessingNumberOutputManager;
 import com.minigame.demo.view.output.OutputManager;
 
-import java.io.BufferedWriter;
-import java.io.OutputStreamWriter;
+import java.io.*;
 
 
 public class Application {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, InterruptedException {
         MainController mainController = new MainController(
-                new GuessingNumberController(),
+                new GuessingNumberController(new GuessingNumberOutputManager(new BufferedWriter(new OutputStreamWriter(System.out)))),
                 new StoppingNumberController(),
                 new SpeedCodingController(),
-                new InputManager(),
+                new InputManager(new BufferedReader(new InputStreamReader(System.in)), new BufferedWriter(new OutputStreamWriter(System.out))),
                 new OutputManager(new BufferedWriter(new OutputStreamWriter(System.out)))
         );
 

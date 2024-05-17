@@ -14,7 +14,7 @@ public class OutputManager {
         this.bufferedWriter = bufferedWriter;
     }
 
-    public void printWelcomeView() throws IOException, InterruptedException {
+    public void printWelcomeView() throws IOException {
         printHorizontalLine();
         bufferedWriter.write(BREAK_LINE);
 
@@ -33,16 +33,17 @@ public class OutputManager {
     public void printGameList() throws IOException {
         bufferedWriter.write("───────────────────");
         bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write("1️⃣ 미니 로또");
+        bufferedWriter.write(" 1⃣  미니 로또");
         bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write("2️⃣ 타이머");
+        bufferedWriter.write(" 2⃣  타이머");
         bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write("3️⃣ 스피드 코딩");
+        bufferedWriter.write(" 3⃣  스피드 코딩");
+        bufferedWriter.write(BREAK_LINE);
+        bufferedWriter.write(" 0⃣  게임 종료");
         bufferedWriter.write(BREAK_LINE);
         bufferedWriter.write("───────────────────");
         bufferedWriter.write(BREAK_LINE);
         bufferedWriter.flush();
-
 
     }
 
