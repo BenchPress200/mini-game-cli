@@ -69,7 +69,8 @@ public class MainController {
         } catch (NumberFormatException e) {
             System.out.println("\n" + ANSI_RED + "공백없이 오직 1, 2, 3 또는 0만 입력가능합니다 !");
             System.out.println("다시 입력해주세요." + ANSI_RESET + "\n");
-            Thread.sleep(3000);
+            Thread.sleep(2000);
+            clearScreen();
 
             outputManager.printGameList();
 
