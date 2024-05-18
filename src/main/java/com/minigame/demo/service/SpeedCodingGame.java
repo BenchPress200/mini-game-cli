@@ -9,7 +9,7 @@ import java.time.Duration;
 import java.time.Instant;
 
 import static com.minigame.demo.constant.MeaningfulNumber.*;
-import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
+import static com.minigame.demo.constant.ANSIColor.*;
 
 public class SpeedCodingGame implements GameService {
     private GameResult gameResult;
@@ -37,12 +37,16 @@ public class SpeedCodingGame implements GameService {
             SimpleOutputUtils.print("5초 후 시작합니다 !");
 
             for (int i = FIVE; i > ZERO; i--) {
-                SimpleOutputUtils.printNoLineBreak(String.valueOf(i));
+                if (i % 2 == 0) {
+                    SimpleOutputUtils.printNoLineBreak(String.valueOf(i), ANSI_RED);
+                } else {
+                    SimpleOutputUtils.printNoLineBreak(String.valueOf(i), ANSI_CYAN);
+                }
                 Thread.sleep(ONE_SECOND);
                 SimpleOutputUtils.removeCharacter();
             }
 
-            SimpleOutputUtils.print("start !!!");
+            SimpleOutputUtils.print("start !!!", ANSI_GREEN);
 
             return;
         }

@@ -36,7 +36,7 @@ public class SpeedCodingController {
             return;
         }
 
-        gameService.start(null); // 시간 측정 시작
+        gameService.start(null);
         continueService();
         GameResult gameResult = gameService.getResult();
         gameOutputManager.printResult(gameResult);

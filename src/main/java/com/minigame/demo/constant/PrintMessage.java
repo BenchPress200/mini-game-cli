@@ -42,7 +42,7 @@ public class PrintMessage {
                     "▓ 해당 숫자와 모두 일치할 경우 보상을 지급합니다 !";
     public static final String STOPPING_NUMBER_WELCOME_MESSAGE =
             "─────────────────────────────── 게임 설명 ───────────────────────────────\n" +
-            "▓ [y]입력 시 타이가 작동됩니다.\n" +
+            "▓ [y]입력 시 타이머가 작동됩니다.\n" +
             "▓ 응답 이후부터 시간이 흐르고 예상 시간이 10초가 되었을 때, [stop]을 입력합니다.\n" +
             "▓ [stop] 을 입력했을 때 흐른 시간이 10초의 +-1 미만 이라면 보상을 지급합니다 !";
     public static final String SPEED_CODING_WELCOME_MESSAGE =
