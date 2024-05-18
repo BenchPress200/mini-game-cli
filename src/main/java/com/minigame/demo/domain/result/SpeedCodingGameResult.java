@@ -25,7 +25,6 @@ public class SpeedCodingGameResult extends StoppingNumberGameResult {
         return isPassed;
     }
 
-
     public boolean isCorrect() {
         return isCorrect;
     }

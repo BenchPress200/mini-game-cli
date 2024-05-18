@@ -17,12 +17,10 @@ public class SpeedCodingGame implements GameService {
     private Instant endTime;
     private SpeedCode speedCode;
 
-
     public SpeedCodingGame() {}
 
     @Override
     public void start(String userInput) throws InterruptedException {
-
         if (userInput == null) {
             startTime = Instant.now();
             speedCode = SpeedCode.getRandomSpeedCode();

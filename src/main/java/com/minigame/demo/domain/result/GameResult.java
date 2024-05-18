@@ -1,7 +1,7 @@
 package com.minigame.demo.domain.result;
 
 public class GameResult {
-    private boolean isWinner; // 모두 필요
+    private boolean isWinner;
 
     public GameResult(boolean isWinner) {
         this.isWinner = isWinner;
