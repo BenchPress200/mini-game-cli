@@ -27,6 +27,11 @@ public class SimpleOutputUtils {
     public static void printNoLineBreak(String printValue) {
         System.out.print(printValue);
     }
+
+    public static void printNoLineBreak(String printValue, String color) {
+        System.out.print(color + printValue + ANSI_RESET);
+    }
+
     public static void print(String printValue) {
         System.out.println(printValue);
     }
@@ -35,7 +40,7 @@ public class SimpleOutputUtils {
         System.out.println(color + printValue + ANSI_RESET);
     }
 
-    public static void printYseOrNo() { // 컨트롤러에서만 사용
+    public static void printYesOrNo() { // 컨트롤러에서만 사용
         print(YES_OR_NO_INPUT_MESSAGE , ANSI_RED);
         print(RE_INPUT_MESSAGE , ANSI_RED);
     }

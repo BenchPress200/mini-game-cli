@@ -1,16 +1,21 @@
 package com.minigame.demo.service;
 
+import com.minigame.demo.domain.GameResult;
 import com.minigame.demo.domain.GuessNumbers;
 import com.minigame.demo.domain.ResultNumbers;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.StringTokenizer;
 
-public class GuessNumberGame {
+public class GuessNumberGame implements GameService{
     private ResultNumbers resultNumbers;
+    private GameResult gameResult;
 
-    public ResultNumbers createRandomNumbers() {
+    @Override
+    public void start(String userInput) throws IllegalArgumentException {
+        GuessNumbers guessNumbers = createGuessNumbers(userInput);
         Random random = new Random();
         List<Integer> randomNumbers = new ArrayList<>();
 
@@ -20,10 +25,35 @@ public class GuessNumberGame {
 
         resultNumbers = new ResultNumbers(randomNumbers);
 
-        return resultNumbers;
+        boolean isWinner = compareNumbers(guessNumbers);
+        gameResult = new GameResult(isWinner);
+        gameResult.setResultNumbers(resultNumbers);
     }
 
-    public boolean getResult(GuessNumbers guessNumbers) {
+    @Override
+    public GameResult getResult() {
+        return gameResult;
+    }
+
+
+    private GuessNumbers createGuessNumbers(String input) {
+        String regex = "^[0-9] [0-9] [0-9]$";
+
+        if(input.matches(regex)) {
+            StringTokenizer st = new StringTokenizer(input);
+            List<Integer> numbers = new ArrayList<>();
+
+            while(st.hasMoreTokens()) {
+                numbers.add(Integer.parseInt(st.nextToken()));
+            }
+
+            return new GuessNumbers(numbers);
+        }
+
+        throw new IllegalArgumentException();
+    }
+
+    public boolean compareNumbers(GuessNumbers guessNumbers) {
         List<Integer> computerNumbers = resultNumbers.getNumbers();
         List<Integer> userNumbers = guessNumbers.getNumbers();
 
@@ -34,9 +64,5 @@ public class GuessNumberGame {
         }
 
         return true;
-    }
-
-    public ResultNumbers getResultNumbers() {
-        return resultNumbers;
     }
 }

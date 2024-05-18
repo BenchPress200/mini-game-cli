@@ -6,6 +6,7 @@ import static com.minigame.demo.constant.ANSIColor.ANSI_CYAN;
 public class PrintMessage {
     public static final String EXIT_MESSAGE = "게임이 종료됩니다...";
     public static final String GAME_CHOICE_POSSIBLE_INPUT_MESSAGE = "공백없이 오직 1, 2, 3 또는 0만 입력가능합니다 !";
+    public static final String GUESSING_NUMBER_POSSIBLE_INPUT_MESSAGE = "앞 뒤 공백없이 0 ~ 9 사이의 정수 세 개만 띄워쓰기로 구분해서 입력해야 됩니다 !";
     public static final String YES_OR_NO_INPUT_MESSAGE = "y 또는 n 으로 대답해주세요!";
     public static final String RE_INPUT_MESSAGE = "다시 입력해주세요.";
     public static final String BLOCK_MESSAGE = "▓";
@@ -41,4 +42,9 @@ public class PrintMessage {
     public static final String NEXT_CHANCE_MESSAGE = "다음 기회에... 😥";
     public static final String WIN_MESSAGE = "아무말도 못하는 컴퓨터를 상대로 승리했습니다 !";
     public static final String REWARD_MESSAGE = "보상으로" + ANSI_CYAN + " [현재 코인 X 3]" + ANSI_BLUE + "(이)가 되었습니다 !";
+
+    // 입력에서 쓰는 출력 메시지
+    public static final String READY_MESSAGE = "그럼 준비되셨나요? [y/n]: ";
+    public static final String RETRY_MESSAGE = "재도전하시겠습니까? [y/n]: ";
+    public static final String GUESSING_NUMBER_CONDITION_MESSAGE = "0 ~ 9 사이의 정수 세 개를 띄워쓰기로 구분해서 입력해주세요: ";
 }

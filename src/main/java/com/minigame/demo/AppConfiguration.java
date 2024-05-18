@@ -4,6 +4,8 @@ import com.minigame.demo.controller.game.GuessingNumberController;
 import com.minigame.demo.controller.MainController;
 import com.minigame.demo.controller.game.SpeedCodingController;
 import com.minigame.demo.controller.game.StoppingNumberController;
+import com.minigame.demo.service.GameService;
+import com.minigame.demo.service.GuessNumberGame;
 import com.minigame.demo.view.input.InputManager;
 import com.minigame.demo.view.input.game.GuessingNumberInputManager;
 import com.minigame.demo.view.input.game.SpeedCodingInputManager;
@@ -26,6 +28,7 @@ public class AppConfiguration {
 
     public GuessingNumberController guessingNumberController() {
         return new GuessingNumberController(
+                guessNumberGame(),
                 guessingNumberInputManager(),
                 guessingNumberOutputManager()
         );
@@ -75,5 +78,9 @@ public class AppConfiguration {
 
     public OutputManager outputManager() {
         return new OutputManager();
+    }
+
+    public GameService guessNumberGame() {
+        return new GuessNumberGame();
     }
 }

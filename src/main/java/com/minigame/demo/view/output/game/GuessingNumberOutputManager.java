@@ -1,5 +1,6 @@
 package com.minigame.demo.view.output.game;
 
+import com.minigame.demo.domain.GameResult;
 import com.minigame.demo.domain.ResultNumbers;
 import com.minigame.demo.utils.SimpleOutputUtils;
 
@@ -12,12 +13,17 @@ import static com.minigame.demo.constant.PrintMessage.*;
 public class GuessingNumberOutputManager implements GameOutputManager {
     public GuessingNumberOutputManager() {}
 
+    @Override
     public void printWelcomeView() {
         SimpleOutputUtils.print(GUESSING_NUMBER_WELCOME_MESSAGE);
         SimpleOutputUtils.breakLine(ONE);
     }
 
-    public void printResult(ResultNumbers resultNumbers, boolean result) throws InterruptedException {
+    @Override
+    public void printResult(GameResult gameResult) throws InterruptedException {
+        boolean isWinner = gameResult.isWinner();
+        ResultNumbers resultNumbers = gameResult.getResultNumbers();
+
         SimpleOutputUtils.print(BLOCK_MESSAGE);
 
         Random random = new Random();
@@ -36,7 +42,7 @@ public class GuessingNumberOutputManager implements GameOutputManager {
 
         SimpleOutputUtils.breakLine(TWO);
 
-        if (!result) {
+        if (!isWinner) {
             SimpleOutputUtils.print(NEXT_CHANCE_MESSAGE, ANSI_BLUE);
 
             return;
@@ -46,9 +52,9 @@ public class GuessingNumberOutputManager implements GameOutputManager {
         SimpleOutputUtils.print(REWARD_MESSAGE, ANSI_BLUE);
     }
 
+    @Override
     public void printReInputMessage() {
-
+        SimpleOutputUtils.print(GUESSING_NUMBER_POSSIBLE_INPUT_MESSAGE, ANSI_RED);
+        SimpleOutputUtils.print(RE_INPUT_MESSAGE, ANSI_RED);
     }
-
-
 }
