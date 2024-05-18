@@ -9,6 +9,7 @@ import com.minigame.demo.view.output.OutputManager;
 import java.io.IOException;
 
 import static com.minigame.demo.constant.ANSIColor.*;
+import static com.minigame.demo.constant.MeaningfulNumber.*;
 import static com.minigame.demo.constant.PrintMessage.*;
 
 
@@ -41,11 +42,13 @@ public class MainController {
         while(true) {
             printGameList();
             GameType gameType = readUserChoice();
+
             SimpleOutputUtils.clearConsole();
+
             switch(gameType) {
                 case GAME_EXIT:
-                    SimpleOutputUtils.simplePrint(EXIT_MESSAGE, ANSI_GREEN);
-                    System.exit(0);
+                    printExitMessage();
+                    System.exit(ZERO);
                     break;
 
                 case MINI_LOTTO:
@@ -69,11 +72,9 @@ public class MainController {
 
         } catch (NumberFormatException e) {
             SimpleOutputUtils.clearConsole();
-            SimpleOutputUtils.simplePrint(GAME_CHOICE_POSSIBLE_INPUT_MESSAGE, ANSI_RED);
-            SimpleOutputUtils.simplePrint(RE_INPUT_MESSAGE, ANSI_RED);
-            SimpleOutputUtils.breakLine(1);
+            outputManager.printReInputMessage();
 
-            Thread.sleep(1000);
+            Thread.sleep(ONE_SECOND);
 
             outputManager.printGameList();
 
@@ -81,11 +82,15 @@ public class MainController {
         }
     }
 
-    private void printWelcomeView() throws IOException {
+    private void printWelcomeView() {
         outputManager.printWelcomeView();
     }
 
-    private void printGameList() throws IOException {
+    private void printExitMessage() {
+        outputManager.printExitMessage();
+    }
+
+    private void printGameList() {
         outputManager.printGameList();
     }
 }

@@ -1,85 +1,50 @@
 package com.minigame.demo.view.output.game;
 
 import com.minigame.demo.model.ResultNumbers;
+import com.minigame.demo.utils.SimpleOutputUtils;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
 import java.util.Random;
 
+import static com.minigame.demo.constant.ANSIColor.*;
+import static com.minigame.demo.constant.MeaningfulNumber.*;
+import static com.minigame.demo.constant.PrintMessage.*;
+
 public class GuessingNumberOutputManager {
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_BLACK = "\u001B[30m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_PURPLE = "\u001B[35m";
-    public static final String ANSI_CYAN = "\u001B[36m";
-    public static final String ANSI_WHITE = "\u001B[37m";
-    private static final String BREAK_LINE = "\n";
+    public GuessingNumberOutputManager() {}
 
-    private final BufferedWriter bufferedWriter;
-
-
-    public GuessingNumberOutputManager(BufferedWriter bufferedWriter) {
-        this.bufferedWriter = bufferedWriter;
+    public void printWelcomeView() {
+        SimpleOutputUtils.print(GUESSING_NUMBER_WELCOME_MESSAGE);
+        SimpleOutputUtils.breakLine(ONE);
     }
 
-    public void printWelcomeView() throws IOException {
-        bufferedWriter.write("─────────────────────────────── 게임 설명 ───────────────────────────────");
-        bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write("▓ 0부터 9사이의 정수를 띄워쓰기로 구분해서 입력합니다. (예시: 4 5 0)");
-        bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write("▓ 프로그램이 랜덤으로 숫자 3개를 생성합니다");
-        bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write("▓ 해당 숫자와 모두 일치할 경우 보상을 지급합니다 !");
-        bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.flush();
-    }
+    public void printResult(ResultNumbers resultNumbers, boolean result) throws InterruptedException {
+        SimpleOutputUtils.print(BLOCK_MESSAGE);
 
-    public void printResult(ResultNumbers resultNumbers, boolean result) throws IOException, InterruptedException {
-        bufferedWriter.write("▓");
-        bufferedWriter.flush();
         Random random = new Random();
-        for (Integer number : resultNumbers.getNumbers()) {
-            bufferedWriter.write(" ");
-            bufferedWriter.flush();
 
-            for(int i = 0; i < 50; i++) {
-                bufferedWriter.write(String.valueOf(random.nextInt(10)));
-                bufferedWriter.flush();
-                Thread.sleep(100);
-                bufferedWriter.write("\b");
-                bufferedWriter.flush();
+        for (Integer number : resultNumbers.getNumbers()) {
+            SimpleOutputUtils.printNoLineBreak(SPACE);
+
+            for(int i = ZERO; i < RANDOM_COUNT; i++) {
+                SimpleOutputUtils.printNoLineBreak(String.valueOf(random.nextInt(RANDOM_RANGE)));
+
+                Thread.sleep(ZERO_POINT_ONE_SECOND);
+
+                SimpleOutputUtils.removeCharacter();
             }
 
-            bufferedWriter.write( number + " ");
-            bufferedWriter.flush();
-
-            bufferedWriter.write("▓");
-            bufferedWriter.flush();
+            SimpleOutputUtils.printNoLineBreak(String.valueOf(number) + SPACE + BLOCK_MESSAGE);
         }
 
-        bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write(BREAK_LINE);
+        SimpleOutputUtils.breakLine(TWO);
 
         if (!result) {
-            bufferedWriter.write(ANSI_BLUE + "다음 기회에... 😥" + ANSI_RESET);
-            bufferedWriter.write(BREAK_LINE);
-            bufferedWriter.flush();
-
+            SimpleOutputUtils.print(NEXT_CHANCE_MESSAGE, ANSI_BLUE);
 
             return;
         }
 
-        bufferedWriter.write(ANSI_BLUE + "아무말도 못하는 컴퓨터를 상대로 승리했습니다 !");
-        bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write("보상으로" + ANSI_CYAN + " [현재 코인 X 3]" + ANSI_BLUE + "(이)가 되었습니다 !" + ANSI_RESET);
-        bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.flush();
+        SimpleOutputUtils.print(WIN_MESSAGE, ANSI_BLUE);
+        SimpleOutputUtils.print(REWARD_MESSAGE, ANSI_BLUE);
     }
-
-
-
 }

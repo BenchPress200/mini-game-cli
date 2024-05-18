@@ -2,6 +2,8 @@ package com.minigame.demo.view.output;
 
 import com.minigame.demo.utils.SimpleOutputUtils;
 
+import static com.minigame.demo.constant.ANSIColor.ANSI_GREEN;
+import static com.minigame.demo.constant.ANSIColor.ANSI_RED;
 import static com.minigame.demo.constant.MeaningfulNumber.*;
 import static com.minigame.demo.constant.PrintMessage.*;
 
@@ -12,20 +14,30 @@ public class OutputManager {
         printHorizontalLine();
 
         SimpleOutputUtils.breakLine(TWO);
-        SimpleOutputUtils.simplePrint(WELCOME_MESSAGE);
+        SimpleOutputUtils.print(WELCOME_MESSAGE);
         SimpleOutputUtils.breakLine(TWO);
 
         printHorizontalLine();
         SimpleOutputUtils.breakLine(THREE);
     }
 
-    public void printGameList() {
-        SimpleOutputUtils.simplePrint(GAME_LIST_MASSAGE);
+    public void printExitMessage() {
+        SimpleOutputUtils.print(EXIT_MESSAGE, ANSI_GREEN);
     }
+
+    public void printGameList() {
+        SimpleOutputUtils.print(GAME_LIST_MASSAGE);
+    }
+
+    public void printReInputMessage() {
+        SimpleOutputUtils.print(GAME_CHOICE_POSSIBLE_INPUT_MESSAGE, ANSI_RED);
+        SimpleOutputUtils.print(RE_INPUT_MESSAGE, ANSI_RED);
+    }
+
 
     private void printHorizontalLine() {
         for (int i = ZERO; i < CONSOLE_END_INDEX; i++) {
-            SimpleOutputUtils.simplePrintNoLineBreak(BLOCK_MESSAGE);
+            SimpleOutputUtils.printNoLineBreak(BLOCK_MESSAGE);
         }
     }
 }

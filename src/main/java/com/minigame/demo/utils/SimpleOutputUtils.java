@@ -9,20 +9,22 @@ public class SimpleOutputUtils {
         }
     }
 
-    public static void clearConsole() {
-        for (int i = 0; i < 100; i++) {
-            System.out.println();
-        }
+    public static void removeCharacter() {
+        System.out.print("\b");
     }
 
-    public static void simplePrintNoLineBreak(String printValue) {
+    public static void clearConsole() { // 컨트롤러에서만 사용
+        breakLine(100);
+    }
+
+    public static void printNoLineBreak(String printValue) {
         System.out.print(printValue);
     }
-    public static void simplePrint(String printValue) {
+    public static void print(String printValue) {
         System.out.println(printValue);
     }
 
-    public static void simplePrint(String printValue, String color) {
+    public static void print(String printValue, String color) {
         System.out.println(color + printValue + ANSI_RESET);
     }
 
