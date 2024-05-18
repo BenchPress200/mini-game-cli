@@ -1,22 +1,16 @@
 package com.minigame.demo.controller;
 
+
 import com.minigame.demo.enums.GameType;
 import com.minigame.demo.view.input.InputManager;
 import com.minigame.demo.view.output.OutputManager;
 
 import java.io.IOException;
 
-public class MainController {
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_BLACK = "\u001B[30m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_PURPLE = "\u001B[35m";
-    public static final String ANSI_CYAN = "\u001B[36m";
-    public static final String ANSI_WHITE = "\u001B[37m";
+import static com.minigame.demo.constant.ANSIColor.*;
 
+
+public class MainController {
     private final GuessingNumberController guessingNumberController;
     private final StoppingNumberController stoppingNumberController;
     private final SpeedCodingController speedCodingController;
@@ -39,10 +33,8 @@ public class MainController {
     public void start() throws IOException, InterruptedException {
         outputManager.printWelcomeView();
 
-
         while(true) {
             outputManager.printGameList();
-
             GameType gameType = readUserChoice();
 
             switch(gameType) {
@@ -72,9 +64,13 @@ public class MainController {
         try {
             return inputManager.readUserChoice();
         } catch (NumberFormatException e) {
-            System.out.println("\n" + ANSI_RED + "공백없이 오직 1, 2, 3 또는 0만 입력가능합니다 !");
-            System.out.println("다시 입력해주세요." + ANSI_RESET + "\n");
+            System.out.println();
+            System.out.println(ANSI_RED + "공백없이 오직 1, 2, 3 또는 0만 입력가능합니다 !");
+            System.out.println("다시 입력해주세요." + ANSI_RESET);
+            System.out.println();
+
             Thread.sleep(2000);
+
             inputManager.clearScreen();
             outputManager.printGameList();
 

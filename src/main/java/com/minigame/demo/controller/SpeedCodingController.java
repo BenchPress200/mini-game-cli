@@ -8,16 +8,9 @@ import com.minigame.demo.view.output.SpeedCodingOutputManager;
 
 import java.io.IOException;
 
+import static com.minigame.demo.constant.ANSIColor.*;
+
 public class SpeedCodingController {
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_BLACK = "\u001B[30m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_PURPLE = "\u001B[35m";
-    public static final String ANSI_CYAN = "\u001B[36m";
-    public static final String ANSI_WHITE = "\u001B[37m";
     private static final String YES = "YES";
     private static final String NO = "NO";
 
@@ -59,14 +52,6 @@ public class SpeedCodingController {
         if (readReStart()) {
             start();
         }
-
-
-        // 열거클래스, 상수파일 제작
-        // 전체적으로 리팩토링
-        // 상속구조 파악(2차상속까지)
-        // 클래스 다이어그램 작성
-        // 노션작성, 리드미 작성
-        // 시간 남으면 테스트 코드 ㄱㄱ
     }
 
     private boolean readReStart() throws IOException, InterruptedException {
