@@ -1,28 +1,14 @@
 package com.minigame.demo.view.output.game;
 
-import com.minigame.demo.model.ResultNumbers;
+import com.minigame.demo.utils.SimpleOutputUtils;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
 
+import static com.minigame.demo.constant.ANSIColor.*;
+import static com.minigame.demo.constant.PrintMessage.*;
+
 public class StoppingNumberOutputManager {
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_BLACK = "\u001B[30m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_PURPLE = "\u001B[35m";
-    public static final String ANSI_CYAN = "\u001B[36m";
-    public static final String ANSI_WHITE = "\u001B[37m";
-    private static final String BREAK_LINE = "\n";
-
-
-    private BufferedWriter bufferedWriter;
-
-    public StoppingNumberOutputManager(BufferedWriter bufferedWriter) {
-        this.bufferedWriter = bufferedWriter;
-    }
+    public StoppingNumberOutputManager() {}
 
     public void printWelcomeView() throws IOException {
         bufferedWriter.write("─────────────────────────────── 게임 설명 ───────────────────────────────");
@@ -59,6 +45,12 @@ public class StoppingNumberOutputManager {
         bufferedWriter.flush();
 
     }
+
+    public void printReInputMessage() {
+        SimpleOutputUtils.print(YES_OR_NO_INPUT_MESSAGE, ANSI_RED);
+        SimpleOutputUtils.print(RE_INPUT_MESSAGE, ANSI_RED);
+    }
+
 
 
 }

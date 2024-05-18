@@ -11,13 +11,13 @@ public class OutputManager {
     public OutputManager() {}
 
     public void printWelcomeView() {
-        printHorizontalLine();
+        SimpleOutputUtils.printHorizontalLine();
 
         SimpleOutputUtils.breakLine(TWO);
         SimpleOutputUtils.print(WELCOME_MESSAGE);
         SimpleOutputUtils.breakLine(TWO);
 
-        printHorizontalLine();
+        SimpleOutputUtils.printHorizontalLine();
         SimpleOutputUtils.breakLine(THREE);
     }
 
@@ -32,12 +32,5 @@ public class OutputManager {
     public void printReInputMessage() {
         SimpleOutputUtils.print(GAME_CHOICE_POSSIBLE_INPUT_MESSAGE, ANSI_RED);
         SimpleOutputUtils.print(RE_INPUT_MESSAGE, ANSI_RED);
-    }
-
-
-    private void printHorizontalLine() {
-        for (int i = ZERO; i < CONSOLE_END_INDEX; i++) {
-            SimpleOutputUtils.printNoLineBreak(BLOCK_MESSAGE);
-        }
     }
 }

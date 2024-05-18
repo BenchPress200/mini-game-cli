@@ -1,4 +1,4 @@
-package com.minigame.demo.model;
+package com.minigame.demo.service;
 
 import java.time.Duration;
 import java.time.Instant;

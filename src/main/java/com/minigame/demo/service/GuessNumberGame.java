@@ -1,4 +1,7 @@
-package com.minigame.demo.model;
+package com.minigame.demo.service;
+
+import com.minigame.demo.domain.GuessNumbers;
+import com.minigame.demo.domain.ResultNumbers;
 
 import java.util.ArrayList;
 import java.util.List;

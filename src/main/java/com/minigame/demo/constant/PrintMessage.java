@@ -6,6 +6,7 @@ import static com.minigame.demo.constant.ANSIColor.ANSI_CYAN;
 public class PrintMessage {
     public static final String EXIT_MESSAGE = "게임이 종료됩니다...";
     public static final String GAME_CHOICE_POSSIBLE_INPUT_MESSAGE = "공백없이 오직 1, 2, 3 또는 0만 입력가능합니다 !";
+    public static final String YES_OR_NO_INPUT_MESSAGE = "y 또는 n 으로 대답해주세요!";
     public static final String RE_INPUT_MESSAGE = "다시 입력해주세요.";
     public static final String BLOCK_MESSAGE = "▓";
     public static final String SPACE = " ";
@@ -29,8 +30,15 @@ public class PrintMessage {
             "▓ 0부터 9사이의 정수를 띄워쓰기로 구분해서 입력합니다. (예시: 4 5 0)\n" +
             "▓ 프로그램이 랜덤으로 숫자 3개를 생성합니다\n" +
             "▓ 해당 숫자와 모두 일치할 경우 보상을 지급합니다 !";
+    public static final String SPEED_CODING_WELCOME_MESSAGE =
+            "─────────────────────────────── 게임 설명 ───────────────────────────────\n" +
+                    "▓ 무작위로 코드가 생성됩니다.\n" +
+                    "▓ 무작위 코드와 제한시간이 주어집니다.\n" +
+                    "▓ 제한시간안에 탭과 띄어쓰기를 포함해서 제시된 코드와 똑같이 입력해야 합니다.\n" +
+                    "▓ 유저는 코드 마지막 줄의 다음 줄에 0을 입력해주세요.\n" +
+                    "▓ 오차없이 동일한 코드를 제한시간안에 입력했다면 보상을 지급합니다 !\n" +
+                    "‼️코드의 난이도에 따라서 보상은 차등지급";
     public static final String NEXT_CHANCE_MESSAGE = "다음 기회에... 😥";
     public static final String WIN_MESSAGE = "아무말도 못하는 컴퓨터를 상대로 승리했습니다 !";
     public static final String REWARD_MESSAGE = "보상으로" + ANSI_CYAN + " [현재 코인 X 3]" + ANSI_BLUE + "(이)가 되었습니다 !";
-
 }

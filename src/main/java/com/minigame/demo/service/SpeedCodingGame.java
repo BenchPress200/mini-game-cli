@@ -1,4 +1,4 @@
-package com.minigame.demo.model;
+package com.minigame.demo.service;
 
 import com.minigame.demo.enums.SpeedCode;
 

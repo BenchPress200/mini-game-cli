@@ -1,9 +1,9 @@
 package com.minigame.demo;
 
-import com.minigame.demo.controller.GuessingNumberController;
+import com.minigame.demo.controller.game.GuessingNumberController;
 import com.minigame.demo.controller.MainController;
-import com.minigame.demo.controller.SpeedCodingController;
-import com.minigame.demo.controller.StoppingNumberController;
+import com.minigame.demo.controller.game.SpeedCodingController;
+import com.minigame.demo.controller.game.StoppingNumberController;
 import com.minigame.demo.view.input.InputManager;
 import com.minigame.demo.view.input.game.GuessingNumberInputManager;
 import com.minigame.demo.view.input.game.SpeedCodingInputManager;

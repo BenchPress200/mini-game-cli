@@ -1,6 +1,6 @@
 package com.minigame.demo.view.input.game;
 
-import com.minigame.demo.model.GuessNumbers;
+import com.minigame.demo.domain.GuessNumbers;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -32,7 +32,7 @@ public class GuessingNumberInputManager {
         this.bufferedWriter = bufferedWriter;
     }
 
-    public boolean readYesOrNo() throws IOException {
+    public boolean readContinue() throws IOException {
         bufferedWriter.write(ANSI_GREEN+ "그럼 준비되셨나요? [y/n]: " + ANSI_RESET);
         bufferedWriter.flush();
         String answer = bufferedReader.readLine();

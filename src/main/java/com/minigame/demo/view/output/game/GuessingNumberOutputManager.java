@@ -1,6 +1,6 @@
 package com.minigame.demo.view.output.game;
 
-import com.minigame.demo.model.ResultNumbers;
+import com.minigame.demo.domain.ResultNumbers;
 import com.minigame.demo.utils.SimpleOutputUtils;
 
 import java.util.Random;
@@ -9,7 +9,7 @@ import static com.minigame.demo.constant.ANSIColor.*;
 import static com.minigame.demo.constant.MeaningfulNumber.*;
 import static com.minigame.demo.constant.PrintMessage.*;
 
-public class GuessingNumberOutputManager {
+public class GuessingNumberOutputManager implements GameOutputManager {
     public GuessingNumberOutputManager() {}
 
     public void printWelcomeView() {
@@ -27,9 +27,7 @@ public class GuessingNumberOutputManager {
 
             for(int i = ZERO; i < RANDOM_COUNT; i++) {
                 SimpleOutputUtils.printNoLineBreak(String.valueOf(random.nextInt(RANDOM_RANGE)));
-
                 Thread.sleep(ZERO_POINT_ONE_SECOND);
-
                 SimpleOutputUtils.removeCharacter();
             }
 
@@ -47,4 +45,10 @@ public class GuessingNumberOutputManager {
         SimpleOutputUtils.print(WIN_MESSAGE, ANSI_BLUE);
         SimpleOutputUtils.print(REWARD_MESSAGE, ANSI_BLUE);
     }
+
+    public void printReInputMessage() {
+
+    }
+
+
 }

@@ -1,6 +1,9 @@
 package com.minigame.demo.controller;
 
 
+import com.minigame.demo.controller.game.GuessingNumberController;
+import com.minigame.demo.controller.game.SpeedCodingController;
+import com.minigame.demo.controller.game.StoppingNumberController;
 import com.minigame.demo.enums.GameType;
 import com.minigame.demo.utils.SimpleOutputUtils;
 import com.minigame.demo.view.input.InputManager;
@@ -8,9 +11,8 @@ import com.minigame.demo.view.output.OutputManager;
 
 import java.io.IOException;
 
-import static com.minigame.demo.constant.ANSIColor.*;
-import static com.minigame.demo.constant.MeaningfulNumber.*;
-import static com.minigame.demo.constant.PrintMessage.*;
+import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
+import static com.minigame.demo.constant.MeaningfulNumber.ZERO;
 
 
 public class MainController {

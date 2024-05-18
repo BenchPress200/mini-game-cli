@@ -1,4 +1,4 @@
-package com.minigame.demo.model;
+package com.minigame.demo.domain;
 
 import java.util.List;
 

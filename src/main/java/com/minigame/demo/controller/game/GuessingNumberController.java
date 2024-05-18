@@ -1,33 +1,38 @@
-package com.minigame.demo.controller;
+package com.minigame.demo.controller.game;
 
-import com.minigame.demo.model.GuessNumberGame;
-import com.minigame.demo.model.GuessNumbers;
+import com.minigame.demo.service.GuessNumberGame;
+import com.minigame.demo.domain.GuessNumbers;
+import com.minigame.demo.utils.SimpleOutputUtils;
 import com.minigame.demo.view.input.game.GuessingNumberInputManager;
-import com.minigame.demo.view.input.InputManager;
 import com.minigame.demo.view.output.game.GuessingNumberOutputManager;
 
 import java.io.IOException;
 
-import static com.minigame.demo.constant.ANSIColor.*;
+import static com.minigame.demo.constant.ANSIColor.ANSI_RED;
+import static com.minigame.demo.constant.ANSIColor.ANSI_RESET;
+import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
 
 public class GuessingNumberController {
     private final GuessingNumberInputManager guessingNumberInputManager;
     private final GuessingNumberOutputManager guessingNumberOutputManager;
 
-    public GuessingNumberController(GuessingNumberInputManager guessingNumberInputManager, GuessingNumberOutputManager guessingNumberOutputManager) {
+    public GuessingNumberController(
+            GuessingNumberInputManager guessingNumberInputManager,
+            GuessingNumberOutputManager guessingNumberOutputManager
+    ) {
         this.guessingNumberInputManager = guessingNumberInputManager;
         this.guessingNumberOutputManager = guessingNumberOutputManager;
     }
 
     public void start() throws IOException, InterruptedException {
-        InputManager.clearScreen();
-        guessingNumberOutputManager.printWelcomeView();
+        printWelcomeView();
 
-        boolean answer = readYesOrNo();
+        boolean answer = readContinue();
 
         if (!answer) {
             return;
         }
+
 
         GuessNumbers guessNumbers = readGuessNumber();
         GuessNumberGame guessNumberGame = new GuessNumberGame();
@@ -43,28 +48,29 @@ public class GuessingNumberController {
         }
     }
 
+    private void printWelcomeView() {
+        guessingNumberOutputManager.printWelcomeView();
+    }
+
     private boolean readReStart() throws IOException, InterruptedException {
         try {
             return guessingNumberInputManager.readReStart();
         } catch (IllegalArgumentException e) {
-            System.out.println("\n" + ANSI_RED + "y 또는 n 으로 대답해주세요!");
-            System.out.println("다시 입력해주세요." + ANSI_RESET + "\n");
-            Thread.sleep(1000);
+            SimpleOutputUtils.printYseOrNo();
+            Thread.sleep(ONE_SECOND);
 
             return readReStart();
         }
     }
 
-
-    private boolean readYesOrNo() throws IOException, InterruptedException {
+    private boolean readContinue() throws IOException, InterruptedException {
         try {
-            return guessingNumberInputManager.readYesOrNo();
+            return guessingNumberInputManager.readContinue();
         } catch (IllegalArgumentException e) {
-            System.out.println("\n" + ANSI_RED + "y 또는 n 으로 대답해주세요!");
-            System.out.println("다시 입력해주세요." + ANSI_RESET + "\n");
-            Thread.sleep(1000);
+            SimpleOutputUtils.printYseOrNo();
+            Thread.sleep(ONE_SECOND);
 
-            return readYesOrNo();
+            return readContinue();
         }
     }
 

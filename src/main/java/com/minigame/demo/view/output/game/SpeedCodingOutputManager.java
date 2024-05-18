@@ -1,51 +1,24 @@
 package com.minigame.demo.view.output.game;
 
 import com.minigame.demo.enums.SpeedCode;
+import com.minigame.demo.utils.SimpleOutputUtils;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
 
+import static com.minigame.demo.constant.ANSIColor.*;
+import static com.minigame.demo.constant.MeaningfulNumber.ONE;
+import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
+import static com.minigame.demo.constant.PrintMessage.*;
+
 public class SpeedCodingOutputManager {
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_BLACK = "\u001B[30m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_PURPLE = "\u001B[35m";
-    public static final String ANSI_CYAN = "\u001B[36m";
-    public static final String ANSI_WHITE = "\u001B[37m";
-    private static final String YES = "YES";
-    private static final String NO = "NO";
+    public SpeedCodingOutputManager() {}
 
-    private static final String BREAK_LINE = "\n";
-
-    private BufferedWriter bufferedWriter;
-
-    public SpeedCodingOutputManager(BufferedWriter bufferedWriter) {
-        this.bufferedWriter = bufferedWriter;
+    public void printWelcomeView() {
+        SimpleOutputUtils.print(SPEED_CODING_WELCOME_MESSAGE);
+        SimpleOutputUtils.breakLine(ONE);
     }
 
-    public void printWelcomeView() throws IOException {
-        bufferedWriter.write("─────────────────────────────── 게임 설명 ───────────────────────────────");
-        bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write("▓ 무작위로 코드가 생성됩니다.");
-        bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write("▓ 무작위 코드와 제한시간이 주어집니다.");
-        bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write("▓ 제한시간안에 탭과 띄어쓰기를 포함해서 제시된 코드와 똑같이 입력해야 합니다.");
-        bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write("▓ 유저는 코드 마지막 줄의 다음 줄에 0을 입력해주세요.");
-        bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write("▓ 오차없이 동일한 코드를 제한시간안에 입력했다면 보상을 지급합니다 !");
-        bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write("‼️코드의 난이도에 따라서 보상은 차등지급");
-        bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.write(BREAK_LINE);
-        bufferedWriter.flush();
-    }
-
-    public void printCode(SpeedCode speedCode) throws IOException, InterruptedException {
+    public void printCode(SpeedCode speedCode) throws IOException, InterruptedException { // 얘를 모두 input으로 옮기기
         bufferedWriter.write(BREAK_LINE);
         bufferedWriter.write("🚀 난이도: " + String.valueOf(speedCode.getLevel()));
         bufferedWriter.write(BREAK_LINE);
@@ -70,7 +43,7 @@ public class SpeedCodingOutputManager {
         for (int i = 5; i > 0; i--) {
             bufferedWriter.write(String.valueOf(i));
             bufferedWriter.flush();
-            Thread.sleep(1000);
+            Thread.sleep(ONE_SECOND);
             bufferedWriter.write("\b");
             bufferedWriter.flush();
         }
@@ -99,8 +72,7 @@ public class SpeedCodingOutputManager {
         bufferedWriter.write(BREAK_LINE);
 
         if (isCorrectCode && passedWithinTimeLimit) {
-            bufferedWriter.write(ANSI_BLUE + "아무말도 못하는 컴퓨터를 상대로 승리했습니다 !");
-            bufferedWriter.write(BREAK_LINE);
+            SimpleOutputUtils.print(WIN_MESSAGE, ANSI_BLUE);
             bufferedWriter.write("보상으로" + ANSI_CYAN + " [" + reward + "]" + ANSI_BLUE + "이 지급되었습니다 !" + ANSI_RESET);
             bufferedWriter.write(BREAK_LINE);
             bufferedWriter.flush();
@@ -114,6 +86,10 @@ public class SpeedCodingOutputManager {
         bufferedWriter.write(BREAK_LINE);
         bufferedWriter.write(BREAK_LINE);
         bufferedWriter.flush();
+
+    }
+
+    public void printReInputMessage() {
 
     }
 

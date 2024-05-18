@@ -1,6 +1,6 @@
-package com.minigame.demo.controller;
+package com.minigame.demo.controller.game;
 
-import com.minigame.demo.model.StoppingNumberGame;
+import com.minigame.demo.service.StoppingNumberGame;
 import com.minigame.demo.view.input.InputManager;
 import com.minigame.demo.view.input.game.StoppingNumberInputManager;
 import com.minigame.demo.view.output.game.StoppingNumberOutputManager;
