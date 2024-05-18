@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 import static com.minigame.demo.constant.ANSIColor.ANSI_GREEN;
 import static com.minigame.demo.constant.PrintMessage.READY_MESSAGE;
+import static com.minigame.demo.constant.PrintMessage.RETRY_MESSAGE;
 
 public class SimpleInputUtils {
     // 단일 유저, 빈번한 입력이 발생하는 프로그램이기 때문에 입력 인스턴스는 static이 제일 좋다고 생각
@@ -28,7 +29,7 @@ public class SimpleInputUtils {
     }
 
     public static boolean readReStart() throws IOException {
-        String answer = SimpleInputUtils.read(READY_MESSAGE, ANSI_GREEN);
+        String answer = SimpleInputUtils.read(RETRY_MESSAGE, ANSI_GREEN);
 
         if (answer.equals("y") || answer.equals("Y")) {
             return true;

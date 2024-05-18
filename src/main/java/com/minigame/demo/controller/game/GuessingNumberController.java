@@ -35,6 +35,7 @@ public class GuessingNumberController {
             return;
         }
 
+
         continueService();
         GameResult gameResult = gameService.getResult();
         guessingNumberOutputManager.printResult(gameResult);

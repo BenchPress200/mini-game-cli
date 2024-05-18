@@ -1,7 +1,5 @@
 package com.minigame.demo.domain;
 
-import java.util.List;
-
 public class GameResult {
     private boolean isWinner;
     private ResultNumbers resultNumbers;

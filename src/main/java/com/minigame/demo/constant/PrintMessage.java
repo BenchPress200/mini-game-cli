@@ -9,6 +9,7 @@ public class PrintMessage {
     public static final String GUESSING_NUMBER_POSSIBLE_INPUT_MESSAGE = "앞 뒤 공백없이 0 ~ 9 사이의 정수 세 개만 띄워쓰기로 구분해서 입력해야 됩니다 !";
     public static final String YES_OR_NO_INPUT_MESSAGE = "y 또는 n 으로 대답해주세요!";
     public static final String RE_INPUT_MESSAGE = "다시 입력해주세요.";
+    public static final String STOPPING_NUMBER_POSSIBLE_STOP_MESSAGE = "[stop] 입력 시 타이머가 종료됩니다 !";
     public static final String BLOCK_MESSAGE = "▓";
     public static final String SPACE = " ";
     public static final String WELCOME_MESSAGE =
@@ -28,9 +29,14 @@ public class PrintMessage {
             "───────────────────";
     public static final String GUESSING_NUMBER_WELCOME_MESSAGE =
             "─────────────────────────────── 게임 설명 ───────────────────────────────\n" +
-            "▓ 0부터 9사이의 정수를 띄워쓰기로 구분해서 입력합니다. (예시: 4 5 0)\n" +
-            "▓ 프로그램이 랜덤으로 숫자 3개를 생성합니다\n" +
-            "▓ 해당 숫자와 모두 일치할 경우 보상을 지급합니다 !";
+                    "▓ 0부터 9사이의 정수를 띄워쓰기로 구분해서 입력합니다. (예시: 4 5 0)\n" +
+                    "▓ 프로그램이 랜덤으로 숫자 3개를 생성합니다\n" +
+                    "▓ 해당 숫자와 모두 일치할 경우 보상을 지급합니다 !";
+    public static final String STOPPING_NUMBER_WELCOME_MESSAGE =
+            "─────────────────────────────── 게임 설명 ───────────────────────────────\n" +
+            "▓ [y]입력 시 타이가 작동됩니다.\n" +
+            "▓ 응답 이후부터 시간이 흐르고 예상 시간이 10초가 되었을 때, [stop]을 입력합니다.\n" +
+            "▓ [stop] 을 입력했을 때 흐른 시간이 10초의 +-1 미만 이라면 보상을 지급합니다 !";
     public static final String SPEED_CODING_WELCOME_MESSAGE =
             "─────────────────────────────── 게임 설명 ───────────────────────────────\n" +
                     "▓ 무작위로 코드가 생성됩니다.\n" +
@@ -43,8 +49,11 @@ public class PrintMessage {
     public static final String WIN_MESSAGE = "아무말도 못하는 컴퓨터를 상대로 승리했습니다 !";
     public static final String REWARD_MESSAGE = "보상으로" + ANSI_CYAN + " [현재 코인 X 3]" + ANSI_BLUE + "(이)가 되었습니다 !";
 
+
+
     // 입력에서 쓰는 출력 메시지
     public static final String READY_MESSAGE = "그럼 준비되셨나요? [y/n]: ";
     public static final String RETRY_MESSAGE = "재도전하시겠습니까? [y/n]: ";
     public static final String GUESSING_NUMBER_CONDITION_MESSAGE = "0 ~ 9 사이의 정수 세 개를 띄워쓰기로 구분해서 입력해주세요: ";
+    public static final String STOPPING_NUMBER_CONDITION_MESSAGE = "10초라고 예상되는 타이밍에 [stop] 을 입력해주세요 !";
 }
