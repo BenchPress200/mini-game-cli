@@ -1,19 +1,17 @@
 package com.minigame.demo;
 
-import com.minigame.demo.controller.MainController;
 import com.minigame.demo.controller.GuessingNumberController;
+import com.minigame.demo.controller.MainController;
 import com.minigame.demo.controller.SpeedCodingController;
 import com.minigame.demo.controller.StoppingNumberController;
-import com.minigame.demo.view.input.GuessingNumberInputManager;
 import com.minigame.demo.view.input.InputManager;
-import com.minigame.demo.view.input.SpeedCodingInputManager;
-import com.minigame.demo.view.input.StoppingNumberInputManager;
-import com.minigame.demo.view.output.GuessingNumberOutputManager;
+import com.minigame.demo.view.input.game.GuessingNumberInputManager;
+import com.minigame.demo.view.input.game.SpeedCodingInputManager;
+import com.minigame.demo.view.input.game.StoppingNumberInputManager;
 import com.minigame.demo.view.output.OutputManager;
-import com.minigame.demo.view.output.SpeedCodingOutputManager;
-import com.minigame.demo.view.output.StoppingNumberOutputManager;
-
-import java.io.*;
+import com.minigame.demo.view.output.game.GuessingNumberOutputManager;
+import com.minigame.demo.view.output.game.SpeedCodingOutputManager;
+import com.minigame.demo.view.output.game.StoppingNumberOutputManager;
 
 public class AppConfiguration {
     public MainController mainController() {
@@ -48,46 +46,34 @@ public class AppConfiguration {
     }
 
     public GuessingNumberInputManager guessingNumberInputManager() {
-        return new GuessingNumberInputManager(
-                new BufferedReader(new InputStreamReader(System.in)),
-                new BufferedWriter(new OutputStreamWriter(System.out))
-        );
+        return new GuessingNumberInputManager();
     }
 
     public GuessingNumberOutputManager guessingNumberOutputManager() {
-        return new GuessingNumberOutputManager(new BufferedWriter(new OutputStreamWriter(System.out)));
+        return new GuessingNumberOutputManager();
     }
 
     public StoppingNumberInputManager stoppingNumberInputManager() {
-        return new StoppingNumberInputManager(
-                new BufferedReader(new InputStreamReader(System.in)),
-                new BufferedWriter(new OutputStreamWriter(System.out))
-        );
+        return new StoppingNumberInputManager();
     }
 
     public StoppingNumberOutputManager stoppingNumberOutputManager() {
-        return new StoppingNumberOutputManager(new BufferedWriter(new OutputStreamWriter(System.out)));
+        return new StoppingNumberOutputManager();
     }
 
     public SpeedCodingInputManager speedCodingInputManager() {
-        return new SpeedCodingInputManager(
-                new BufferedReader(new InputStreamReader(System.in)),
-                new BufferedWriter(new OutputStreamWriter(System.out))
-        );
+        return new SpeedCodingInputManager();
     }
 
     public SpeedCodingOutputManager speedCodingOutputManager() {
-        return new SpeedCodingOutputManager(new BufferedWriter(new OutputStreamWriter(System.out)));
+        return new SpeedCodingOutputManager();
     }
 
     public InputManager inputManager() {
-        return new InputManager(
-                new BufferedReader(new InputStreamReader(System.in)),
-                new BufferedWriter(new OutputStreamWriter(System.out))
-        );
+        return new InputManager();
     }
 
     public OutputManager outputManager() {
-        return new OutputManager(new BufferedWriter(new OutputStreamWriter(System.out)));
+        return new OutputManager();
     }
 }

@@ -1,4 +1,4 @@
-package com.minigame.demo.view.output;
+package com.minigame.demo.view.output.game;
 
 import com.minigame.demo.enums.SpeedCode;
 

@@ -15,6 +15,9 @@ public class SimpleOutputUtils {
         }
     }
 
+    public static void simplePrintNoLineBreak(String printValue) {
+        System.out.print(printValue);
+    }
     public static void simplePrint(String printValue) {
         System.out.println(printValue);
     }
@@ -22,4 +25,5 @@ public class SimpleOutputUtils {
     public static void simplePrint(String printValue, String color) {
         System.out.println(color + printValue + ANSI_RESET);
     }
+
 }

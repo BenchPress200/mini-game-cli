@@ -3,8 +3,8 @@ package com.minigame.demo.controller;
 import com.minigame.demo.enums.SpeedCode;
 import com.minigame.demo.model.SpeedCodingGame;
 import com.minigame.demo.view.input.InputManager;
-import com.minigame.demo.view.input.SpeedCodingInputManager;
-import com.minigame.demo.view.output.SpeedCodingOutputManager;
+import com.minigame.demo.view.input.game.SpeedCodingInputManager;
+import com.minigame.demo.view.output.game.SpeedCodingOutputManager;
 
 import java.io.IOException;
 

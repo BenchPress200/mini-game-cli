@@ -1,16 +1,12 @@
-package com.minigame.demo.view.input;
-
-import com.minigame.demo.model.GuessNumbers;
-import com.minigame.demo.view.output.GuessingNumberOutputManager;
+package com.minigame.demo.view.input.game;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-public class GuessingNumberInputManager {
+public class StoppingNumberInputManager {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";
@@ -25,12 +21,39 @@ public class GuessingNumberInputManager {
     private static final String YES = "YES";
     private static final String NO = "NO";
 
-    private final BufferedReader bufferedReader;
-    private final BufferedWriter bufferedWriter;
+    private BufferedReader bufferedReader;
+    private BufferedWriter bufferedWriter;
 
-    public GuessingNumberInputManager(BufferedReader bufferedReader, BufferedWriter bufferedWriter) {
+    public StoppingNumberInputManager(BufferedReader bufferedReader, BufferedWriter bufferedWriter) {
         this.bufferedReader = bufferedReader;
         this.bufferedWriter = bufferedWriter;
+    }
+
+    public void readEndSign() throws IOException {
+        bufferedWriter.write(BREAK_LINE);
+        bufferedWriter.write("시간이 녹아내리는 중...🫠");
+        bufferedWriter.write(BREAK_LINE);
+        bufferedWriter.write(BREAK_LINE);
+        bufferedWriter.write(ANSI_GREEN+ "[stop] 입력 시 타이머가 종료됩니다: " + ANSI_RESET);
+        bufferedWriter.flush();
+        String answer = bufferedReader.readLine();
+
+        if (!answer.equals("stop")) {
+            throw new IllegalArgumentException();
+        }
+
+    }
+
+    public void readStartSign() throws IOException {
+        bufferedWriter.write(ANSI_GREEN+ "[start] 입력 시 타이머가 시작됩니다 : " + ANSI_RESET);
+        bufferedWriter.flush();
+        String answer = bufferedReader.readLine();
+
+        if (!answer.equals("start")) {
+            throw new IllegalArgumentException();
+        }
+
+
     }
 
     public boolean readYesOrNo() throws IOException {
@@ -47,15 +70,6 @@ public class GuessingNumberInputManager {
         }
 
         throw new IllegalArgumentException();
-
-    }
-
-    public GuessNumbers readGuessNumber() throws IOException, IllegalArgumentException {
-        bufferedWriter.write(ANSI_GREEN + "0 ~ 9 사이의 정수 세 개를 띄워쓰기로 구분해서 입력해주세요: " + ANSI_RESET);
-        bufferedWriter.flush();
-        GuessNumbers answer = createGuessNumbers(bufferedReader.readLine());// 여기서 리스트로 만드는거 ㄱㄱ 일급컬렉션 ㄱㄱ
-
-        return answer;
     }
 
     public boolean readReStart() throws IOException {
@@ -76,20 +90,4 @@ public class GuessingNumberInputManager {
     }
 
 
-    private GuessNumbers createGuessNumbers(String input) {
-        String regex = "^[0-9] [0-9] [0-9]$";
-
-        if(input.matches(regex)) {
-            StringTokenizer st = new StringTokenizer(input);
-            List<Integer> numbers = new ArrayList<>();
-
-            while(st.hasMoreTokens()) {
-                numbers.add(Integer.parseInt(st.nextToken()));
-            }
-
-            return new GuessNumbers(numbers);
-        }
-
-        throw new IllegalArgumentException();
-    }
 }

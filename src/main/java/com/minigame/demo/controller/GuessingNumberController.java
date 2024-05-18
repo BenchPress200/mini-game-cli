@@ -2,9 +2,9 @@ package com.minigame.demo.controller;
 
 import com.minigame.demo.model.GuessNumberGame;
 import com.minigame.demo.model.GuessNumbers;
-import com.minigame.demo.view.input.GuessingNumberInputManager;
+import com.minigame.demo.view.input.game.GuessingNumberInputManager;
 import com.minigame.demo.view.input.InputManager;
-import com.minigame.demo.view.output.GuessingNumberOutputManager;
+import com.minigame.demo.view.output.game.GuessingNumberOutputManager;
 
 import java.io.IOException;
 

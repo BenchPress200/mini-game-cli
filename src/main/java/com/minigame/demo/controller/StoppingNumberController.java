@@ -2,12 +2,10 @@ package com.minigame.demo.controller;
 
 import com.minigame.demo.model.StoppingNumberGame;
 import com.minigame.demo.view.input.InputManager;
-import com.minigame.demo.view.input.StoppingNumberInputManager;
-import com.minigame.demo.view.output.StoppingNumberOutputManager;
+import com.minigame.demo.view.input.game.StoppingNumberInputManager;
+import com.minigame.demo.view.output.game.StoppingNumberOutputManager;
 
 import java.io.IOException;
-import java.time.Duration;
-import java.time.Instant;
 
 public class StoppingNumberController {
     public static final String ANSI_RESET = "\u001B[0m";
