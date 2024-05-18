@@ -13,7 +13,7 @@ import static com.minigame.demo.constant.PrintMessage.USER_CHOICE_MESSAGE;
 public class InputManager {
     public InputManager() {}
 
-    public GameType readUserChoice() throws IOException {
+    public GameType readUserChoice() throws IOException, NumberFormatException {
         SimpleOutputUtils.breakLine(ONE);
         String userInput = SimpleInputUtils.read(USER_CHOICE_MESSAGE, ANSI_GREEN);
         int input = Integer.parseInt(userInput);

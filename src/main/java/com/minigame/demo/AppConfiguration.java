@@ -5,7 +5,7 @@ import com.minigame.demo.controller.MainController;
 import com.minigame.demo.controller.game.SpeedCodingController;
 import com.minigame.demo.controller.game.StoppingNumberController;
 import com.minigame.demo.service.GameService;
-import com.minigame.demo.service.GuessNumberGame;
+import com.minigame.demo.service.GuessingNumberGame;
 import com.minigame.demo.service.SpeedCodingGame;
 import com.minigame.demo.service.StoppingNumberGame;
 import com.minigame.demo.view.input.InputManager;
@@ -85,7 +85,7 @@ public class AppConfiguration {
     }
 
     public GameService guessNumberGame() {
-        return new GuessNumberGame();
+        return new GuessingNumberGame();
     }
 
     public GameService stoppingNumberGame() {

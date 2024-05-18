@@ -1,5 +1,6 @@
 package com.minigame.demo.controller.game;
 
+import com.minigame.demo.domain.Coin;
 import com.minigame.demo.domain.result.GameResult;
 import com.minigame.demo.service.GameService;
 import com.minigame.demo.utils.SimpleInputUtils;
@@ -11,7 +12,9 @@ import com.minigame.demo.view.output.game.StoppingNumberOutputManager;
 
 import java.io.IOException;
 
+import static com.minigame.demo.constant.ANSIColor.ANSI_GREEN;
 import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
+import static com.minigame.demo.constant.PrintMessage.EXIT_MESSAGE;
 
 public class StoppingNumberController {
     private final GameService gameService;
@@ -38,7 +41,7 @@ public class StoppingNumberController {
             return;
         }
 
-
+        SimpleOutputUtils.printDecreaseCoin();
 
         gameService.start(null);
         continueService();
@@ -67,6 +70,12 @@ public class StoppingNumberController {
 
     private void continueService() throws IOException, InterruptedException {
         try {
+            if (Coin.getCoin() < 50) {
+                SimpleOutputUtils.printNotEnoughCoin();
+                SimpleOutputUtils.print(EXIT_MESSAGE, ANSI_GREEN);
+                System.exit(0);
+            }
+
             String userInput = gameInputManager.readUserInput();
             gameService.start(userInput);
         } catch(IllegalArgumentException e) {

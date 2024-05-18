@@ -15,6 +15,7 @@ import java.io.IOException;
 import static com.minigame.demo.constant.ANSIColor.*;
 import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
 import static com.minigame.demo.constant.MeaningfulNumber.ZERO;
+import static com.minigame.demo.constant.PrintMessage.EXIT_MESSAGE;
 
 
 public class MainController {
@@ -115,7 +116,7 @@ public class MainController {
     private void printSpecialReward() throws InterruptedException {
         if (Coin.getCoin() < 50) {
             SimpleOutputUtils.printNotEnoughCoin();
-            SimpleOutputUtils.print("게임 종료중.....", ANSI_GREEN);
+            SimpleOutputUtils.print(EXIT_MESSAGE, ANSI_GREEN);
             System.exit(0);
         }
 

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.StringTokenizer;
 
-public class GuessNumberGame implements GameService{
+public class GuessingNumberGame implements GameService{
     private ResultNumbers resultNumbers;
     private GameResult gameResult;
 

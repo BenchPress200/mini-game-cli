@@ -58,6 +58,7 @@ public class PrintMessage {
 
 
 
+
     // 입력에서 쓰는 출력 메시지
     public static final String USER_CHOICE_MESSAGE = "원하는 게임의 번호를 입력해주세요: ";
     public static final String READY_MESSAGE = "그럼 준비되셨나요? [y/n]: ";
