@@ -47,7 +47,6 @@ public class OutputManager {
 
     }
 
-
     private void printTextLine() throws IOException {
         bufferedWriter.write("\n" +
                 "   _    _        _                                  _             _    _                         _         _                                     _ \n" +

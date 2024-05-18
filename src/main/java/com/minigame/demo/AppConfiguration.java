@@ -16,7 +16,7 @@ import com.minigame.demo.view.output.StoppingNumberOutputManager;
 import java.io.*;
 
 public class AppConfiguration {
-    public MainController mainController() throws IOException {
+    public MainController mainController() {
         return new MainController(
                 guessingNumberController(),
                 stoppingNumberController(),
@@ -26,21 +26,21 @@ public class AppConfiguration {
         );
     }
 
-    public GuessingNumberController guessingNumberController() throws IOException {
+    public GuessingNumberController guessingNumberController() {
         return new GuessingNumberController(
                 guessingNumberInputManager(),
                 guessingNumberOutputManager()
         );
     }
 
-    public StoppingNumberController stoppingNumberController() throws IOException {
+    public StoppingNumberController stoppingNumberController() {
         return new StoppingNumberController(
                 stoppingNumberInputManager(),
                 stoppingNumberOutputManager()
         );
     }
 
-    public SpeedCodingController speedCodingController() throws IOException {
+    public SpeedCodingController speedCodingController() {
         return new SpeedCodingController(
                 speedCodingInputManager(),
                 speedCodingOutputManager()
