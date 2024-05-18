@@ -1,6 +1,6 @@
 package com.minigame.demo.view.output.game;
 
-import com.minigame.demo.domain.GameResult;
+import com.minigame.demo.domain.result.GameResult;
 
 public interface GameOutputManager {
     void printWelcomeView();

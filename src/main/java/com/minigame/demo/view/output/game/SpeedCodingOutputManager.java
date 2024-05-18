@@ -1,10 +1,10 @@
 package com.minigame.demo.view.output.game;
 
-import com.minigame.demo.domain.GameResult;
+import com.minigame.demo.domain.result.GameResult;
+import com.minigame.demo.domain.result.SpeedCodingGameResult;
 import com.minigame.demo.utils.SimpleOutputUtils;
 
 import static com.minigame.demo.constant.ANSIColor.ANSI_BLUE;
-import static com.minigame.demo.constant.ANSIColor.ANSI_CYAN;
 import static com.minigame.demo.constant.MeaningfulNumber.ONE;
 import static com.minigame.demo.constant.PrintMessage.*;
 
@@ -19,16 +19,18 @@ public class SpeedCodingOutputManager implements GameOutputManager {
 
     @Override
     public void printResult(GameResult gameResult) {
-        SimpleOutputUtils.print("▓ 타이핑 시간: " + gameResult.getStopTime());
+        SpeedCodingGameResult speedCodingGameResult = (SpeedCodingGameResult) gameResult;
 
-        if (gameResult.isPassed()) {
+        SimpleOutputUtils.print("▓ 타이핑 시간: " + speedCodingGameResult.getStopTime());
+
+        if (speedCodingGameResult.isPassed()) {
             SimpleOutputUtils.print("▓ 제한시간 통과: ✅");
 
         } else {
             SimpleOutputUtils.print("▓ 제한시간 통과: ❌");
         }
 
-        if (gameResult.isCorrect()) {
+        if (speedCodingGameResult.isCorrect()) {
             SimpleOutputUtils.print("▓ 코드 일치 여부: ✅");
         } else {
             SimpleOutputUtils.print("▓ 코드 일치 여부: ❌");
@@ -38,7 +40,7 @@ public class SpeedCodingOutputManager implements GameOutputManager {
 
         if (gameResult.isWinner()) {
             SimpleOutputUtils.print(WIN_MESSAGE, ANSI_BLUE);
-            SimpleOutputUtils.printIncreaseCoin(gameResult.getReward());
+            SimpleOutputUtils.printIncreaseCoin(speedCodingGameResult.getReward());
 
             return;
         }

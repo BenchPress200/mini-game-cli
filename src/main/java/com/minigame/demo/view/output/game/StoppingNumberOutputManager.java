@@ -1,6 +1,7 @@
 package com.minigame.demo.view.output.game;
 
-import com.minigame.demo.domain.GameResult;
+import com.minigame.demo.domain.result.GameResult;
+import com.minigame.demo.domain.result.StoppingNumberGameResult;
 import com.minigame.demo.utils.SimpleOutputUtils;
 
 import static com.minigame.demo.constant.ANSIColor.*;
@@ -18,8 +19,10 @@ public class StoppingNumberOutputManager implements GameOutputManager {
 
     @Override
     public void printResult(GameResult gameResult) {
+        StoppingNumberGameResult stoppingNumberGameResult = (StoppingNumberGameResult) gameResult;
+
         SimpleOutputUtils.breakLine(ONE);
-        SimpleOutputUtils.print("▓ 타이머: " + String.valueOf(gameResult.getStopTime()));
+        SimpleOutputUtils.print("▓ 타이머: " + String.valueOf(stoppingNumberGameResult.getStopTime()));
         SimpleOutputUtils.breakLine(ONE);
 
         if (gameResult.isWinner()) {

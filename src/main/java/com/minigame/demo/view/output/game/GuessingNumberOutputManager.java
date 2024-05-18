@@ -1,6 +1,7 @@
 package com.minigame.demo.view.output.game;
 
-import com.minigame.demo.domain.GameResult;
+import com.minigame.demo.domain.result.GameResult;
+import com.minigame.demo.domain.result.GuessingNumberGameResult;
 import com.minigame.demo.domain.ResultNumbers;
 import com.minigame.demo.utils.SimpleOutputUtils;
 
@@ -21,7 +22,8 @@ public class GuessingNumberOutputManager implements GameOutputManager {
     @Override
     public void printResult(GameResult gameResult) throws InterruptedException {
         boolean isWinner = gameResult.isWinner();
-        ResultNumbers resultNumbers = gameResult.getResultNumbers();
+        GuessingNumberGameResult guessingNumberGameResult = (GuessingNumberGameResult) gameResult;
+        ResultNumbers resultNumbers = guessingNumberGameResult.getResultNumbers();
 
         SimpleOutputUtils.printNoLineBreak(BLOCK_MESSAGE);
 

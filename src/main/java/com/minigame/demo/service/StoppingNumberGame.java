@@ -1,6 +1,7 @@
 package com.minigame.demo.service;
 
-import com.minigame.demo.domain.GameResult;
+import com.minigame.demo.domain.result.GameResult;
+import com.minigame.demo.domain.result.StoppingNumberGameResult;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -24,8 +25,7 @@ public class StoppingNumberGame implements GameService {
         double stopTime = Duration.between(startTime, endTime).toNanos() * 0.000000001;
         boolean isWinner = calculateTime(stopTime);
 
-        gameResult = new GameResult(isWinner);
-        gameResult.setStopTime(stopTime);
+        gameResult = new StoppingNumberGameResult(isWinner, null, stopTime);
     }
 
     @Override

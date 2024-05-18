@@ -1,18 +1,14 @@
 package com.minigame.demo.controller.game;
 
-import com.minigame.demo.domain.GameResult;
-import com.minigame.demo.enums.SpeedCode;
+import com.minigame.demo.domain.result.GameResult;
 import com.minigame.demo.service.GameService;
-import com.minigame.demo.service.SpeedCodingGame;
 import com.minigame.demo.utils.SimpleInputUtils;
 import com.minigame.demo.utils.SimpleOutputUtils;
-import com.minigame.demo.view.input.InputManager;
 import com.minigame.demo.view.input.game.SpeedCodingInputManager;
 import com.minigame.demo.view.output.game.SpeedCodingOutputManager;
 
 import java.io.IOException;
 
-import static com.minigame.demo.constant.ANSIColor.*;
 import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
 
 public class SpeedCodingController {

@@ -1,13 +1,12 @@
 package com.minigame.demo.service;
 
-import com.minigame.demo.domain.GameResult;
+import com.minigame.demo.domain.result.GameResult;
+import com.minigame.demo.domain.result.SpeedCodingGameResult;
 import com.minigame.demo.enums.SpeedCode;
 import com.minigame.demo.utils.SimpleOutputUtils;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.List;
-import java.util.Random;
 
 import static com.minigame.demo.constant.MeaningfulNumber.*;
 import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
@@ -63,11 +62,7 @@ public class SpeedCodingGame implements GameService {
             isWinner = false;
         }
 
-        gameResult = new GameResult(isWinner);
-        gameResult.setPassed(isPassed);
-        gameResult.setCorrect(isCorrect);
-        gameResult.setStopTime(getDuration());
-        gameResult.setReward(speedCode.getReward());
+        gameResult = new SpeedCodingGameResult(isWinner, null, getDuration(), isPassed, isCorrect, speedCode.getReward());
     }
 
     @Override

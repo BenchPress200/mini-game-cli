@@ -1,7 +1,8 @@
 package com.minigame.demo.service;
 
-import com.minigame.demo.domain.GameResult;
+import com.minigame.demo.domain.result.GameResult;
 import com.minigame.demo.domain.GuessNumbers;
+import com.minigame.demo.domain.result.GuessingNumberGameResult;
 import com.minigame.demo.domain.ResultNumbers;
 
 import java.util.ArrayList;
@@ -26,8 +27,7 @@ public class GuessNumberGame implements GameService{
         resultNumbers = new ResultNumbers(randomNumbers);
 
         boolean isWinner = compareNumbers(guessNumbers);
-        gameResult = new GameResult(isWinner);
-        gameResult.setResultNumbers(resultNumbers);
+        gameResult = new GuessingNumberGameResult(isWinner, resultNumbers);
     }
 
     @Override
