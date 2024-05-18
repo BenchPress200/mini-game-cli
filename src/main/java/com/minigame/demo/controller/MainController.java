@@ -41,7 +41,7 @@ public class MainController {
         while(true) {
             printGameList();
             GameType gameType = readUserChoice();
-
+            SimpleOutputUtils.clearConsole();
             switch(gameType) {
                 case GAME_EXIT:
                     SimpleOutputUtils.simplePrint(EXIT_MESSAGE, ANSI_GREEN);
@@ -50,20 +50,18 @@ public class MainController {
 
                 case MINI_LOTTO:
                     guessingNumberController.start();
-                    inputManager.clearScreen();
                     break;
 
                 case TIMER:
                     stoppingNumberController.start();
-                    inputManager.clearScreen();
                     break;
 
                 case SPEED_CODING:
                     speedCodingController.start();
-                    inputManager.clearScreen();
                 }
             }
     }
+
 
     private GameType readUserChoice() throws IOException, InterruptedException{
         try {
