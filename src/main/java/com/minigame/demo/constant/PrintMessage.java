@@ -11,6 +11,9 @@ public class PrintMessage {
     public static final String RE_INPUT_MESSAGE = "다시 입력해주세요.";
     public static final String STOPPING_NUMBER_POSSIBLE_STOP_MESSAGE = "[stop] 입력 시 타이머가 종료됩니다 !";
     public static final String BLOCK_MESSAGE = "▓";
+    public static final String TYPING_TIME_MESSAGE = "▓ 타이핑 시간: ";
+    public static final String TIME_LIMIT_PASS_MESSAGE = "▓ 제한시간 통과: ";
+    public static final String CODE_CORRECT_MESSAGE = "▓ 코드 일치 여부: ";
     public static final String SPACE = " ";
     public static final String WELCOME_MESSAGE =
             "   _    _        _                                  _             _    _                         _         _                                     _ \n" +
@@ -52,7 +55,6 @@ public class PrintMessage {
                     "‼️코드의 난이도에 따라서 보상은 차등지급";
     public static final String NEXT_CHANCE_MESSAGE = "다음 기회에... 😥";
     public static final String WIN_MESSAGE = "아무말도 못하는 컴퓨터를 상대로 승리했습니다 !";
-    public static final String REWARD_MESSAGE = "보상으로" + ANSI_CYAN + " [현재 코인 X 3]" + ANSI_BLUE + "(이)가 되었습니다 !";
 
 
 
@@ -63,6 +65,8 @@ public class PrintMessage {
     public static final String GUESSING_NUMBER_CONDITION_MESSAGE = "0 ~ 9 사이의 정수 세 개를 띄워쓰기로 구분해서 입력해주세요: ";
     public static final String STOPPING_NUMBER_CONDITION_MESSAGE = "10초라고 예상되는 타이밍에 [stop] 을 입력해주세요: ";
     public static final String STOPPING_NUMBER_WAIT_MESSAGE = "시간이 녹아내리는 중...🫠";
+
+
 
 
 

@@ -21,19 +21,19 @@ public class SpeedCodingOutputManager implements GameOutputManager {
     public void printResult(GameResult gameResult) {
         SpeedCodingGameResult speedCodingGameResult = (SpeedCodingGameResult) gameResult;
 
-        SimpleOutputUtils.print("▓ 타이핑 시간: " + speedCodingGameResult.getStopTime());
+        SimpleOutputUtils.print(TYPING_TIME_MESSAGE + speedCodingGameResult.getStopTime());
 
         if (speedCodingGameResult.isPassed()) {
-            SimpleOutputUtils.print("▓ 제한시간 통과: ✅");
+            SimpleOutputUtils.print(TIME_LIMIT_PASS_MESSAGE + "✅");
 
         } else {
-            SimpleOutputUtils.print("▓ 제한시간 통과: ❌");
+            SimpleOutputUtils.print(TIME_LIMIT_PASS_MESSAGE + "❌");
         }
 
         if (speedCodingGameResult.isCorrect()) {
-            SimpleOutputUtils.print("▓ 코드 일치 여부: ✅");
+            SimpleOutputUtils.print(CODE_CORRECT_MESSAGE + "✅");
         } else {
-            SimpleOutputUtils.print("▓ 코드 일치 여부: ❌");
+            SimpleOutputUtils.print(CODE_CORRECT_MESSAGE + "❌");
         }
 
         SimpleOutputUtils.breakLine(ONE);
