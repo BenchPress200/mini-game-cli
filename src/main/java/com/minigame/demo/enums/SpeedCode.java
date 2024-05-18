@@ -7,20 +7,20 @@ public enum SpeedCode {
             "System.out.println();\n",
             10,
             1,
-            100
+            500
     ),
     SECOND(
             "public static void main(String[] args) {}\n",
-            10,
+            15,
             2,
-            200
+            600
     ),
     THIRD(
             "BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n" +
                     "BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));\n",
             30,
             3,
-            300
+            800
     ),
     FOURTH(
             "for (int i = 0; i < 10; i++) {\n" +
@@ -28,7 +28,7 @@ public enum SpeedCode {
                     "}\n",
             15,
             4,
-            400
+            800
     ),
     FIFTH(
             "List<Integer> list = new ArrayList<>();\n" +
@@ -38,7 +38,7 @@ public enum SpeedCode {
                     "}\n",
             20,
             4,
-            400
+            1000
     ),
     SIXTH(
         "_start:\n" +
@@ -56,7 +56,7 @@ public enum SpeedCode {
                 "\tcall switch_to_thread1\n",
             60,
             5,
-            1000
+            2000
     ),
     SEVENTH(
             "section .data\n" +
@@ -82,11 +82,11 @@ public enum SpeedCode {
                     "\tint 0x80\n",
             60,
             5,
-            1000
+            2000
     );
 
     private String code;
-    private int limitTime;
+    private double limitTime;
     private int level;
     private int reward;
 
@@ -105,7 +105,7 @@ public enum SpeedCode {
         return code;
     }
 
-    public int getLimitTime() {
+    public double getLimitTime() {
         return limitTime;
     }
 

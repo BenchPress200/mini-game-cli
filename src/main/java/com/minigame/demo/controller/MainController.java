@@ -4,6 +4,7 @@ package com.minigame.demo.controller;
 import com.minigame.demo.controller.game.GuessingNumberController;
 import com.minigame.demo.controller.game.SpeedCodingController;
 import com.minigame.demo.controller.game.StoppingNumberController;
+import com.minigame.demo.domain.Coin;
 import com.minigame.demo.enums.GameType;
 import com.minigame.demo.utils.SimpleOutputUtils;
 import com.minigame.demo.view.input.InputManager;
@@ -11,6 +12,7 @@ import com.minigame.demo.view.output.OutputManager;
 
 import java.io.IOException;
 
+import static com.minigame.demo.constant.ANSIColor.*;
 import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
 import static com.minigame.demo.constant.MeaningfulNumber.ZERO;
 
@@ -42,9 +44,12 @@ public class MainController {
         printWelcomeView();
 
         while(true) {
+            printGameRule();
+            printSpecialReward();
             printGameList();
-            GameType gameType = readUserChoice();
+            printCurrentCoin();
 
+            GameType gameType = readUserChoice();
             SimpleOutputUtils.clearConsole();
 
             switch(gameType) {
@@ -55,14 +60,17 @@ public class MainController {
 
                 case MINI_LOTTO:
                     guessingNumberController.start();
+                    SimpleOutputUtils.clearConsole();
                     break;
 
                 case TIMER:
                     stoppingNumberController.start();
+                    SimpleOutputUtils.clearConsole();
                     break;
 
                 case SPEED_CODING:
                     speedCodingController.start();
+                    SimpleOutputUtils.clearConsole();
                 }
             }
     }
@@ -94,5 +102,26 @@ public class MainController {
 
     private void printGameList() {
         outputManager.printGameList();
+    }
+
+    private void printCurrentCoin() {
+        SimpleOutputUtils.printCurrentCoin();
+    }
+
+    private void printGameRule() {
+        outputManager.printGameRule();
+    }
+
+    private void printSpecialReward() throws InterruptedException {
+        if (Coin.getCoin() < 50) {
+            SimpleOutputUtils.printNotEnoughCoin();
+            SimpleOutputUtils.print("게임 종료중.....", ANSI_GREEN);
+            System.exit(0);
+        }
+
+        if (Coin.getCoin() > 5000) {
+            outputManager.printSpecialReward();
+            System.exit(0);
+        }
     }
 }

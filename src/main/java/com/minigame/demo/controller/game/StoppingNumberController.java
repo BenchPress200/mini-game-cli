@@ -30,6 +30,7 @@ public class StoppingNumberController {
 
     public void start() throws IOException, InterruptedException {
         printWelcomeView();
+        SimpleOutputUtils.printCurrentCoin();
 
         boolean answer = readContinue();
 

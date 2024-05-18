@@ -29,7 +29,7 @@ public class SpeedCodingGame implements GameService {
             speedCode = SpeedCode.getRandomSpeedCode();
 
             SimpleOutputUtils.print("🚀 난이도: " + String.valueOf(speedCode.getLevel()));
-            SimpleOutputUtils.print("⏰ 제한시간: " + String.valueOf(speedCode.getLevel()) + "초");
+            SimpleOutputUtils.print("⏰ 제한시간: " + String.valueOf(speedCode.getLimitTime()) + "초");
             SimpleOutputUtils.print("🪙 보상: " + String.valueOf(speedCode.getReward()) + "코인");
             SimpleOutputUtils.breakLine(ONE);
             SimpleOutputUtils.print("────────────────── Code ──────────────────");

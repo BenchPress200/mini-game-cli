@@ -28,12 +28,15 @@ public class GuessingNumberController {
 
     public void start() throws IOException, InterruptedException {
         printWelcomeView();
+        SimpleOutputUtils.printCurrentCoin();
 
         boolean answer = readContinue();
 
         if (!answer) {
             return;
         }
+
+        SimpleOutputUtils.printDecreaseCoin();
 
         continueService();
         GameResult gameResult = gameService.getResult();

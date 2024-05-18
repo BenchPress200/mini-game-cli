@@ -24,8 +24,7 @@ public class StoppingNumberOutputManager implements GameOutputManager {
 
         if (gameResult.isWinner()) {
             SimpleOutputUtils.print(WIN_MESSAGE, ANSI_BLUE);
-            SimpleOutputUtils.print(WIN_MESSAGE, ANSI_BLUE );
-            SimpleOutputUtils.print("보상으로" + ANSI_CYAN + " [300코인]" + ANSI_BLUE + "이 지급되었습니다 !", ANSI_BLUE);
+            SimpleOutputUtils.printIncreaseCoin(500);
 
             return;
         }

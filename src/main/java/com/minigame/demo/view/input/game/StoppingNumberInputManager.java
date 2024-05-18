@@ -16,7 +16,6 @@ public class StoppingNumberInputManager implements GameInputManager {
 
     @Override
     public String readUserInput() throws IOException {
-        SimpleOutputUtils.breakLine(ONE);
         SimpleOutputUtils.print(STOPPING_NUMBER_WAIT_MESSAGE);
         SimpleOutputUtils.breakLine(ONE);
         String userInput = SimpleInputUtils.read(STOPPING_NUMBER_CONDITION_MESSAGE, ANSI_GREEN);

@@ -16,7 +16,6 @@ public class GuessingNumberOutputManager implements GameOutputManager {
     @Override
     public void printWelcomeView() {
         SimpleOutputUtils.print(GUESSING_NUMBER_WELCOME_MESSAGE);
-        SimpleOutputUtils.breakLine(ONE);
     }
 
     @Override
@@ -49,7 +48,7 @@ public class GuessingNumberOutputManager implements GameOutputManager {
         }
 
         SimpleOutputUtils.print(WIN_MESSAGE, ANSI_BLUE);
-        SimpleOutputUtils.print(REWARD_MESSAGE, ANSI_BLUE);
+        SimpleOutputUtils.printIncreaseCoin(0);
     }
 
     @Override

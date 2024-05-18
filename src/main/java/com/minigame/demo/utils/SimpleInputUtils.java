@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import static com.minigame.demo.constant.ANSIColor.ANSI_GREEN;
+import static com.minigame.demo.constant.MeaningfulNumber.ONE;
 import static com.minigame.demo.constant.PrintMessage.READY_MESSAGE;
 import static com.minigame.demo.constant.PrintMessage.RETRY_MESSAGE;
 
@@ -13,9 +14,11 @@ public class SimpleInputUtils {
     private static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
     public static boolean readContinue() throws IOException {
+        SimpleOutputUtils.breakLine(ONE);
         SimpleOutputUtils.printNoLineBreak(READY_MESSAGE, ANSI_GREEN);
 
         String answer = bufferedReader.readLine();
+        SimpleOutputUtils.breakLine(ONE);
 
         if (answer.equals("y") || answer.equals("Y")) {
             return true;
@@ -29,7 +32,9 @@ public class SimpleInputUtils {
     }
 
     public static boolean readReStart() throws IOException {
+        SimpleOutputUtils.breakLine(ONE);
         String answer = SimpleInputUtils.read(RETRY_MESSAGE, ANSI_GREEN);
+        SimpleOutputUtils.clearConsole();
 
         if (answer.equals("y") || answer.equals("Y")) {
             return true;

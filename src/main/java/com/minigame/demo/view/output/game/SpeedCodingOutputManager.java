@@ -38,13 +38,12 @@ public class SpeedCodingOutputManager implements GameOutputManager {
 
         if (gameResult.isWinner()) {
             SimpleOutputUtils.print(WIN_MESSAGE, ANSI_BLUE);
-            SimpleOutputUtils.print("보상으로" + ANSI_CYAN + " [" + gameResult.getReward() + "]" + ANSI_BLUE + "이 지급되었습니다 !", ANSI_BLUE);
+            SimpleOutputUtils.printIncreaseCoin(gameResult.getReward());
 
             return;
         }
 
         SimpleOutputUtils.print(NEXT_CHANCE_MESSAGE, ANSI_BLUE);
-        SimpleOutputUtils.breakLine(ONE);
     }
 
     @Override

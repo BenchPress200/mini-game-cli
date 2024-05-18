@@ -1,9 +1,9 @@
 package com.minigame.demo.utils;
 
-import static com.minigame.demo.constant.ANSIColor.ANSI_RED;
-import static com.minigame.demo.constant.ANSIColor.ANSI_RESET;
-import static com.minigame.demo.constant.MeaningfulNumber.CONSOLE_END_INDEX;
-import static com.minigame.demo.constant.MeaningfulNumber.ZERO;
+import com.minigame.demo.domain.Coin;
+
+import static com.minigame.demo.constant.ANSIColor.*;
+import static com.minigame.demo.constant.MeaningfulNumber.*;
 import static com.minigame.demo.constant.PrintMessage.*;
 
 public class SimpleOutputUtils {
@@ -47,5 +47,26 @@ public class SimpleOutputUtils {
 
     public static void clearConsole() { // 컨트롤러에서만 사용
         breakLine(100);
+    }
+
+    public static void printNotEnoughCoin() {
+        SimpleOutputUtils.print("코인이 부족하여 더 이상 게임을 진행할 수 없습니다 😡", ANSI_RED);
+    }
+
+    public static void printCurrentCoin() {
+        SimpleOutputUtils.print("[현재 COIN: " + String.valueOf(Coin.getCoin()) + "]", ANSI_CYAN);
+    }
+
+    public static void printDecreaseCoin() {
+        Coin.decreaseCoin(50);
+        SimpleOutputUtils.print("50코인이 소모되었습니다 !", ANSI_CYAN);
+        SimpleOutputUtils.print("[현재 COIN: " + String.valueOf(Coin.getCoin()) + "]", ANSI_CYAN);
+        SimpleOutputUtils.breakLine(ONE);
+    }
+
+    public static void printIncreaseCoin(int reward) {
+        Coin.increaseCoin(reward);
+        SimpleOutputUtils.print(String.valueOf(reward) + "코인이 추가되었습니다 !", ANSI_CYAN);
+        SimpleOutputUtils.print("[현재 COIN: " + String.valueOf(Coin.getCoin()) + "]", ANSI_CYAN);
     }
 }
