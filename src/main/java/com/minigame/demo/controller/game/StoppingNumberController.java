@@ -4,7 +4,9 @@ import com.minigame.demo.domain.result.GameResult;
 import com.minigame.demo.service.GameService;
 import com.minigame.demo.utils.SimpleInputUtils;
 import com.minigame.demo.utils.SimpleOutputUtils;
+import com.minigame.demo.view.input.game.GameInputManager;
 import com.minigame.demo.view.input.game.StoppingNumberInputManager;
+import com.minigame.demo.view.output.game.GameOutputManager;
 import com.minigame.demo.view.output.game.StoppingNumberOutputManager;
 
 import java.io.IOException;
@@ -13,17 +15,17 @@ import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
 
 public class StoppingNumberController {
     private final GameService gameService;
-    private final StoppingNumberInputManager stoppingNumberInputManager;
-    private final StoppingNumberOutputManager stoppingNumberOutputManager;
+    private final GameInputManager gameInputManager;
+    private final GameOutputManager gameOutputManager;
 
     public StoppingNumberController(
             GameService gameService,
-            StoppingNumberInputManager stoppingNumberInputManager,
-            StoppingNumberOutputManager stoppingNumberOutputManager
+            GameInputManager gameInputManager,
+            GameOutputManager gameOutputManager
     ) {
         this.gameService = gameService;
-        this.stoppingNumberInputManager = stoppingNumberInputManager;
-        this.stoppingNumberOutputManager = stoppingNumberOutputManager;
+        this.gameInputManager = gameInputManager;
+        this.gameOutputManager = gameOutputManager;
     }
 
     public void start() throws IOException, InterruptedException {
@@ -41,7 +43,7 @@ public class StoppingNumberController {
         gameService.start(null);
         continueService();
         GameResult gameResult = gameService.getResult();
-        stoppingNumberOutputManager.printResult(gameResult);
+        gameOutputManager.printResult(gameResult);
 
         if (readReStart()) {
             start();
@@ -49,7 +51,7 @@ public class StoppingNumberController {
     }
 
     private void printWelcomeView() {
-        stoppingNumberOutputManager.printWelcomeView();
+        gameOutputManager.printWelcomeView();
     }
 
     private boolean readContinue() throws IOException, InterruptedException {
@@ -65,10 +67,10 @@ public class StoppingNumberController {
 
     private void continueService() throws IOException, InterruptedException {
         try {
-            String userInput = stoppingNumberInputManager.readUserInput();
+            String userInput = gameInputManager.readUserInput();
             gameService.start(userInput);
         } catch(IllegalArgumentException e) {
-            stoppingNumberOutputManager.printReInputMessage();
+            gameOutputManager.printReInputMessage();
             Thread.sleep(ONE_SECOND);
 
             continueService();

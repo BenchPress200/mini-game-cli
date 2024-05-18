@@ -4,8 +4,8 @@ import com.minigame.demo.domain.result.GameResult;
 import com.minigame.demo.service.GameService;
 import com.minigame.demo.utils.SimpleInputUtils;
 import com.minigame.demo.utils.SimpleOutputUtils;
-import com.minigame.demo.view.input.game.GuessingNumberInputManager;
-import com.minigame.demo.view.output.game.GuessingNumberOutputManager;
+import com.minigame.demo.view.input.game.GameInputManager;
+import com.minigame.demo.view.output.game.GameOutputManager;
 
 import java.io.IOException;
 
@@ -13,17 +13,17 @@ import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
 
 public class GuessingNumberController {
     private final GameService gameService;
-    private final GuessingNumberInputManager guessingNumberInputManager;
-    private final GuessingNumberOutputManager guessingNumberOutputManager;
+    private final GameInputManager gameInputManager;
+    private final GameOutputManager gameOutputManager;
 
     public GuessingNumberController(
             GameService gameService,
-            GuessingNumberInputManager guessingNumberInputManager,
-            GuessingNumberOutputManager guessingNumberOutputManager
+            GameInputManager gameInputManager,
+            GameOutputManager gameOutputManager
     ) {
         this.gameService = gameService;
-        this.guessingNumberInputManager = guessingNumberInputManager;
-        this.guessingNumberOutputManager = guessingNumberOutputManager;
+        this.gameInputManager = gameInputManager;
+        this.gameOutputManager = gameOutputManager;
     }
 
     public void start() throws IOException, InterruptedException {
@@ -40,7 +40,7 @@ public class GuessingNumberController {
 
         continueService();
         GameResult gameResult = gameService.getResult();
-        guessingNumberOutputManager.printResult(gameResult);
+        gameOutputManager.printResult(gameResult);
 
 
 
@@ -51,7 +51,7 @@ public class GuessingNumberController {
     }
 
     private void printWelcomeView() {
-        guessingNumberOutputManager.printWelcomeView();
+        gameOutputManager.printWelcomeView();
     }
 
     private boolean readReStart() throws IOException, InterruptedException {
@@ -78,10 +78,10 @@ public class GuessingNumberController {
 
     private void continueService() throws IOException, InterruptedException{
         try {
-            String userInput = guessingNumberInputManager.readUserInput();
+            String userInput = gameInputManager.readUserInput();
             gameService.start(userInput);
         } catch(IllegalArgumentException e) {
-            guessingNumberOutputManager.printReInputMessage();
+            gameOutputManager.printReInputMessage();
             Thread.sleep(ONE_SECOND);
 
             continueService();

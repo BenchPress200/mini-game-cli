@@ -4,8 +4,8 @@ import com.minigame.demo.domain.result.GameResult;
 import com.minigame.demo.service.GameService;
 import com.minigame.demo.utils.SimpleInputUtils;
 import com.minigame.demo.utils.SimpleOutputUtils;
-import com.minigame.demo.view.input.game.SpeedCodingInputManager;
-import com.minigame.demo.view.output.game.SpeedCodingOutputManager;
+import com.minigame.demo.view.input.game.GameInputManager;
+import com.minigame.demo.view.output.game.GameOutputManager;
 
 import java.io.IOException;
 
@@ -13,17 +13,17 @@ import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
 
 public class SpeedCodingController {
     private final GameService gameService;
-    private final SpeedCodingInputManager speedCodingInputManager;
-    private final SpeedCodingOutputManager speedCodingOutputManager;
+    private final GameInputManager gameInputManager;
+    private final GameOutputManager gameOutputManager;
 
     public SpeedCodingController(
             GameService gameService,
-            SpeedCodingInputManager speedCodingInputManager,
-            SpeedCodingOutputManager speedCodingOutputManager
+            GameInputManager gameInputManager,
+            GameOutputManager gameOutputManager
     ) {
         this.gameService = gameService;
-        this.speedCodingInputManager = speedCodingInputManager;
-        this.speedCodingOutputManager = speedCodingOutputManager;
+        this.gameInputManager = gameInputManager;
+        this.gameOutputManager = gameOutputManager;
     }
 
     public void start() throws IOException, InterruptedException {
@@ -39,20 +39,16 @@ public class SpeedCodingController {
         gameService.start(null); // 시간 측정 시작
         continueService();
         GameResult gameResult = gameService.getResult();
-        speedCodingOutputManager.printResult(gameResult);
-
-
-
-
-
+        gameOutputManager.printResult(gameResult);
 
         if (readReStart()) {
             start();
         }
     }
 
+
     private void printWelcomeView() {
-        speedCodingOutputManager.printWelcomeView();
+        gameOutputManager.printWelcomeView();
     }
 
     private boolean readContinue() throws IOException, InterruptedException {
@@ -68,17 +64,15 @@ public class SpeedCodingController {
 
     private void continueService() throws IOException, InterruptedException {
         try {
-            String userInput = speedCodingInputManager.readUserInput();
+            String userInput = gameInputManager.readUserInput();
             gameService.start(userInput);
         } catch(IllegalArgumentException e) {
-            speedCodingOutputManager.printReInputMessage();
+            gameOutputManager.printReInputMessage();
             Thread.sleep(ONE_SECOND);
 
             continueService();
         }
     }
-
-
 
     private boolean readReStart() throws IOException, InterruptedException {
         try {

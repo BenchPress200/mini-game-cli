@@ -1,6 +1,5 @@
 package com.minigame.demo.view.output;
 
-import com.minigame.demo.domain.Coin;
 import com.minigame.demo.utils.SimpleOutputUtils;
 
 import static com.minigame.demo.constant.ANSIColor.*;
