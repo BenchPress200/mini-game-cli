@@ -14,8 +14,6 @@ public class StoppingNumberGame implements GameService {
 
     @Override
     public void start(String userInput) {
-        // 여기서 유저의 시간측정시작하고 유저의 스탑입력을 기다렸다가 스탑되면 결과담기
-        // 이줄에 텍스트랑 stop안내
         if (userInput == null) {
             startTime = Instant.now();
 

@@ -24,7 +24,7 @@ public class GuessingNumberOutputManager implements GameOutputManager {
         boolean isWinner = gameResult.isWinner();
         ResultNumbers resultNumbers = gameResult.getResultNumbers();
 
-        SimpleOutputUtils.print(BLOCK_MESSAGE);
+        SimpleOutputUtils.printNoLineBreak(BLOCK_MESSAGE);
 
         Random random = new Random();
 

@@ -37,17 +37,16 @@ public class StoppingNumberController {
             return;
         }
 
+
+
         gameService.start(null);
         continueService();
         GameResult gameResult = gameService.getResult();
         stoppingNumberOutputManager.printResult(gameResult);
 
-
-
         if (readReStart()) {
             start();
         }
-
     }
 
     private void printWelcomeView() {

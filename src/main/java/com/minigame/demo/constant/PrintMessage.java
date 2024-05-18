@@ -52,8 +52,10 @@ public class PrintMessage {
 
 
     // 입력에서 쓰는 출력 메시지
+    public static final String USER_CHOICE_MESSAGE = "원하는 게임의 번호를 입력해주세요: ";
     public static final String READY_MESSAGE = "그럼 준비되셨나요? [y/n]: ";
     public static final String RETRY_MESSAGE = "재도전하시겠습니까? [y/n]: ";
     public static final String GUESSING_NUMBER_CONDITION_MESSAGE = "0 ~ 9 사이의 정수 세 개를 띄워쓰기로 구분해서 입력해주세요: ";
     public static final String STOPPING_NUMBER_CONDITION_MESSAGE = "10초라고 예상되는 타이밍에 [stop] 을 입력해주세요 !";
+    public static final String STOPPING_NUMBER_WAIT_MESSAGE = "시간이 녹아내리는 중...🫠";
 }

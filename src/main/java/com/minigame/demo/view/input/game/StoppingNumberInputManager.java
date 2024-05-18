@@ -12,19 +12,13 @@ import static com.minigame.demo.constant.MeaningfulNumber.*;
 import static com.minigame.demo.constant.PrintMessage.*;
 
 public class StoppingNumberInputManager implements GameInputManager {
-    private BufferedReader bufferedReader;
-    private BufferedWriter bufferedWriter;
-
-    public StoppingNumberInputManager(BufferedReader bufferedReader, BufferedWriter bufferedWriter) {
-        this.bufferedReader = bufferedReader;
-        this.bufferedWriter = bufferedWriter;
-    }
+    public StoppingNumberInputManager() {}
 
     @Override
     public String readUserInput() throws IOException {
         SimpleOutputUtils.breakLine(ONE);
-        bufferedWriter.write("시간이 녹아내리는 중...🫠");
-        SimpleOutputUtils.breakLine(TWO);
+        SimpleOutputUtils.print(STOPPING_NUMBER_WAIT_MESSAGE);
+        SimpleOutputUtils.breakLine(ONE);
         String userInput = SimpleInputUtils.read(STOPPING_NUMBER_CONDITION_MESSAGE, ANSI_GREEN);
 
         if (!userInput.equals("stop")) {
@@ -33,26 +27,4 @@ public class StoppingNumberInputManager implements GameInputManager {
 
         return userInput;
     }
-
-
-
-
-    public boolean readReStart() throws IOException {
-        bufferedWriter.write(ANSI_GREEN + "재도전하시겠습니까? [y/n]: " + ANSI_RESET);
-        bufferedWriter.flush();
-
-        String answer = bufferedReader.readLine();
-
-        if (answer.equals("y") || answer.equals("Y")) {
-            return true;
-        }
-
-        if (answer.equals("n") || answer.equals("N")) {
-            return false;
-        }
-
-        throw new IllegalArgumentException();
-    }
-
-
 }

@@ -48,4 +48,10 @@ public class SimpleInputUtils {
 
         return userInput;
     }
+
+    public static String read() throws IOException {
+        String userInput = bufferedReader.readLine();
+
+        return userInput;
+    }
 }

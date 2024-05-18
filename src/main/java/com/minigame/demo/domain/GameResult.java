@@ -6,6 +6,7 @@ public class GameResult {
     private double stopTime;
     private boolean isPassed;
     private boolean isCorrect;
+    private int reward;
 
     public GameResult(boolean isWinner) {
         this.isWinner = isWinner;
@@ -45,6 +46,14 @@ public class GameResult {
 
     public void setCorrect(boolean correct) {
         isCorrect = correct;
+    }
+
+    public void setReward(int reward) {
+        this.reward = reward;
+    }
+
+    public int getReward() {
+        return reward;
     }
 
 

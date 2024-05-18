@@ -1,5 +1,7 @@
 package com.minigame.demo.enums;
 
+import java.util.Random;
+
 public enum SpeedCode {
     FIRST(
             "System.out.println();\n",
@@ -113,5 +115,13 @@ public enum SpeedCode {
 
     public int getReward() {
         return reward;
+    }
+
+    public static SpeedCode getRandomSpeedCode() {
+        Random random = new Random();
+        SpeedCode[] SpeedCodes = SpeedCode.values();
+        int randomNumber = random.nextInt(SpeedCodes.length);
+
+        return SpeedCodes[randomNumber];
     }
 }
