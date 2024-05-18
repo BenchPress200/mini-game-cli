@@ -45,9 +45,6 @@ public class GuessingNumberController {
         GameResult gameResult = gameService.getResult();
         gameOutputManager.printResult(gameResult);
 
-
-
-
         if (readReStart()) {
             start();
         }

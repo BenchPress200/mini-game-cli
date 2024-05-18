@@ -11,4 +11,16 @@ public class ResultNumbers extends Numbers {
     public List<Integer> getNumbers() {
         return super.numbers;
     }
+
+    public boolean compareNumbers(GuessNumbers guessNumbers) {
+        List<Integer> userNumbers = guessNumbers.getNumbers();
+
+        for (int i = 0; i < numbers.size(); i++) {
+            if (numbers.get(i) != userNumbers.get(i)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

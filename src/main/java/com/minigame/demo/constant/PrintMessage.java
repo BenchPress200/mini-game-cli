@@ -1,8 +1,5 @@
 package com.minigame.demo.constant;
 
-import static com.minigame.demo.constant.ANSIColor.ANSI_BLUE;
-import static com.minigame.demo.constant.ANSIColor.ANSI_CYAN;
-
 public class PrintMessage {
     public static final String EXIT_MESSAGE = "게임이 종료됩니다...";
     public static final String GAME_CHOICE_POSSIBLE_INPUT_MESSAGE = "공백없이 오직 1, 2, 3 또는 0만 입력가능합니다 !";

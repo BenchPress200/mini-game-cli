@@ -26,7 +26,7 @@ public class GuessingNumberGame implements GameService{
 
         resultNumbers = new ResultNumbers(randomNumbers);
 
-        boolean isWinner = compareNumbers(guessNumbers);
+        boolean isWinner = resultNumbers.compareNumbers(guessNumbers);
         gameResult = new GuessingNumberGameResult(isWinner, resultNumbers);
     }
 
@@ -51,18 +51,5 @@ public class GuessingNumberGame implements GameService{
         }
 
         throw new IllegalArgumentException();
-    }
-
-    public boolean compareNumbers(GuessNumbers guessNumbers) {
-        List<Integer> computerNumbers = resultNumbers.getNumbers();
-        List<Integer> userNumbers = guessNumbers.getNumbers();
-
-        for (int i = 0; i < computerNumbers.size(); i++) {
-            if (computerNumbers.get(i) != userNumbers.get(i)) {
-                return false;
-            }
-        }
-
-        return true;
     }
 }
