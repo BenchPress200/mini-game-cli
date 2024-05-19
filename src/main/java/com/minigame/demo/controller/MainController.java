@@ -1,9 +1,7 @@
 package com.minigame.demo.controller;
 
 
-import com.minigame.demo.controller.game.GuessingNumberController;
-import com.minigame.demo.controller.game.SpeedCodingController;
-import com.minigame.demo.controller.game.StoppingNumberController;
+import com.minigame.demo.controller.game.GameController;
 import com.minigame.demo.domain.Coin;
 import com.minigame.demo.enums.GameType;
 import com.minigame.demo.utils.SimpleOutputUtils;
@@ -12,22 +10,22 @@ import com.minigame.demo.view.output.OutputManager;
 
 import java.io.IOException;
 
-import static com.minigame.demo.constant.ANSIColor.*;
+import static com.minigame.demo.constant.ANSIColor.ANSI_GREEN;
 import static com.minigame.demo.constant.MeaningfulNumber.*;
 import static com.minigame.demo.constant.Message.EXIT_MESSAGE;
 
 
 public class MainController {
-    private final GuessingNumberController guessingNumberController;
-    private final StoppingNumberController stoppingNumberController;
-    private final SpeedCodingController speedCodingController;
+    private final GameController guessingNumberController;
+    private final GameController stoppingNumberController;
+    private final GameController speedCodingController;
 
     private final InputManager inputManager;
     private final OutputManager outputManager;
 
-    public MainController(GuessingNumberController guessingNumberController,
-                          StoppingNumberController stoppingNumberController,
-                          SpeedCodingController speedCodingController,
+    public MainController(GameController guessingNumberController,
+                          GameController stoppingNumberController,
+                          GameController speedCodingController,
                           InputManager inputManager,
                           OutputManager outputManager) {
 
@@ -112,7 +110,7 @@ public class MainController {
         outputManager.printGameRule();
     }
 
-    private void printSpecialReward() throws InterruptedException {
+    private void printSpecialReward() {
         if (Coin.getCoin() < MIN_COIN) {
             SimpleOutputUtils.printNotEnoughCoin();
             SimpleOutputUtils.print(EXIT_MESSAGE, ANSI_GREEN);

@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
 
-public class SpeedCodingController {
+public class SpeedCodingController implements GameController {
     private final GameService gameService;
     private final GameInputManager gameInputManager;
     private final GameOutputManager gameOutputManager;

@@ -2,21 +2,17 @@ package com.minigame.demo.domain;
 
 import java.util.List;
 
-public class ResultNumbers extends Numbers {
-    public ResultNumbers(List<Integer> resultNumbers) {
-        super(resultNumbers);
-
-    }
-
-    public List<Integer> getNumbers() {
-        return numbers;
+public class ResultNumbers extends GuessNumbers {
+    public ResultNumbers(List<Integer> numbers) {
+        super(numbers);
     }
 
     public boolean compareNumbers(GuessNumbers guessNumbers) {
         List<Integer> userNumbers = guessNumbers.getNumbers();
+        List<Integer> computerNumbers = getNumbers();
 
-        for (int i = 0; i < numbers.size(); i++) {
-            if (numbers.get(i) != userNumbers.get(i)) {
+        for (int i = 0; i < computerNumbers.size(); i++) {
+            if (computerNumbers.get(i) != userNumbers.get(i)) {
                 return false;
             }
         }

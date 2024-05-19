@@ -1,5 +1,6 @@
 package com.minigame.demo;
 
+import com.minigame.demo.controller.game.GameController;
 import com.minigame.demo.controller.game.GuessingNumberController;
 import com.minigame.demo.controller.MainController;
 import com.minigame.demo.controller.game.SpeedCodingController;
@@ -30,7 +31,7 @@ public class AppConfiguration {
         );
     }
 
-    public GuessingNumberController guessingNumberController() {
+    public GameController guessingNumberController() {
         return new GuessingNumberController(
                 guessNumberGame(),
                 guessingNumberInputManager(),
@@ -38,7 +39,7 @@ public class AppConfiguration {
         );
     }
 
-    public StoppingNumberController stoppingNumberController() {
+    public GameController stoppingNumberController() {
         return new StoppingNumberController(
                 stoppingNumberGame(),
                 stoppingNumberInputManager(),
@@ -46,7 +47,7 @@ public class AppConfiguration {
         );
     }
 
-    public SpeedCodingController speedCodingController() {
+    public GameController speedCodingController() {
         return new SpeedCodingController(
                 speedCodingGame(),
                 speedCodingInputManager(),

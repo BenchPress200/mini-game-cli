@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static com.minigame.demo.constant.MeaningfulNumber.*;
 
-public class GuessingNumberController {
+public class GuessingNumberController implements GameController {
     private final GameService gameService;
     private final GameInputManager gameInputManager;
     private final GameOutputManager gameOutputManager;
@@ -56,17 +56,6 @@ public class GuessingNumberController {
         gameOutputManager.printWelcomeView();
     }
 
-    private boolean readReStart() throws IOException, InterruptedException {
-        try {
-            return SimpleInputUtils.readReStart();
-        } catch (IllegalArgumentException e) {
-            SimpleOutputUtils.printYesOrNo();
-            Thread.sleep(ONE_SECOND);
-
-            return readReStart();
-        }
-    }
-
     private boolean readContinue() throws IOException, InterruptedException {
         try {
             return SimpleInputUtils.readContinue();
@@ -88,6 +77,17 @@ public class GuessingNumberController {
             Thread.sleep(ONE_SECOND);
 
             continueService();
+        }
+    }
+
+    private boolean readReStart() throws IOException, InterruptedException {
+        try {
+            return SimpleInputUtils.readReStart();
+        } catch (IllegalArgumentException e) {
+            SimpleOutputUtils.printYesOrNo();
+            Thread.sleep(ONE_SECOND);
+
+            return readReStart();
         }
     }
 }

@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
 
-public class StoppingNumberController {
+public class StoppingNumberController implements GameController {
     private final GameService gameService;
     private final GameInputManager gameInputManager;
     private final GameOutputManager gameOutputManager;
@@ -27,6 +27,7 @@ public class StoppingNumberController {
         this.gameOutputManager = gameOutputManager;
     }
 
+    @Override
     public void start() throws IOException, InterruptedException {
         printWelcomeView();
         SimpleOutputUtils.printCurrentCoin();
