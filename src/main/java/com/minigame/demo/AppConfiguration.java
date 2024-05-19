@@ -9,10 +9,12 @@ import com.minigame.demo.service.GuessingNumberGame;
 import com.minigame.demo.service.SpeedCodingGame;
 import com.minigame.demo.service.StoppingNumberGame;
 import com.minigame.demo.view.input.InputManager;
+import com.minigame.demo.view.input.game.GameInputManager;
 import com.minigame.demo.view.input.game.GuessingNumberInputManager;
 import com.minigame.demo.view.input.game.SpeedCodingInputManager;
 import com.minigame.demo.view.input.game.StoppingNumberInputManager;
 import com.minigame.demo.view.output.OutputManager;
+import com.minigame.demo.view.output.game.GameOutputManager;
 import com.minigame.demo.view.output.game.GuessingNumberOutputManager;
 import com.minigame.demo.view.output.game.SpeedCodingOutputManager;
 import com.minigame.demo.view.output.game.StoppingNumberOutputManager;
@@ -52,27 +54,27 @@ public class AppConfiguration {
         );
     }
 
-    public GuessingNumberInputManager guessingNumberInputManager() {
+    public GameInputManager guessingNumberInputManager() {
         return new GuessingNumberInputManager();
     }
 
-    public GuessingNumberOutputManager guessingNumberOutputManager() {
+    public GameOutputManager guessingNumberOutputManager() {
         return new GuessingNumberOutputManager();
     }
 
-    public StoppingNumberInputManager stoppingNumberInputManager() {
+    public GameInputManager stoppingNumberInputManager() {
         return new StoppingNumberInputManager();
     }
 
-    public StoppingNumberOutputManager stoppingNumberOutputManager() {
+    public GameOutputManager stoppingNumberOutputManager() {
         return new StoppingNumberOutputManager();
     }
 
-    public SpeedCodingInputManager speedCodingInputManager() {
+    public GameInputManager speedCodingInputManager() {
         return new SpeedCodingInputManager();
     }
 
-    public SpeedCodingOutputManager speedCodingOutputManager() {
+    public GameOutputManager speedCodingOutputManager() {
         return new SpeedCodingOutputManager();
     }
 

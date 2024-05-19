@@ -1,7 +1,5 @@
 package com.minigame.demo.domain.result;
 
-import com.minigame.demo.domain.ResultNumbers;
-
 public class SpeedCodingGameResult extends StoppingNumberGameResult {
     private boolean isPassed;
     private boolean isCorrect;
@@ -9,13 +7,12 @@ public class SpeedCodingGameResult extends StoppingNumberGameResult {
 
     public SpeedCodingGameResult(
             boolean isWinner,
-            ResultNumbers resultNumbers,
             double stopTime,
             boolean isPassed,
             boolean isCorrect,
             int reward
     ) {
-        super(isWinner, resultNumbers, stopTime);
+        super(isWinner, stopTime);
         this.isPassed = isPassed;
         this.isCorrect = isCorrect;
         this.reward = reward;
