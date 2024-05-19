@@ -1,4 +1,4 @@
-package com.minigame.demo.controller.game;
+package com.minigame.demo.controller;
 
 import java.io.IOException;
 

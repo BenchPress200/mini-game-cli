@@ -1,6 +1,6 @@
 package com.minigame.demo;
 
-import com.minigame.demo.controller.game.GameController;
+import com.minigame.demo.controller.GameController;
 import com.minigame.demo.controller.game.GuessingNumberController;
 import com.minigame.demo.controller.MainController;
 import com.minigame.demo.controller.game.SpeedCodingController;

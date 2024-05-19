@@ -1,7 +1,6 @@
 package com.minigame.demo.controller;
 
 
-import com.minigame.demo.controller.game.GameController;
 import com.minigame.demo.domain.Coin;
 import com.minigame.demo.enums.GameType;
 import com.minigame.demo.utils.SimpleOutputUtils;
@@ -15,7 +14,7 @@ import static com.minigame.demo.constant.MeaningfulNumber.*;
 import static com.minigame.demo.constant.Message.EXIT_MESSAGE;
 
 
-public class MainController {
+public class MainController implements GameController {
     private final GameController guessingNumberController;
     private final GameController stoppingNumberController;
     private final GameController speedCodingController;
@@ -37,7 +36,7 @@ public class MainController {
         this.outputManager = outputManager;
     }
 
-
+    @Override
     public void start() throws IOException, InterruptedException {
         printWelcomeView();
 

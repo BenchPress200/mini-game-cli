@@ -1,5 +1,6 @@
 package com.minigame.demo.controller.game;
 
+import com.minigame.demo.controller.GameController;
 import com.minigame.demo.domain.Coin;
 import com.minigame.demo.domain.result.GameResult;
 import com.minigame.demo.service.GameService;
