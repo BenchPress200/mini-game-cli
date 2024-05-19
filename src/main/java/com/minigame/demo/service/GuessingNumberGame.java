@@ -37,19 +37,13 @@ public class GuessingNumberGame implements GameService{
 
 
     private GuessNumbers createGuessNumbers(String input) {
-        String regex = "^[0-9] [0-9] [0-9]$";
+        StringTokenizer st = new StringTokenizer(input);
+        List<Integer> numbers = new ArrayList<>();
 
-        if(input.matches(regex)) {
-            StringTokenizer st = new StringTokenizer(input);
-            List<Integer> numbers = new ArrayList<>();
-
-            while(st.hasMoreTokens()) {
-                numbers.add(Integer.parseInt(st.nextToken()));
-            }
-
-            return new GuessNumbers(numbers);
+        while(st.hasMoreTokens()) {
+            numbers.add(Integer.parseInt(st.nextToken()));
         }
 
-        throw new IllegalArgumentException();
+        return new GuessNumbers(numbers);
     }
 }

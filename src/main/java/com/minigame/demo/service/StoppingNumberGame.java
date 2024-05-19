@@ -25,7 +25,7 @@ public class StoppingNumberGame implements GameService {
         double stopTime = Duration.between(startTime, endTime).toNanos() * 0.000000001;
         boolean isWinner = calculateTime(stopTime);
 
-        gameResult = new StoppingNumberGameResult(isWinner, null, stopTime);
+        gameResult = new StoppingNumberGameResult(isWinner, stopTime);
     }
 
     @Override

@@ -8,6 +8,6 @@ public class GuessNumbers extends Numbers {
     }
 
     public List<Integer> getNumbers() {
-        return super.numbers;
+        return numbers;
     }
 }

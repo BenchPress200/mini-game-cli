@@ -1,12 +1,10 @@
 package com.minigame.demo.domain.result;
 
-import com.minigame.demo.domain.ResultNumbers;
-
-public class StoppingNumberGameResult extends GuessingNumberGameResult {
+public class StoppingNumberGameResult extends GameResult {
     private double stopTime;
 
-    public StoppingNumberGameResult(boolean isWinner, ResultNumbers resultNumbers, double stopTime) {
-        super(isWinner, resultNumbers);
+    public StoppingNumberGameResult(boolean isWinner, double stopTime) {
+        super(isWinner);
         this.stopTime = stopTime;
     }
 

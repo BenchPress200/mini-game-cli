@@ -12,6 +12,13 @@ public class GuessingNumberInputManager implements GameInputManager{
 
     @Override
     public String readUserInput() throws IllegalArgumentException, IOException {
+        String userInput = SimpleInputUtils.read(GUESSING_NUMBER_CONDITION_MESSAGE, ANSI_GREEN);
+        String regex = "^[0-9] [0-9] [0-9]$";
+
+        if(!userInput.matches(regex)) {
+            throw new IllegalArgumentException();
+        }
+
         return SimpleInputUtils.read(GUESSING_NUMBER_CONDITION_MESSAGE, ANSI_GREEN);
     }
 }

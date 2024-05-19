@@ -13,5 +13,4 @@ public class GuessingNumberGameResult extends GameResult {
     public ResultNumbers getResultNumbers() {
         return resultNumbers;
     }
-
 }
