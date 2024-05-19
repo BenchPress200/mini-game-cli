@@ -17,12 +17,6 @@ public class SimpleOutputUtils {
         System.out.print("\b");
     }
 
-    public static void printHorizontalLine() {
-        for (int i = ZERO; i < CONSOLE_END_INDEX; i++) {
-            SimpleOutputUtils.printNoLineBreak(BLOCK_MESSAGE);
-        }
-    }
-
     public static void printNoLineBreak(String printValue) {
         System.out.print(printValue);
     }

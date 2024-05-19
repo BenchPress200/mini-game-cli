@@ -10,9 +10,9 @@ public class OutputManager {
     public OutputManager() {}
 
     public void printWelcomeView() {
-        SimpleOutputUtils.printHorizontalLine();
+        SimpleOutputUtils.printNoLineBreak(HORIZONTAL_LINE_MESSAGE);
         SimpleOutputUtils.printNoLineBreak(WELCOME_MESSAGE, ANSI_PURPLE, TWO);
-        SimpleOutputUtils.printHorizontalLine();
+        SimpleOutputUtils.printNoLineBreak(HORIZONTAL_LINE_MESSAGE);
         SimpleOutputUtils.breakLine(THREE);
     }
 

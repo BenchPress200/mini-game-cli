@@ -8,6 +8,7 @@ public class PrintMessage {
     public static final String RE_INPUT_MESSAGE = "다시 입력해주세요.";
     public static final String STOPPING_NUMBER_POSSIBLE_STOP_MESSAGE = "[stop] 입력 시 타이머가 종료됩니다 !";
     public static final String BLOCK_MESSAGE = "▓";
+    public static final String HORIZONTAL_LINE_MESSAGE = "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓";
     public static final String TYPING_TIME_MESSAGE = "▓ 타이핑 시간: ";
     public static final String TIME_LIMIT_PASS_MESSAGE = "▓ 제한시간 통과: ";
     public static final String CODE_CORRECT_MESSAGE = "▓ 코드 일치 여부: ";
