@@ -8,7 +8,7 @@ import static com.minigame.demo.constant.PrintMessage.*;
 
 public class SimpleOutputUtils {
     public static void breakLine(int numberOfLine) {
-        for (int i = 0; i < numberOfLine; i++) {
+        for (int i = ZERO; i < numberOfLine; i++) {
             System.out.println();
         }
     }
@@ -23,13 +23,24 @@ public class SimpleOutputUtils {
         }
     }
 
-
     public static void printNoLineBreak(String printValue) {
         System.out.print(printValue);
     }
 
     public static void printNoLineBreak(String printValue, String color) {
         System.out.print(color + printValue + ANSI_RESET);
+    }
+
+    public static void printNoLineBreak(String printValue, String color, int padding) {
+        for (int i = ZERO; i < padding; i++) {
+            System.out.println();
+        }
+
+        System.out.print(color + printValue + ANSI_RESET);
+
+        for (int i = ZERO; i < padding; i++) {
+            System.out.println();
+        }
     }
 
     public static void print(String printValue) {
@@ -40,14 +51,18 @@ public class SimpleOutputUtils {
         System.out.println(color + printValue + ANSI_RESET);
     }
 
+
+
     public static void printYesOrNo() { // 컨트롤러에서만 사용
         print(YES_OR_NO_INPUT_MESSAGE , ANSI_RED);
         print(RE_INPUT_MESSAGE , ANSI_RED);
     }
 
     public static void clearConsole() { // 컨트롤러에서만 사용
-        breakLine(100);
+        breakLine(ONE_HUNDRED);
     }
+
+
 
     public static void printNotEnoughCoin() {
         SimpleOutputUtils.print("코인이 부족하여 더 이상 게임을 진행할 수 없습니다 😡", ANSI_RED);

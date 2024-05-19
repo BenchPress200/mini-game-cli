@@ -11,11 +11,7 @@ public class OutputManager {
 
     public void printWelcomeView() {
         SimpleOutputUtils.printHorizontalLine();
-
-        SimpleOutputUtils.breakLine(TWO);
-        SimpleOutputUtils.print(WELCOME_MESSAGE, ANSI_PURPLE);
-        SimpleOutputUtils.breakLine(TWO);
-
+        SimpleOutputUtils.printNoLineBreak(WELCOME_MESSAGE, ANSI_PURPLE, TWO);
         SimpleOutputUtils.printHorizontalLine();
         SimpleOutputUtils.breakLine(THREE);
     }
@@ -43,5 +39,4 @@ public class OutputManager {
         SimpleOutputUtils.print("🎉 ㅊㅊ", ANSI_PURPLE);
 
     }
-
 }
