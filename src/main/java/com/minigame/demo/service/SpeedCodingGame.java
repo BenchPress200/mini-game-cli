@@ -64,7 +64,7 @@ public class SpeedCodingGame implements GameService {
             isWinner = false;
         }
 
-        gameResult = new SpeedCodingGameResult(isWinner, null, getDuration(), isPassed, isCorrect, speedCode.getReward());
+        gameResult = new SpeedCodingGameResult(isWinner, getDuration(), isPassed, isCorrect, speedCode.getReward());
     }
 
     @Override

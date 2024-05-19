@@ -19,6 +19,6 @@ public class GuessingNumberInputManager implements GameInputManager{
             throw new IllegalArgumentException();
         }
 
-        return SimpleInputUtils.read(GUESSING_NUMBER_CONDITION_MESSAGE, ANSI_GREEN);
+        return userInput;
     }
 }

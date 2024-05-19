@@ -29,6 +29,7 @@ public class GuessingNumberController {
         this.gameOutputManager = gameOutputManager;
     }
 
+
     public void start() throws IOException, InterruptedException {
         printWelcomeView();
         SimpleOutputUtils.printCurrentCoin();
@@ -49,6 +50,7 @@ public class GuessingNumberController {
             start();
         }
     }
+
 
     private void printWelcomeView() {
         gameOutputManager.printWelcomeView();
