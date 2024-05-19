@@ -21,11 +21,11 @@ public class StoppingNumberOutputManager implements GameOutputManager {
     public void printResult(GameResult gameResult) {
         StoppingNumberGameResult stoppingNumberGameResult = (StoppingNumberGameResult) gameResult;
 
-        SimpleOutputUtils.print("▓ 타이머: " + String.valueOf(stoppingNumberGameResult.getStopTime()), ANSI_RESET, ONE);
+        SimpleOutputUtils.print(STOP_TIME_MESSAGE + String.valueOf(stoppingNumberGameResult.getStopTime()), ANSI_RESET, ONE);
 
         if (gameResult.isWinner()) {
             SimpleOutputUtils.print(WIN_MESSAGE, ANSI_BLUE);
-            SimpleOutputUtils.printIncreaseCoin(500);
+            SimpleOutputUtils.printIncreaseCoin(STOPPING_NUMBER_REWARD);
 
             return;
         }

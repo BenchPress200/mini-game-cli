@@ -10,21 +10,21 @@ import java.util.List;
 import java.util.Random;
 import java.util.StringTokenizer;
 
-public class GuessingNumberGame implements GameService{
-    private ResultNumbers resultNumbers;
+public class GuessingNumberGame implements GameService {
     private GameResult gameResult;
 
     @Override
     public void start(String userInput) throws IllegalArgumentException {
-        GuessNumbers guessNumbers = createGuessNumbers(userInput);
         Random random = new Random();
         List<Integer> randomNumbers = new ArrayList<>();
+
+        GuessNumbers guessNumbers = createGuessNumbers(userInput);
 
         for (int i = 0; i < 3; i++) {
             randomNumbers.add(random.nextInt(10));
         }
 
-        resultNumbers = new ResultNumbers(randomNumbers);
+        ResultNumbers resultNumbers = new ResultNumbers(randomNumbers);
 
         boolean isWinner = resultNumbers.compareNumbers(guessNumbers);
         gameResult = new GuessingNumberGameResult(isWinner, resultNumbers);

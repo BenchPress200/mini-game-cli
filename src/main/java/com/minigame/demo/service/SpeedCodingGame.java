@@ -73,7 +73,7 @@ public class SpeedCodingGame implements GameService {
     }
 
 
-    public boolean compareCode(String userInput) {
+    private boolean compareCode(String userInput) {
         if (speedCode.getCode().equals(userInput)) {
             return true;
         }
@@ -81,7 +81,7 @@ public class SpeedCodingGame implements GameService {
         return false;
     }
 
-    public boolean passedWithinTimeLimit() {
+    private boolean passedWithinTimeLimit() {
         if (speedCode.getLimitTime() > getDuration()) {
             return true;
         }
@@ -89,7 +89,7 @@ public class SpeedCodingGame implements GameService {
         return false;
     }
 
-    public double getDuration() {
+    private double getDuration() {
         return Duration.between(startTime, endTime).toMillis() * 0.001;
     }
 }

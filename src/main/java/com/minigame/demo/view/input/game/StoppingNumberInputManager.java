@@ -18,7 +18,7 @@ public class StoppingNumberInputManager implements GameInputManager {
         SimpleOutputUtils.breakLine(ONE);
         String userInput = SimpleInputUtils.read(STOPPING_NUMBER_CONDITION_MESSAGE, ANSI_GREEN);
 
-        if (!userInput.equals("stop")) {
+        if (!userInput.equals(TIMER_STOP)) {
             throw new IllegalArgumentException();
         }
 

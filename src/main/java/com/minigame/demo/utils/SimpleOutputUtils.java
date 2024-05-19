@@ -14,7 +14,7 @@ public class SimpleOutputUtils {
     }
 
     public static void removeCharacter() {
-        System.out.print("\b");
+        System.out.print(REMOVE_CHARACTER);
     }
 
     public static void printNoLineBreak(String printValue) {
@@ -55,6 +55,7 @@ public class SimpleOutputUtils {
     public static void clearConsole() { // 컨트롤러에서만 사용
         breakLine(ONE_HUNDRED);
     }
+
 
 
 

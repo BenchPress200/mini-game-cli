@@ -6,11 +6,9 @@ import java.io.InputStreamReader;
 
 import static com.minigame.demo.constant.ANSIColor.ANSI_GREEN;
 import static com.minigame.demo.constant.MeaningfulNumber.ONE;
-import static com.minigame.demo.constant.Message.READY_MESSAGE;
-import static com.minigame.demo.constant.Message.RETRY_MESSAGE;
+import static com.minigame.demo.constant.Message.*;
 
 public class SimpleInputUtils {
-    // 단일 유저, 빈번한 입력이 발생하는 프로그램이기 때문에 입력 인스턴스는 static이 제일 좋다고 생각
     private static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
     public static boolean readContinue() throws IOException {
@@ -20,11 +18,11 @@ public class SimpleInputUtils {
         String answer = bufferedReader.readLine();
         SimpleOutputUtils.breakLine(ONE);
 
-        if (answer.equals("y") || answer.equals("Y")) {
+        if (answer.equals(L_YES) || answer.equals(U_YES)) {
             return true;
         }
 
-        if (answer.equals("n") || answer.equals("N")) {
+        if (answer.equals(L_NO) || answer.equals(U_NO)) {
             return false;
         }
 
@@ -36,11 +34,11 @@ public class SimpleInputUtils {
         String answer = SimpleInputUtils.read(RETRY_MESSAGE, ANSI_GREEN);
         SimpleOutputUtils.clearConsole();
 
-        if (answer.equals("y") || answer.equals("Y")) {
+        if (answer.equals(L_YES) || answer.equals(U_YES)) {
             return true;
         }
 
-        if (answer.equals("n") || answer.equals("N")) {
+        if (answer.equals(L_NO) || answer.equals(U_NO)) {
             return false;
         }
 

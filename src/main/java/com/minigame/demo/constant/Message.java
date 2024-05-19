@@ -8,6 +8,7 @@ public class Message {
     public static final String BLOCK_MESSAGE = "▓";
     public static final String HORIZONTAL_LINE_MESSAGE = "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓";
     public static final String EXIT_MESSAGE = "게임이 종료됩니다...";
+    public static final String STOP_TIME_MESSAGE = "▓ 타이머: ";
     public static final String GAME_CHOICE_POSSIBLE_INPUT_MESSAGE = "공백없이 오직 1, 2, 3 또는 0만 입력가능합니다 !";
     public static final String GUESSING_NUMBER_POSSIBLE_INPUT_MESSAGE = "앞 뒤 공백없이 0 ~ 9 사이의 정수 세 개만 띄워쓰기로 구분해서 입력해야 됩니다 !";
     public static final String YES_OR_NO_INPUT_MESSAGE = "y 또는 n 으로 대답해주세요!";
@@ -71,6 +72,24 @@ public class Message {
     public static final String GUESSING_NUMBER_CONDITION_MESSAGE = "0 ~ 9 사이의 정수 세 개를 띄워쓰기로 구분해서 입력해주세요: ";
     public static final String STOPPING_NUMBER_CONDITION_MESSAGE = "10초라고 예상되는 타이밍에 [stop] 을 입력해주세요: ";
     public static final String STOPPING_NUMBER_WAIT_MESSAGE = "시간이 녹아내리는 중...🫠";
+
+
+
+
+
+    /**
+     * 기타 문자열 상수
+     */
+    public static final String TIMER_STOP = "stop";
+    public static final String NULL = "";
+    public static final String ZERO_STRING = "0";
+    public static final String BREAK_LINE = "\n";
+    public static final String REMOVE_CHARACTER = "\b";
+    public static final String U_YES = "Y";
+    public static final String L_YES = "y";
+    public static final String U_NO = "N";
+    public static final String L_NO = "n";
+
 
 
 
