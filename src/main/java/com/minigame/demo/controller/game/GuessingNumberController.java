@@ -28,7 +28,7 @@ public class GuessingNumberController implements GameController {
         this.gameOutputManager = gameOutputManager;
     }
 
-
+    @Override
     public void start() throws IOException, InterruptedException {
         printWelcomeView();
         SimpleOutputUtils.printCurrentCoin();
