@@ -6,7 +6,7 @@ import com.minigame.demo.utils.SimpleOutputUtils;
 
 import static com.minigame.demo.constant.ANSIColor.ANSI_BLUE;
 import static com.minigame.demo.constant.MeaningfulNumber.ONE;
-import static com.minigame.demo.constant.PrintMessage.*;
+import static com.minigame.demo.constant.Message.*;
 
 public class SpeedCodingOutputManager implements GameOutputManager {
     public SpeedCodingOutputManager() {}

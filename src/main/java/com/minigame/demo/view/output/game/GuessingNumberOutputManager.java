@@ -9,7 +9,7 @@ import java.util.Random;
 
 import static com.minigame.demo.constant.ANSIColor.*;
 import static com.minigame.demo.constant.MeaningfulNumber.*;
-import static com.minigame.demo.constant.PrintMessage.*;
+import static com.minigame.demo.constant.Message.*;
 
 public class GuessingNumberOutputManager implements GameOutputManager {
     public GuessingNumberOutputManager() {}

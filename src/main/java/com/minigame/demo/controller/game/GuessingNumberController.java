@@ -10,9 +10,7 @@ import com.minigame.demo.view.output.game.GameOutputManager;
 
 import java.io.IOException;
 
-import static com.minigame.demo.constant.ANSIColor.ANSI_GREEN;
 import static com.minigame.demo.constant.MeaningfulNumber.*;
-import static com.minigame.demo.constant.PrintMessage.EXIT_MESSAGE;
 
 public class GuessingNumberController {
     private final GameService gameService;

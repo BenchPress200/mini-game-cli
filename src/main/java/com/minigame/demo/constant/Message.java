@@ -1,18 +1,24 @@
 package com.minigame.demo.constant;
 
-public class PrintMessage {
+public class Message {
+    /**
+     * 출력에서 사용하는 문자열 상수
+     */
+    public static final String SPACE = " ";
+    public static final String BLOCK_MESSAGE = "▓";
+    public static final String HORIZONTAL_LINE_MESSAGE = "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓";
     public static final String EXIT_MESSAGE = "게임이 종료됩니다...";
     public static final String GAME_CHOICE_POSSIBLE_INPUT_MESSAGE = "공백없이 오직 1, 2, 3 또는 0만 입력가능합니다 !";
     public static final String GUESSING_NUMBER_POSSIBLE_INPUT_MESSAGE = "앞 뒤 공백없이 0 ~ 9 사이의 정수 세 개만 띄워쓰기로 구분해서 입력해야 됩니다 !";
     public static final String YES_OR_NO_INPUT_MESSAGE = "y 또는 n 으로 대답해주세요!";
     public static final String RE_INPUT_MESSAGE = "다시 입력해주세요.";
     public static final String STOPPING_NUMBER_POSSIBLE_STOP_MESSAGE = "[stop] 입력 시 타이머가 종료됩니다 !";
-    public static final String BLOCK_MESSAGE = "▓";
-    public static final String HORIZONTAL_LINE_MESSAGE = "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓";
     public static final String TYPING_TIME_MESSAGE = "▓ 타이핑 시간: ";
     public static final String TIME_LIMIT_PASS_MESSAGE = "▓ 제한시간 통과: ";
     public static final String CODE_CORRECT_MESSAGE = "▓ 코드 일치 여부: ";
-    public static final String SPACE = " ";
+    public static final String NEXT_CHANCE_MESSAGE = "다음 기회에... 😥";
+    public static final String WIN_MESSAGE = "아무말도 못하는 컴퓨터를 상대로 승리했습니다 !";
+    public static final String SPECIAL_REWARD_MESSAGE = "🎉 ㅊㅊ";
     public static final String WELCOME_MESSAGE =
             "   _    _        _                                  _             _    _                         _         _                                     _ \n" +
                     "  | |  | |      | |                                | |           | |  | |                       (_)       (_)                                   | |\n" +
@@ -24,7 +30,7 @@ public class PrintMessage {
     public static final String GAME_RULE_MESSAGE =
             "✅ 한 게임당 50코인이 소모됩니다.\n" +
             "✅ 5000 코인 획득 시 스페셜 리워드가 콘솔에 출력됩니다.\n" +
-                    "✅ 스페셜 리워드가 출력되면 프로그램은 자동 종료됩니다.\n";
+                    "✅ 스페셜 리워드가 출력되면 프로그램은 자동 종료됩니다.";
 
     public static final String GAME_LIST_MESSAGE =
             "──────────────────────────────────────\n" +
@@ -51,13 +57,14 @@ public class PrintMessage {
                     "▓ 유저는 코드 마지막 줄의 다음 줄에 0을 입력해주세요.\n" +
                     "▓ 오차없이 동일한 코드를 제한시간안에 입력했다면 보상을 지급합니다 !\n" +
                     "‼️코드의 난이도에 따라서 보상은 차등지급";
-    public static final String NEXT_CHANCE_MESSAGE = "다음 기회에... 😥";
-    public static final String WIN_MESSAGE = "아무말도 못하는 컴퓨터를 상대로 승리했습니다 !";
 
 
 
 
-    // 입력에서 쓰는 출력 메시지
+
+    /**
+     * 입력에서 사용하는 출력 문자열 상수
+     */
     public static final String USER_CHOICE_MESSAGE = "원하는 게임의 번호를 입력해주세요: ";
     public static final String READY_MESSAGE = "그럼 준비되셨나요? [y/n]: ";
     public static final String RETRY_MESSAGE = "재도전하시겠습니까? [y/n]: ";
@@ -69,8 +76,9 @@ public class PrintMessage {
 
 
 
-
-    // 스페셜 리워드
+    /**
+     * @스페셜리워드
+     */
     public static final String SPECIAL_REWARD_FIRST =
                            "───────────────────────────────────────────────────────────────────────░░──\n" +
                            "───────────────────────────────────────────────────────────────────────░░░░\n" +

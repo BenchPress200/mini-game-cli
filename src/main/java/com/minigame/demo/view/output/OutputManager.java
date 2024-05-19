@@ -4,14 +4,14 @@ import com.minigame.demo.utils.SimpleOutputUtils;
 
 import static com.minigame.demo.constant.ANSIColor.*;
 import static com.minigame.demo.constant.MeaningfulNumber.*;
-import static com.minigame.demo.constant.PrintMessage.*;
+import static com.minigame.demo.constant.Message.*;
 
 public class OutputManager {
     public OutputManager() {}
 
     public void printWelcomeView() {
-        SimpleOutputUtils.printNoLineBreak(HORIZONTAL_LINE_MESSAGE);
-        SimpleOutputUtils.printNoLineBreak(WELCOME_MESSAGE, ANSI_PURPLE, TWO);
+        SimpleOutputUtils.print(HORIZONTAL_LINE_MESSAGE);
+        SimpleOutputUtils.print(WELCOME_MESSAGE, ANSI_PURPLE, TWO);
         SimpleOutputUtils.print(HORIZONTAL_LINE_MESSAGE);
     }
 
@@ -29,12 +29,12 @@ public class OutputManager {
     }
 
     public void printGameRule() {
-        SimpleOutputUtils.printNoLineBreak(GAME_RULE_MESSAGE, ANSI_PURPLE, TWO);
+        SimpleOutputUtils.print(GAME_RULE_MESSAGE, ANSI_PURPLE, TWO);
     }
 
     public void printSpecialReward() {
         SimpleOutputUtils.print(SPECIAL_REWARD_FIRST);
-        SimpleOutputUtils.print("🎉 ㅊㅊ", ANSI_PURPLE);
+        SimpleOutputUtils.print(SPECIAL_REWARD_MESSAGE, ANSI_PURPLE);
 
     }
 }

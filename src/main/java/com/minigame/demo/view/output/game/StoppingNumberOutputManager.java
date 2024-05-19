@@ -6,7 +6,7 @@ import com.minigame.demo.utils.SimpleOutputUtils;
 
 import static com.minigame.demo.constant.ANSIColor.*;
 import static com.minigame.demo.constant.MeaningfulNumber.*;
-import static com.minigame.demo.constant.PrintMessage.*;
+import static com.minigame.demo.constant.Message.*;
 
 public class StoppingNumberOutputManager implements GameOutputManager {
     public StoppingNumberOutputManager() {}
@@ -21,9 +21,7 @@ public class StoppingNumberOutputManager implements GameOutputManager {
     public void printResult(GameResult gameResult) {
         StoppingNumberGameResult stoppingNumberGameResult = (StoppingNumberGameResult) gameResult;
 
-        SimpleOutputUtils.breakLine(ONE);
-        SimpleOutputUtils.print("▓ 타이머: " + String.valueOf(stoppingNumberGameResult.getStopTime()));
-        SimpleOutputUtils.breakLine(ONE);
+        SimpleOutputUtils.print("▓ 타이머: " + String.valueOf(stoppingNumberGameResult.getStopTime()), ANSI_RESET, ONE);
 
         if (gameResult.isWinner()) {
             SimpleOutputUtils.print(WIN_MESSAGE, ANSI_BLUE);

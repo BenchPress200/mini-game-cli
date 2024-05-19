@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 
 import static com.minigame.demo.constant.ANSIColor.ANSI_GREEN;
 import static com.minigame.demo.constant.MeaningfulNumber.ONE;
-import static com.minigame.demo.constant.PrintMessage.READY_MESSAGE;
-import static com.minigame.demo.constant.PrintMessage.RETRY_MESSAGE;
+import static com.minigame.demo.constant.Message.READY_MESSAGE;
+import static com.minigame.demo.constant.Message.RETRY_MESSAGE;
 
 public class SimpleInputUtils {
     // 단일 유저, 빈번한 입력이 발생하는 프로그램이기 때문에 입력 인스턴스는 static이 제일 좋다고 생각

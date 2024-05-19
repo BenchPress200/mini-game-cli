@@ -3,13 +3,11 @@ package com.minigame.demo.view.input.game;
 import com.minigame.demo.utils.SimpleInputUtils;
 import com.minigame.demo.utils.SimpleOutputUtils;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 
 import static com.minigame.demo.constant.ANSIColor.*;
 import static com.minigame.demo.constant.MeaningfulNumber.*;
-import static com.minigame.demo.constant.PrintMessage.*;
+import static com.minigame.demo.constant.Message.*;
 
 public class StoppingNumberInputManager implements GameInputManager {
     public StoppingNumberInputManager() {}

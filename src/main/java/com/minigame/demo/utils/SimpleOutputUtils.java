@@ -4,7 +4,7 @@ import com.minigame.demo.domain.Coin;
 
 import static com.minigame.demo.constant.ANSIColor.*;
 import static com.minigame.demo.constant.MeaningfulNumber.*;
-import static com.minigame.demo.constant.PrintMessage.*;
+import static com.minigame.demo.constant.Message.*;
 
 public class SimpleOutputUtils {
     public static void breakLine(int numberOfLine) {
@@ -25,12 +25,12 @@ public class SimpleOutputUtils {
         System.out.print(color + printValue + ANSI_RESET);
     }
 
-    public static void printNoLineBreak(String printValue, String color, int padding) {
+    public static void print(String printValue, String color, int padding) {
         for (int i = ZERO; i < padding; i++) {
             System.out.println();
         }
 
-        System.out.print(color + printValue + ANSI_RESET);
+        System.out.println(color + printValue + ANSI_RESET);
 
         for (int i = ZERO; i < padding; i++) {
             System.out.println();

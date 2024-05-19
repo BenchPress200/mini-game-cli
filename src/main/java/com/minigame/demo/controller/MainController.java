@@ -14,7 +14,7 @@ import java.io.IOException;
 
 import static com.minigame.demo.constant.ANSIColor.*;
 import static com.minigame.demo.constant.MeaningfulNumber.*;
-import static com.minigame.demo.constant.PrintMessage.EXIT_MESSAGE;
+import static com.minigame.demo.constant.Message.EXIT_MESSAGE;
 
 
 public class MainController {

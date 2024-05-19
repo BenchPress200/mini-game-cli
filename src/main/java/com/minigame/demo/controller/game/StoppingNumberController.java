@@ -6,15 +6,11 @@ import com.minigame.demo.service.GameService;
 import com.minigame.demo.utils.SimpleInputUtils;
 import com.minigame.demo.utils.SimpleOutputUtils;
 import com.minigame.demo.view.input.game.GameInputManager;
-import com.minigame.demo.view.input.game.StoppingNumberInputManager;
 import com.minigame.demo.view.output.game.GameOutputManager;
-import com.minigame.demo.view.output.game.StoppingNumberOutputManager;
 
 import java.io.IOException;
 
-import static com.minigame.demo.constant.ANSIColor.ANSI_GREEN;
 import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
-import static com.minigame.demo.constant.PrintMessage.EXIT_MESSAGE;
 
 public class StoppingNumberController {
     private final GameService gameService;

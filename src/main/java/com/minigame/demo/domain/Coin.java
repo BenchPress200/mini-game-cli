@@ -5,7 +5,7 @@ import com.minigame.demo.utils.SimpleOutputUtils;
 import static com.minigame.demo.constant.ANSIColor.ANSI_GREEN;
 import static com.minigame.demo.constant.MeaningfulNumber.MIN_COIN;
 import static com.minigame.demo.constant.MeaningfulNumber.ZERO;
-import static com.minigame.demo.constant.PrintMessage.EXIT_MESSAGE;
+import static com.minigame.demo.constant.Message.EXIT_MESSAGE;
 
 public class Coin {
     private static int coin = 500;

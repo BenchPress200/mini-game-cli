@@ -10,9 +10,7 @@ import com.minigame.demo.view.output.game.GameOutputManager;
 
 import java.io.IOException;
 
-import static com.minigame.demo.constant.ANSIColor.ANSI_GREEN;
 import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
-import static com.minigame.demo.constant.PrintMessage.EXIT_MESSAGE;
 
 public class SpeedCodingController {
     private final GameService gameService;
