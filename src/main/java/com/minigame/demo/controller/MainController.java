@@ -13,8 +13,7 @@ import com.minigame.demo.view.output.OutputManager;
 import java.io.IOException;
 
 import static com.minigame.demo.constant.ANSIColor.*;
-import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
-import static com.minigame.demo.constant.MeaningfulNumber.ZERO;
+import static com.minigame.demo.constant.MeaningfulNumber.*;
 import static com.minigame.demo.constant.PrintMessage.EXIT_MESSAGE;
 
 
@@ -114,15 +113,15 @@ public class MainController {
     }
 
     private void printSpecialReward() throws InterruptedException {
-        if (Coin.getCoin() < 50) {
+        if (Coin.getCoin() < MIN_COIN) {
             SimpleOutputUtils.printNotEnoughCoin();
             SimpleOutputUtils.print(EXIT_MESSAGE, ANSI_GREEN);
-            System.exit(0);
+            System.exit(ZERO);
         }
 
         if (Coin.getCoin() > 5000) {
             outputManager.printSpecialReward();
-            System.exit(0);
+            System.exit(ZERO);
         }
     }
 }

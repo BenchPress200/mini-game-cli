@@ -12,8 +12,7 @@ public class OutputManager {
     public void printWelcomeView() {
         SimpleOutputUtils.printNoLineBreak(HORIZONTAL_LINE_MESSAGE);
         SimpleOutputUtils.printNoLineBreak(WELCOME_MESSAGE, ANSI_PURPLE, TWO);
-        SimpleOutputUtils.printNoLineBreak(HORIZONTAL_LINE_MESSAGE);
-        SimpleOutputUtils.breakLine(THREE);
+        SimpleOutputUtils.print(HORIZONTAL_LINE_MESSAGE);
     }
 
     public void printExitMessage() {
@@ -30,8 +29,7 @@ public class OutputManager {
     }
 
     public void printGameRule() {
-        SimpleOutputUtils.print(GAME_RULE_MESSAGE, ANSI_PURPLE);
-        SimpleOutputUtils.breakLine(ONE);
+        SimpleOutputUtils.printNoLineBreak(GAME_RULE_MESSAGE, ANSI_PURPLE, TWO);
     }
 
     public void printSpecialReward() {

@@ -46,6 +46,8 @@ public class SpeedCodingController {
         GameResult gameResult = gameService.getResult();
         gameOutputManager.printResult(gameResult);
 
+        Coin.checkRemainingCoin();
+
         if (readReStart()) {
             start();
         }
@@ -59,6 +61,7 @@ public class SpeedCodingController {
     private boolean readContinue() throws IOException, InterruptedException {
         try {
             return SimpleInputUtils.readContinue();
+
         } catch (IllegalArgumentException e) {
             SimpleOutputUtils.printYesOrNo();
             Thread.sleep(ONE_SECOND);
@@ -69,14 +72,9 @@ public class SpeedCodingController {
 
     private void continueService() throws IOException, InterruptedException {
         try {
-            if (Coin.getCoin() < 50) {
-                SimpleOutputUtils.printNotEnoughCoin();
-                SimpleOutputUtils.print(EXIT_MESSAGE, ANSI_GREEN);
-                System.exit(0);
-            }
-
             String userInput = gameInputManager.readUserInput();
             gameService.start(userInput);
+
         } catch(IllegalArgumentException e) {
             gameOutputManager.printReInputMessage();
             Thread.sleep(ONE_SECOND);
@@ -88,6 +86,7 @@ public class SpeedCodingController {
     private boolean readReStart() throws IOException, InterruptedException {
         try {
             return SimpleInputUtils.readReStart();
+
         } catch (IllegalArgumentException e) {
             SimpleOutputUtils.printYesOrNo();
             Thread.sleep(ONE_SECOND);

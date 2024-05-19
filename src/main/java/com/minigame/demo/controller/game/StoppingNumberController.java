@@ -48,6 +48,8 @@ public class StoppingNumberController {
         GameResult gameResult = gameService.getResult();
         gameOutputManager.printResult(gameResult);
 
+        Coin.checkRemainingCoin();
+
         if (readReStart()) {
             start();
         }
@@ -60,6 +62,7 @@ public class StoppingNumberController {
     private boolean readContinue() throws IOException, InterruptedException {
         try {
             return SimpleInputUtils.readContinue();
+
         } catch (IllegalArgumentException e) {
             SimpleOutputUtils.printYesOrNo();
             Thread.sleep(ONE_SECOND);
@@ -70,14 +73,9 @@ public class StoppingNumberController {
 
     private void continueService() throws IOException, InterruptedException {
         try {
-            if (Coin.getCoin() < 50) {
-                SimpleOutputUtils.printNotEnoughCoin();
-                SimpleOutputUtils.print(EXIT_MESSAGE, ANSI_GREEN);
-                System.exit(0);
-            }
-
             String userInput = gameInputManager.readUserInput();
             gameService.start(userInput);
+
         } catch(IllegalArgumentException e) {
             gameOutputManager.printReInputMessage();
             Thread.sleep(ONE_SECOND);

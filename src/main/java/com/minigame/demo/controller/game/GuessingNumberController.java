@@ -11,7 +11,7 @@ import com.minigame.demo.view.output.game.GameOutputManager;
 import java.io.IOException;
 
 import static com.minigame.demo.constant.ANSIColor.ANSI_GREEN;
-import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
+import static com.minigame.demo.constant.MeaningfulNumber.*;
 import static com.minigame.demo.constant.PrintMessage.EXIT_MESSAGE;
 
 public class GuessingNumberController {
@@ -45,6 +45,8 @@ public class GuessingNumberController {
         continueService();
         GameResult gameResult = gameService.getResult();
         gameOutputManager.printResult(gameResult);
+
+        Coin.checkRemainingCoin();
 
         if (readReStart()) {
             start();
@@ -80,14 +82,9 @@ public class GuessingNumberController {
 
     private void continueService() throws IOException, InterruptedException{
         try {
-            if (Coin.getCoin() < 50) {
-                SimpleOutputUtils.printNotEnoughCoin();
-                SimpleOutputUtils.print(EXIT_MESSAGE, ANSI_GREEN);
-                System.exit(0);
-            }
-
             String userInput = gameInputManager.readUserInput();
             gameService.start(userInput);
+
         } catch(IllegalArgumentException e) {
             gameOutputManager.printReInputMessage();
             Thread.sleep(ONE_SECOND);
