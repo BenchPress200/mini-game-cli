@@ -20,19 +20,22 @@ public class MainController implements GameController {
     private final GameController guessingNumberController;
     private final GameController stoppingNumberController;
     private final GameController speedCodingController;
+    private final GameController horseRacingController;
 
-
-    public MainController(GameController guessingNumberController,
-                          GameController stoppingNumberController,
-                          GameController speedCodingController,
-                          InputManager inputManager,
-                          OutputManager outputManager) {
-
+    public MainController(
+            final InputManager inputManager,
+            final OutputManager outputManager,
+            final GameController guessingNumberController,
+            final GameController stoppingNumberController,
+            final GameController speedCodingController,
+            final GameController horseRacingController
+    ) {
         this.inputManager = inputManager;
         this.outputManager = outputManager;
         this.guessingNumberController = guessingNumberController;
         this.stoppingNumberController = stoppingNumberController;
         this.speedCodingController = speedCodingController;
+        this.horseRacingController = horseRacingController;
     }
 
     @Override
@@ -69,7 +72,7 @@ public class MainController implements GameController {
                     SimpleOutputUtils.clearConsole();
 
                 case HORSE_RACING:
-
+                    horseRacingController.start();
                     SimpleOutputUtils.clearConsole();
                 }
             }

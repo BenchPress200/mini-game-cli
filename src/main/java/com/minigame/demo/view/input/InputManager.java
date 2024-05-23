@@ -18,7 +18,7 @@ public class InputManager {
         String userInput = SimpleInputUtils.read(USER_CHOICE_MESSAGE, ANSI_GREEN);
         int input = Integer.parseInt(userInput);
 
-        if (input < ZERO || THREE < input) {
+        if (input < ZERO || FOUR < input) {
             throw new NumberFormatException();
         }
 

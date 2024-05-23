@@ -24,11 +24,12 @@ import com.minigame.demo.view.output.game.StoppingNumberOutputManager;
 public class AppConfiguration {
     public MainController mainController() {
         return new MainController(
+                new InputManager(),
+                new OutputManager(),
                 guessingNumberController(),
                 stoppingNumberController(),
                 speedCodingController(),
-                new InputManager(),
-                new OutputManager()
+                horseRacingController()
         );
     }
 
@@ -42,9 +43,9 @@ public class AppConfiguration {
 
     public GameController stoppingNumberController() {
         return new StoppingNumberController(
-                new StoppingNumberGame(),
                 new StoppingNumberInputManager(),
-                new StoppingNumberOutputManager()
+                new StoppingNumberOutputManager(),
+                new StoppingNumberGame()
         );
     }
 
