@@ -61,11 +61,11 @@ public class HorseRacingController implements GameController {
         try {
             String userInput = gameInputManager.readUserInput();
             System.out.println("userInput = " + userInput);
-//            gameService.start(userInput);
+            gameService.start(userInput);
 
         } catch(IllegalArgumentException e) {
             gameOutputManager.printReInputMessage();
-//            Thread.sleep(ONE_SECOND);
+            Thread.sleep(ONE_SECOND);
 
             continueService();
         }
