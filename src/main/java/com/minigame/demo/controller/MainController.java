@@ -15,12 +15,12 @@ import static com.minigame.demo.constant.Message.EXIT_MESSAGE;
 
 
 public class MainController implements GameController {
+    private final InputManager inputManager;
+    private final OutputManager outputManager;
     private final GameController guessingNumberController;
     private final GameController stoppingNumberController;
     private final GameController speedCodingController;
 
-    private final InputManager inputManager;
-    private final OutputManager outputManager;
 
     public MainController(GameController guessingNumberController,
                           GameController stoppingNumberController,
@@ -28,12 +28,11 @@ public class MainController implements GameController {
                           InputManager inputManager,
                           OutputManager outputManager) {
 
+        this.inputManager = inputManager;
+        this.outputManager = outputManager;
         this.guessingNumberController = guessingNumberController;
         this.stoppingNumberController = stoppingNumberController;
         this.speedCodingController = speedCodingController;
-
-        this.inputManager = inputManager;
-        this.outputManager = outputManager;
     }
 
     @Override
@@ -67,6 +66,10 @@ public class MainController implements GameController {
 
                 case SPEED_CODING:
                     speedCodingController.start();
+                    SimpleOutputUtils.clearConsole();
+
+                case HORSE_RACING:
+
                     SimpleOutputUtils.clearConsole();
                 }
             }
