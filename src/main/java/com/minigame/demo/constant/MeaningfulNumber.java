@@ -13,5 +13,6 @@ public class MeaningfulNumber {
     public static final int ONE_HUNDRED = 100;
     public static final int ZERO_POINT_ONE_SECOND = ONE_HUNDRED;
     public static final int STOPPING_NUMBER_REWARD = 500;
+    public static final int HORSE_RACING_REWARD = STOPPING_NUMBER_REWARD;
     public static final int ONE_SECOND = 1000;
 }

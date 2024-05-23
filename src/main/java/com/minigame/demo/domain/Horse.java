@@ -1,21 +1,25 @@
 package com.minigame.demo.domain;
 
+import com.minigame.demo.enums.HorseColor;
+
 public class Horse extends Thread {
     private int number;
+    private HorseColor horseColor;
     private int position;
     private boolean isFirst;
 
 
-    public Horse(int number) {
-
+    public Horse(int number, HorseColor horseColor) {
         this.number = number;
+        this.horseColor = horseColor;
         position = 0;
     }
 
     @Override
     public void run() {
-        while (position != 50) {
+        while (position != Race.TRACK_LENGTH) {
             if(Race.isFinished()) {
+
                 return;
             }
 
@@ -52,5 +56,9 @@ public class Horse extends Thread {
 
     public boolean isFirst() {
         return isFirst;
+    }
+
+    public HorseColor getColor() {
+        return horseColor;
     }
 }

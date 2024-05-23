@@ -1,7 +1,10 @@
 package com.minigame.demo.service;
 
 import com.minigame.demo.domain.Horse;
+import com.minigame.demo.domain.Race;
 import com.minigame.demo.domain.result.GameResult;
+import com.minigame.demo.domain.result.HorseRacingResult;
+import com.minigame.demo.enums.HorseColor;
 import com.minigame.demo.utils.SimpleOutputUtils;
 
 import java.util.ArrayList;
@@ -17,7 +20,7 @@ public class HorseRacingGame implements GameService {
     @Override
     public void start(String userInput) throws InterruptedException {
         for (int i = 1; i <= 5; i++) {
-            Horse horse = new Horse(i);
+            Horse horse = new Horse(i, HorseColor.findByValue(i));
             horses.add(horse);
         }
 
@@ -45,20 +48,21 @@ public class HorseRacingGame implements GameService {
             horse.join();
         }
 
-        // 끝나면 결과확인하고 담기
 
-
-
-
-        // 게임결과 인스턴스 생성
-        // 게임의 진행여부를 담아서 출력 클래스에서 게임어떻게 진행되었는지 출력해야함
-
-        // 결과 인스턴스에는 우승여부
-        // 못했다면 등수도 담기
+        boolean isWinner = isWinner(userInput);
+        this.gameResult = new HorseRacingResult(isWinner, Race.getWinner());
     }
 
     @Override
     public GameResult getResult() {
-        return null;
+        return gameResult;
+    }
+
+    private boolean isWinner(String userInput) {
+        if (userInput.equals(String.valueOf(Race.getWinner()))) {
+            return true;
+        }
+
+        return false;
     }
 }

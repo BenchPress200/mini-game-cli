@@ -14,6 +14,7 @@ public class Message {
     public static final String YES_OR_NO_INPUT_MESSAGE = "y 또는 n 으로 대답해주세요!";
     public static final String RE_INPUT_MESSAGE = "다시 입력해주세요.";
     public static final String STOPPING_NUMBER_POSSIBLE_STOP_MESSAGE = "[stop] 입력 시 타이머가 종료됩니다 !";
+    public static final String HORSE_RACING_POSSIBLE_STOP_MESSAGE = "1 ~ 5번 말 중에서 입력해주세요 !";
     public static final String TYPING_TIME_MESSAGE = "▓ 타이핑 시간: ";
     public static final String TIME_LIMIT_PASS_MESSAGE = "▓ 제한시간 통과: ";
     public static final String CODE_CORRECT_MESSAGE = "▓ 코드 일치 여부: ";
@@ -64,8 +65,8 @@ public class Message {
                     "▓ 1 ~ 5번 중에서 한 마리의 말을 선택하세요.\n" +
                     "▓ 선택하면, 5초 후 5마리의 말이 레이스를 시작합니다.\n" +
                     "▓ 앞서는 말의 한 칸 뒤까지 접근한다면 서로 자리가 스위칭 될 수 있습니다..\n" +
-                    "▓ 최종 결승선을 통과한 순서대로 등수가 부여됩니다..\n" +
-                    "▓ 선택한 말의 순위에 따라 보상이 차등 지급됩니다 !";
+                    "▓ 최종 결승선을 통과한 순서대로 등수가 부여됩니다.\n" +
+                    "▓ 오직 1등을 맞춰야 보상을 획득할 수 있습니다 !";
 
 
 

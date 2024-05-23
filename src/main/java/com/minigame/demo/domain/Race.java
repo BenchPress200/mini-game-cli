@@ -6,8 +6,8 @@ import com.minigame.demo.utils.SimpleOutputUtils;
 import static com.minigame.demo.constant.MeaningfulNumber.*;
 
 public class Race {
-    private static int TRACK_LENGTH = 50;
-    private static Horse[] track = new Horse[TRACK_LENGTH + ONE];
+    static int TRACK_LENGTH = 50;
+    static Horse[] track = new Horse[TRACK_LENGTH + ONE];
 
     public static synchronized void moveForward(Horse horse) {
         horse.setPriority(Thread.MIN_PRIORITY);
@@ -39,7 +39,7 @@ public class Race {
                 track[caughtHorse.getPosition()] = caughtHorse;
                 horse.moveForward();
                 track[horse.getPosition()] = horse;
-                printOutrun(horse.getNumber(), caughtHorse.getNumber());
+                printOutrun(horse, caughtHorse);
 
 
                 if (track[horse.getPosition() + ONE] == null) {
@@ -54,6 +54,10 @@ public class Race {
 
         printTrack();
         horse.setPriority(Thread.NORM_PRIORITY);
+    }
+
+    public static int getWinner() {
+        return track[TRACK_LENGTH].getNumber();
     }
 
     private static boolean isFirst(int currentPosition) {
@@ -78,14 +82,14 @@ public class Race {
                 SimpleOutputUtils.printNoLineBreak("[ ]");
             } else {
                 SimpleOutputUtils.printNoLineBreak("[");
-                SimpleOutputUtils.printNoLineBreak(String.valueOf(track[i].getNumber()), );
+                SimpleOutputUtils.printNoLineBreak(String.valueOf(track[i].getNumber()), track[i].getColor().getColor());
                 SimpleOutputUtils.printNoLineBreak("]");
             }
         }
     }
 
-    private static void printOutrun(int horseNumber, int caughtHorseNumber) {
-        SimpleOutputUtils.print("[" + ANSIColor.ANSI_BLUE + horseNumber + ANSIColor.ANSI_RESET + "]번이 " + "[" + ANSIColor.ANSI_RED + caughtHorseNumber + ANSIColor.ANSI_RESET + "]번 추월! ");
+    private static void printOutrun(Horse horse, Horse caughtHorse) {
+        SimpleOutputUtils.print("[" + horse.getColor().getColor() + horse.getNumber() + ANSIColor.ANSI_RESET + "]번이 " + "[" + caughtHorse.getColor().getColor() + caughtHorse.getNumber() + ANSIColor.ANSI_RESET + "]번 추월! ");
     }
 
     public static boolean isFinished() {

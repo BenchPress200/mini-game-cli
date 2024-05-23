@@ -1,6 +1,8 @@
 package com.minigame.demo.controller.game;
 
 import com.minigame.demo.controller.GameController;
+import com.minigame.demo.domain.Coin;
+import com.minigame.demo.domain.result.GameResult;
 import com.minigame.demo.service.GameService;
 import com.minigame.demo.utils.SimpleInputUtils;
 import com.minigame.demo.utils.SimpleOutputUtils;
@@ -39,6 +41,14 @@ public class HorseRacingController implements GameController {
 
         SimpleOutputUtils.printDecreaseCoin();
         continueService();
+        GameResult gameResult = gameService.getResult();
+        gameOutputManager.printResult(gameResult);
+
+        Coin.checkRemainingCoin();
+
+        if (readReStart()) {
+            start();
+        }
     }
 
     private void printWelcomeView() {
@@ -67,6 +77,18 @@ public class HorseRacingController implements GameController {
             Thread.sleep(ONE_SECOND);
 
             continueService();
+        }
+    }
+
+    private boolean readReStart() throws IOException, InterruptedException {
+        try {
+            return SimpleInputUtils.readReStart();
+
+        } catch (IllegalArgumentException e) {
+            SimpleOutputUtils.printYesOrNo();
+            Thread.sleep(ONE_SECOND);
+
+            return readReStart();
         }
     }
 }
