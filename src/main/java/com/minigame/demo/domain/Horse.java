@@ -5,7 +5,9 @@ public class Horse extends Thread {
     private int position;
     private boolean isFirst;
 
+
     public Horse(int number) {
+
         this.number = number;
         position = 0;
     }
@@ -13,7 +15,7 @@ public class Horse extends Thread {
     @Override
     public void run() {
         while (position != 50) {
-            if(ThreadRace.isFinished()) {
+            if(Race.isFinished()) {
                 return;
             }
 
@@ -22,9 +24,11 @@ public class Horse extends Thread {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            ThreadRace.moveForward(this);
+            Race.moveForward(this);
         }
     }
+
+
 
     public int getNumber() {
         return number;

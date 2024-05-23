@@ -11,7 +11,7 @@ public class HorseRacingInputManager implements GameInputManager {
     @Override
     public String readUserInput() throws IOException {
         String userInput = SimpleInputUtils.read(HORSE_RACING_CONDITION_MESSAGE, ANSI_GREEN);
-        String regex = "^[1-10]$";
+        String regex = "^[1-5]$";
 
         if(!userInput.matches(regex)) {
             throw new IllegalArgumentException();

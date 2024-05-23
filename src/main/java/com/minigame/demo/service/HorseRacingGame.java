@@ -1,16 +1,52 @@
 package com.minigame.demo.service;
 
+import com.minigame.demo.domain.Horse;
 import com.minigame.demo.domain.result.GameResult;
+import com.minigame.demo.utils.SimpleOutputUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.minigame.demo.constant.ANSIColor.*;
+import static com.minigame.demo.constant.MeaningfulNumber.*;
 
 public class HorseRacingGame implements GameService {
     private GameResult gameResult;
+    private List<Horse> horses = new ArrayList<>();
 
     @Override
     public void start(String userInput) throws InterruptedException {
-        // 말이 될 쓰레드 10미리 쓰레드 풀에 생성
-        // 유저가 선택한 말은 달리는 라인 다른 컬러로 표시
-        // 열마리가 동시에 달리는데 각자 진행숫자가 존재하고 100까지 달리면 완주
-        // 어떤말이 거리 1뒤로 뛰쫓는다면 자리 스위칭
+        for (int i = 1; i <= 5; i++) {
+            Horse horse = new Horse(i);
+            horses.add(horse);
+        }
+
+        SimpleOutputUtils.breakLine(ONE);
+        SimpleOutputUtils.print("5초 후 시작합니다 !");
+
+        for (int i = FIVE; i > ZERO; i--) {
+            if (i % 2 == 0) {
+                SimpleOutputUtils.printNoLineBreak(String.valueOf(i), ANSI_RED);
+            } else {
+                SimpleOutputUtils.printNoLineBreak(String.valueOf(i), ANSI_CYAN);
+            }
+            Thread.sleep(ONE_SECOND);
+            SimpleOutputUtils.removeCharacter();
+        }
+
+        SimpleOutputUtils.print("start !!!", ANSI_GREEN);
+
+
+        for (Horse horse : horses) {
+            horse.start();
+        }
+
+        for (Horse horse : horses) {
+            horse.join();
+        }
+
+        // 끝나면 결과확인하고 담기
+
 
 
 
