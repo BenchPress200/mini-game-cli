@@ -4,7 +4,8 @@ public enum GameType {
     GAME_EXIT(0),
     MINI_LOTTO(1),
     TIMER(2),
-    SPEED_CODING(3);
+    SPEED_CODING(3),
+    HORSE_RACING(4);
 
     private final int value;
 
