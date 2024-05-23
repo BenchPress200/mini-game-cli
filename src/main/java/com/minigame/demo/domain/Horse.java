@@ -7,18 +7,20 @@ public class Horse extends Thread {
     private HorseColor horseColor;
     private int position;
     private boolean isFirst;
+    private Horse[] track;
 
 
-    public Horse(int number, HorseColor horseColor) {
+    public Horse(int number, HorseColor horseColor, Horse[] track) {
         this.number = number;
         this.horseColor = horseColor;
+        this.track = track;
         position = 0;
     }
 
     @Override
     public void run() {
         while (position != Race.TRACK_LENGTH) {
-            if(Race.isFinished()) {
+            if(Race.isFinished(track)) {
 
                 return;
             }
@@ -28,7 +30,7 @@ public class Horse extends Thread {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            Race.moveForward(this);
+            Race.moveForward(this, track);
         }
     }
 

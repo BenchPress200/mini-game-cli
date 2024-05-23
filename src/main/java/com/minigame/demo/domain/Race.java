@@ -7,15 +7,14 @@ import static com.minigame.demo.constant.MeaningfulNumber.*;
 
 public class Race {
     static int TRACK_LENGTH = 50;
-    static Horse[] track = new Horse[TRACK_LENGTH + ONE];
 
-    public static synchronized void moveForward(Horse horse) {
+    public static synchronized void moveForward(Horse horse, Horse[] track) {
         horse.setPriority(Thread.MIN_PRIORITY);
 
         int currentPosition = horse.getPosition();
 
         remove();
-        horse.setFirst(isFirst(currentPosition));
+        horse.setFirst(isFirst(currentPosition, track));
 
         if (currentPosition == ZERO) {
             if (track[currentPosition + ONE] == null) {
@@ -52,15 +51,15 @@ public class Race {
         }
 
 
-        printTrack();
+        printTrack(track);
         horse.setPriority(Thread.NORM_PRIORITY);
     }
 
-    public static int getWinner() {
+    public static int getWinner(Horse[] track) {
         return track[TRACK_LENGTH].getNumber();
     }
 
-    private static boolean isFirst(int currentPosition) {
+    private static boolean isFirst(int currentPosition, Horse[] track) {
         for (int i = currentPosition+1; i <= 50; i++) {
             if (track[i] != null) {
                 return false;
@@ -76,7 +75,7 @@ public class Race {
         }
     }
 
-    private static void printTrack() {
+    private static void printTrack(Horse[] track) {
         for (int i = 1; i < track.length; i++) {
             if (track[i] == null) {
                 SimpleOutputUtils.printNoLineBreak("[ ]");
@@ -92,7 +91,7 @@ public class Race {
         SimpleOutputUtils.print("[" + horse.getColor().getColor() + horse.getNumber() + ANSIColor.ANSI_RESET + "]번이 " + "[" + caughtHorse.getColor().getColor() + caughtHorse.getNumber() + ANSIColor.ANSI_RESET + "]번 추월! ");
     }
 
-    public static boolean isFinished() {
+    public static boolean isFinished(Horse[] track) {
         if (track[50] != null) {
             return true;
         }

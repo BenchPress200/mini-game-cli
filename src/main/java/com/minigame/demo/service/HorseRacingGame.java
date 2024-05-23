@@ -15,12 +15,16 @@ import static com.minigame.demo.constant.MeaningfulNumber.*;
 
 public class HorseRacingGame implements GameService {
     private GameResult gameResult;
-    private List<Horse> horses = new ArrayList<>();
+    private List<Horse> horses;
+    private Horse[] track;
 
     @Override
     public void start(String userInput) throws InterruptedException {
+        horses = new ArrayList<>();
+        track = new Horse[51];
+
         for (int i = 1; i <= 5; i++) {
-            Horse horse = new Horse(i, HorseColor.findByValue(i));
+            Horse horse = new Horse(i, HorseColor.findByValue(i), track);
             horses.add(horse);
         }
 
@@ -50,7 +54,7 @@ public class HorseRacingGame implements GameService {
 
 
         boolean isWinner = isWinner(userInput);
-        this.gameResult = new HorseRacingResult(isWinner, Race.getWinner());
+        this.gameResult = new HorseRacingResult(isWinner, Race.getWinner(track));
     }
 
     @Override
@@ -59,7 +63,7 @@ public class HorseRacingGame implements GameService {
     }
 
     private boolean isWinner(String userInput) {
-        if (userInput.equals(String.valueOf(Race.getWinner()))) {
+        if (userInput.equals(String.valueOf(Race.getWinner(track)))) {
             return true;
         }
 
