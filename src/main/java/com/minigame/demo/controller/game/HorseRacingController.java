@@ -38,6 +38,7 @@ public class HorseRacingController implements GameController {
         }
 
         SimpleOutputUtils.printDecreaseCoin();
+        continueService();
     }
 
     private void printWelcomeView() {
@@ -53,6 +54,20 @@ public class HorseRacingController implements GameController {
             Thread.sleep(ONE_SECOND);
 
             return readContinue();
+        }
+    }
+
+    private void continueService() throws IOException, InterruptedException {
+        try {
+            String userInput = gameInputManager.readUserInput();
+            System.out.println("userInput = " + userInput);
+//            gameService.start(userInput);
+
+        } catch(IllegalArgumentException e) {
+            gameOutputManager.printReInputMessage();
+//            Thread.sleep(ONE_SECOND);
+
+            continueService();
         }
     }
 }
