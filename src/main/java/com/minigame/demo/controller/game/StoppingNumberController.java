@@ -33,9 +33,7 @@ public class StoppingNumberController implements GameController {
         printWelcomeView();
         SimpleOutputUtils.printCurrentCoin();
 
-        boolean answer = readContinue();
-
-        if (!answer) {
+        if (!readContinue()) {
             return;
         }
 
