@@ -71,6 +71,24 @@
 
 ## Demo
 
+**Mini Lotto**
+![lotto.gif](resource%2Flotto.gif)
+
+<br><br>
+
+**10 Sec Timer Challenge**
+![timer.gif](resource%2Ftimer.gif)
+
+<br><br>
+
+**Speed Coding**
+![speed.gif](resource%2Fspeed.gif)
+
+<br><br>
+
+**Horse racing**
+![race.gif](resource%2Frace.gif)
+
 
 
 
@@ -83,7 +101,7 @@
 
 ## Project Architecture
 
-![이미지 설명](./image2.png)
+![이미지 설명](resource/image2.png)
 
 ---
 
@@ -103,7 +121,23 @@
 
 ## Details
 
->Mini Lotto
+<br>
+
+**AppConfiguration**
+````java
+public class AppConfiguration {
+    public MainController mainController() {
+        return new MainController(...);
+    }
+    
+    .
+    .
+    .
+    
+}
+````
+AppConfiguration에서 Factory Method 패턴적용
+
 
 
 
@@ -112,13 +146,13 @@
 
 <br><br>
 
->10 Sec Timer Challenge
+>
 
 
 
 <br><br>
 
->Speed Coding
+>
 
 
 
@@ -126,4 +160,4 @@
 
 <br><br>
 
->Horse racing
+>
