@@ -70,7 +70,7 @@ public class MainController implements GameController {
                 case SPEED_CODING:
                     speedCodingController.start();
                     SimpleOutputUtils.clearConsole();
-
+                    break;
                 case HORSE_RACING:
                     horseRacingController.start();
                     SimpleOutputUtils.clearConsole();

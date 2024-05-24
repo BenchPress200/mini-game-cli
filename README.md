@@ -3,6 +3,8 @@
 
 ---
 
+<br><br><br>
+
 # Java CLI Mini Game
 ````
 콘솔을 통해서 실행할 수 있는 미니 게임입니다.
@@ -65,6 +67,8 @@
 
 ---
 
+<br><br><br>
+
 ## Demo
 
 
@@ -98,3 +102,28 @@
 <br><br><br>
 
 ## Details
+
+>Mini Lotto
+
+
+
+
+
+
+<br><br>
+
+>10 Sec Timer Challenge
+
+
+
+<br><br>
+
+>Speed Coding
+
+
+
+
+
+<br><br>
+
+>Horse racing
