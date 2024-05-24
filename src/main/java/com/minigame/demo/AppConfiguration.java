@@ -35,9 +35,9 @@ public class AppConfiguration {
 
     public GameController guessingNumberController() {
         return new GuessingNumberController(
-                new GuessingNumberGame(),
                 new GuessingNumberInputManager(),
-                new GuessingNumberOutputManager()
+                new GuessingNumberOutputManager(),
+                new GuessingNumberGame()
         );
     }
 
@@ -51,9 +51,9 @@ public class AppConfiguration {
 
     public GameController speedCodingController() {
         return new SpeedCodingController(
-                new SpeedCodingGame(),
                 new SpeedCodingInputManager(),
-                new SpeedCodingOutputManager()
+                new SpeedCodingOutputManager(),
+                new SpeedCodingGame()
         );
     }
 

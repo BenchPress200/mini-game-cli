@@ -14,18 +14,18 @@ import java.io.IOException;
 import static com.minigame.demo.constant.MeaningfulNumber.ONE_SECOND;
 
 public class SpeedCodingController implements GameController {
-    private final GameService gameService;
     private final GameInputManager gameInputManager;
     private final GameOutputManager gameOutputManager;
+    private final GameService gameService;
 
     public SpeedCodingController(
-            GameService gameService,
-            GameInputManager gameInputManager,
-            GameOutputManager gameOutputManager
+            final GameInputManager gameInputManager,
+            final GameOutputManager gameOutputManager,
+            final GameService gameService
     ) {
-        this.gameService = gameService;
         this.gameInputManager = gameInputManager;
         this.gameOutputManager = gameOutputManager;
+        this.gameService = gameService;
     }
 
     @Override
