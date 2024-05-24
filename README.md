@@ -119,7 +119,7 @@
 
 <br><br><br>
 
-## Details
+## Details - 주요 클래스 설명
 
 <br>
 
@@ -136,8 +136,8 @@ public class AppConfiguration {
     
 }
 ````
-AppConfiguration에서 Factory Method 패턴적용
-
+AppConfiguration에서 Factory Method 패턴적용  
+해당 클래스 내에서 컨트롤러와 입출력 클래스, 서비스 담당 클래스를 메서드 호출을 통해 생성
 
 
 
@@ -146,18 +146,170 @@ AppConfiguration에서 Factory Method 패턴적용
 
 <br><br>
 
->
 
+**Application**
+````java
+public class Application {
+    public static void main(String[] args) throws IOException, InterruptedException {
+        AppConfiguration appConfiguration = new AppConfiguration();
+        MainController mainController = appConfiguration.mainController();
+
+        mainController.start();
+    }
+}
+````
+AppConfiguration을 통해서 MainController 인스턴스 생성
+MainController의 start() 메서드 호출을 통해 컨트롤 로직 실행
 
 
 <br><br>
 
->
-
-
-
+**SimpleInputUtils**  
+```
+각 컨트롤러에 입력 담당 클래스가 필드로 있음
+모든 입력 담당 클래스는 SimpleInputUtils의 메서드를 사용해서 구현
+```
 
 
 <br><br>
 
->
+
+**SimpleOutputUtils**
+```
+각 컨트롤러에 출력 담당 클래스가 필드로 있음
+모든 출력 담당 클래스는 SimpleOutputUtils의 메서드를 사용해서 구현
+```
+
+<br><br>
+
+**InputManager**
+```
+메인 컨트롤러와 미니 게임들의 컨트롤러가 각각 존재하므로 총 5개의 컨트롤러 클래스가 있음
+컨트롤러 클래스에서 멤버로 갖는 입력 담당 클래스
+컨트롤러의 개수만큼 있으므로 총 5개의 입력 매니저 클래스 존재
+```
+
+<br><br>
+
+**OutputManager**
+```
+컨트롤러 클래스에서 멤버로 갖는 출력 담당 클래스
+컨트롤러의 개수만큼 있으므로 총 5개의 출력 매니저 클래스 존재
+```
+
+<br><br>
+
+
+**MainController**
+```java
+public class MainController implements GameController {
+    private final InputManager inputManager;
+    private final OutputManager outputManager;
+    private final GameController guessingNumberController;
+    private final GameController stoppingNumberController;
+    private final GameController speedCodingController;
+    private final GameController horseRacingController;
+
+    public MainController(
+            final InputManager inputManager,
+            final OutputManager outputManager,
+            final GameController guessingNumberController,
+            final GameController stoppingNumberController,
+            final GameController speedCodingController,
+            final GameController horseRacingController
+    ) {
+        this.inputManager = inputManager;
+        this.outputManager = outputManager;
+        this.guessingNumberController = guessingNumberController;
+        this.stoppingNumberController = stoppingNumberController;
+        this.speedCodingController = speedCodingController;
+        this.horseRacingController = horseRacingController;
+    }
+
+    @Override
+    public void start() throws IOException, InterruptedException {
+        printWelcomeView();
+
+        while(true) {
+            printGameRule();
+            printSpecialReward();
+            printGameList();
+            printCurrentCoin();
+
+            GameType gameType = readUserChoice();
+            SimpleOutputUtils.clearConsole();
+
+            switch(gameType) {
+                case GAME_EXIT:
+                    printExitMessage();
+                    System.exit(ZERO);
+                    break;
+
+                case MINI_LOTTO:
+                    guessingNumberController.start();
+                    SimpleOutputUtils.clearConsole();
+                    break;
+
+                case TIMER:
+                    stoppingNumberController.start();
+                    SimpleOutputUtils.clearConsole();
+                    break;
+
+                case SPEED_CODING:
+                    speedCodingController.start();
+                    SimpleOutputUtils.clearConsole();
+                    break;
+                case HORSE_RACING:
+                    horseRacingController.start();
+                    SimpleOutputUtils.clearConsole();
+                }
+            }
+    }
+
+
+    private GameType readUserChoice() throws IOException, InterruptedException{...}
+    private void printWelcomeView() {...}
+    private void printExitMessage() {...}
+    private void printGameList() {...}
+    private void printCurrentCoin() {...}
+    private void printGameRule() {...}
+    private void printSpecialReward() {...}
+}
+
+```
+메인 컨트롤러에서 유저의 입력을 받고 선택한 미니게임에 해당하는 컨트롤러 로직 실행  
+입력된 값은 GameType 이라는 enum 타입으로 사용 
+
+
+<br><br>
+
+
+**GuessingNumberGame**
+```java
+public class GuessingNumberGame implements GameService {
+    private GameResult gameResult;
+
+    @Override
+    public void start(String userInput) throws IllegalArgumentException {...}
+
+    @Override
+    public GameResult getResult() {...}
+    
+    private GuessNumbers createGuessNumbers(String input) {...}
+}
+
+```
+각 게임 컨트롤러에서는 게임에 대한 서비스로직 담당 클래스 존재  
+모든 서비스로직 클래스는 GameService 인터페이스의 구현체  
+start()와 getResult()를 구현하고, 내부에서 필요힌 메서드를 private으로 선언해서 사용
+
+
+<br><br>
+
+
+
+
+
+
+
+
