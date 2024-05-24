@@ -68,7 +68,6 @@ public class HorseRacingController implements GameController {
     private void continueService() throws IOException, InterruptedException {
         try {
             String userInput = gameInputManager.readUserInput();
-            System.out.println(userInput);
             gameService.start(userInput);
 
         } catch(IllegalArgumentException e) {
