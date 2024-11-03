@@ -10,7 +10,7 @@ import static com.minigame.demo.constant.ANSIColor.ANSI_GREEN;
 import static com.minigame.demo.constant.MeaningfulNumber.*;
 import static com.minigame.demo.constant.Message.USER_CHOICE_MESSAGE;
 
-public class InputManager {
+public class  InputManager {
     public InputManager() {}
 
     public GameType readUserChoice() throws IOException, NumberFormatException {
